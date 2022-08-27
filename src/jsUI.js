@@ -6,7 +6,6 @@ export * from './components/CheckBoxGroup.js';
 export * from './components/Div.js';
 export * from './components/Footer.js';
 export * from './components/Line.js';
-export * from './components/HStack.js';
 export * from './components/Header.js';
 export * from './components/Hyperlink.js';
 export * from './components/List.js';
@@ -19,7 +18,8 @@ export * from './components/Tag.js';
 export * from './components/Text.js';
 export * from './components/TextBox.js';
 export * from './components/TextInput.js';
-export * from './components/VStack.js';
+export * from './components/Stack.js';
+export * from './components/View.js';
 export * from './components/Image.js';
 export * from './components/Dropdown.js';
 
@@ -127,6 +127,10 @@ class GlobalElementStyle extends Element {
 		globalCSS += this.selector + '{' + this.element.getAttribute('style') + '}';
 		this.element.remove();
 	}
+}
+
+export function ForEach(array, callback) {
+	return array.forEach(callback);
 }
 
 class Body extends Element {
