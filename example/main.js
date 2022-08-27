@@ -10,6 +10,8 @@ import {VStack} from 'jsUI';
 import {HStack} from 'jsUI';
 import {Hyperlink} from 'jsUI';
 import {Header} from 'jsUI';
+import {Button} from 'jsUI';
+import {Dropdown} from 'jsUI';
 
 jsUI.addCSS({
 	'selector': {
@@ -52,6 +54,17 @@ jsUI.view([
 		Text('Item')
 	], 5),
 	Section([
+		Dropdown({
+			'1': 'Item 1',
+			'2': 'Item 2'
+		}).onChange((e) => {
+			console.log('changed!', e.target);
+		}),
+		Button("Button")
+			.onClick((e) => {
+				console.log('clicked!', e.target);
+			}),
+		Spacer(),
 		TextInput()
 			.block()
 			.placeholder('TextInput'),

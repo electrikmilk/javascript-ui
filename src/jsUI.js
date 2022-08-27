@@ -21,6 +21,7 @@ export * from './components/TextBox.js';
 export * from './components/TextInput.js';
 export * from './components/VStack.js';
 export * from './components/Image.js';
+export * from './components/Dropdown.js';
 
 import {Element} from './element.js';
 
