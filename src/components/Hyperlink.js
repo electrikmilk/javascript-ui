@@ -1,14 +1,17 @@
-import {Element} from '../base/element.js';
+import {Element} from '../element.js';
 
-export function HyperLink(components) {
-	return new Hyperlink();
+export function Hyperlink(text) {
+	return new AnchorTag(text);
 }
 
-class Hyperlink extends Element {
-	constructor() {
+class AnchorTag extends Element {
+	constructor(text) {
 		const element = document.createElement('a');
 		super(element);
 		this.element = element;
+		if (text) {
+			this.element.innerText = text;
+		}
 	}
 
 	url(url) {

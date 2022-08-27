@@ -1,4 +1,4 @@
-import {Element} from '../base/element.js';
+import {Element} from '../element.js';
 
 export function Div(components) {
 	return new DivTag(components);

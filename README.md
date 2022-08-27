@@ -5,15 +5,15 @@ jsUI is a way to describe HTML and CSS in Javascript that will then be applied t
 ## Usage
 
 ```javascript
-import * as jsUI from 'jsUI';
-import {Section} from './components/Section.js';
-import {Text} from './components/Text.js';
+import * as jsUI from 'src/jsUI';
+import {Section} from 'jsUI';
+import {Text} from 'jsUI';
 
 jsUI.view([
 	Section([
 		Text('Hello, World!')
 			.textColor('green')
-    ])
+	])
 ]);
 ```
 

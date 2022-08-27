@@ -1,3 +1,5 @@
+import {addCSS} from './jsUI.js';
+
 export class Style {
 	#element;
 
@@ -10,7 +12,44 @@ export class Style {
 		return this;
 	}
 
+	disableResize() {
+		return this.style('resize','none')
+	}
+
+	accent(color) {
+		addCSS({
+			'input,textarea,select': {
+				'accent-color': color,
+				'outline-color': color,
+				'caret-color': color
+			}
+		})
+		this.style('accent-color', color);
+		this.style('outline-color', color);
+		this.style('caret-color', color);
+		return this;
+	}
+
 	// border
+
+	border(color, width, style) {
+		if (width) {
+			this.style('borderWidth', width);
+		} else {
+			this.style('borderWidth', '1px');
+		}
+		if (style) {
+			this.style('borderStyle', style);
+		} else {
+			this.style('borderStyle', 'solid');
+		}
+		this.style('borderColor', color);
+		return this;
+	}
+
+	borders(widths) {
+		return this.style('border-width', widths.join(' '));
+	}
 
 	borderWidth(width) {
 		return this.style('borderWidth', width);
@@ -24,12 +63,8 @@ export class Style {
 		return this.style('borderColor', color);
 	}
 
-	borders(widths) {
-		return this.style('border-width', widths.join(' '));
-	}
-
-	rounded(width) {
-		return this.style('border-radius', width);
+	rounded(radius) {
+		return this.style('border-radius', radius);
 	}
 
 	rounding(widths) {
@@ -78,11 +113,93 @@ export class Style {
 		return this.style('font-size', size);
 	}
 
-	textFont(family) {
+	textDecoration(decoration) {
+		if (this.#element.style.textDecoration) {
+			this.style('text-decoration', this.#element.style.textDecoration + ' ' + decoration);
+		} else {
+			this.style('text-decoration', decoration);
+		}
+		return this;
+	}
+
+	textIndent(indent) {
+		return this.style('text-indent', indent);
+	}
+
+	textJustify(justify) {
+		return this.style('text-justify', justify);
+	}
+
+	font(family) {
 		if (family === 'system') {
 			family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
 		}
 		return this.style('font-family', family);
+	}
+
+	bold() {
+		return this.style('font-weight', 'bold');
+	}
+
+	italic() {
+		return this.style('font-style', 'italic');
+	}
+
+	underline() {
+		return this.textDecoration('underline');
+	}
+
+	overline() {
+		return this.textDecoration('overline');
+	}
+
+	strikethrough() {
+		return this.textDecoration('line-through');
+	}
+
+	title() {
+		return this.textSize('2em');
+	}
+
+	heading() {
+		return this.textSize('1.5em');
+	}
+
+	subheading() {
+		return this.textSize('1.17em');
+	}
+
+	header() {
+		return this.textSize('1em');
+	}
+
+	subheader() {
+		return this.textSize('.83em');
+	}
+
+	truncate(lines = 1) {
+		if (lines === 1) {
+			this.style('white-space', 'nowrap');
+			this.style('overflow', 'hidden');
+			this.style('text-overflow', 'ellipsis');
+		} else {
+			this.style('display', '-webkit-box');
+			this.style('-webkit-line-clamp', lines);
+			this.style('-webkit-box-orient', 'vertical');
+		}
+		return this;
+	}
+
+	uppercase() {
+		return this.style('text-transform', 'uppercase');
+	}
+
+	lowercase() {
+		return this.style('text-transform', 'lowercase');
+	}
+
+	capitalize() {
+		return this.style('text-transform', 'capitalize');
 	}
 
 	// spacing
@@ -105,6 +222,20 @@ export class Style {
 
 	paddings(paddings) {
 		return this.style('padding', paddings.join(' '));
+	}
+
+	// overflow
+
+	overflow(overflow) {
+		return this.style('overflow', overflow);
+	}
+
+	overflowX(x) {
+		return this.style('overflow-x', x);
+	}
+
+	overflowY(y) {
+		return this.style('overflow-y', y);
 	}
 
 	overflowScroll(autoScrollbar = false) {
@@ -155,6 +286,19 @@ export class Style {
 
 	height(value) {
 		return this.style('height', value);
+	}
+
+	fit() {
+		this.style('width', '100%');
+		this.style('width', '-moz-available');
+		this.style('width', '-webkit-fill-available');
+		this.style('width', 'fill-available');
+		this.style('width', 'stretch');
+		return this;
+	}
+
+	aspectRatio(ratio) {
+		return this.style('aspect-ratio', ratio);
 	}
 
 	// flex placement

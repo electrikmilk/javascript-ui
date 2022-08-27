@@ -1,6 +1,6 @@
-import {Element} from '../base/element.js';
+import {Element} from '../element.js';
 
-export function CheckboxGroup(options) {
+export function CheckBoxGroup(options) {
 	return new InputCheckboxGroup(options);
 }
 

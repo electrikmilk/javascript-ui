@@ -1,4 +1,4 @@
-import {Element} from '../base/element.js';
+import {Element} from '../element.js';
 
 export function Header(components) {
 	return new HeaderTag(components);
