@@ -6,12 +6,13 @@ import {Heading} from 'jsUI';
 import {TextBox} from 'jsUI';
 import {TextInput} from 'jsUI';
 import {Spacer, HSpacer} from 'jsUI';
-import {VStack} from 'jsUI';
-import {HStack} from 'jsUI';
+import {VStack, HStack, GridStack} from 'jsUI';
 import {Hyperlink} from 'jsUI';
 import {Header} from 'jsUI';
 import {Button} from 'jsUI';
 import {Dropdown} from 'jsUI';
+import {Line} from 'jsUI';
+import {ScrollView} from 'jsUI';
 
 jsUI.addCSS({
 	'selector': {
@@ -60,7 +61,7 @@ jsUI.view([
 		}).onChange((e) => {
 			console.log('changed!', e.target);
 		}),
-		Button("Button")
+		Button('Button')
 			.onClick((e) => {
 				console.log('clicked!', e.target);
 			}),
@@ -74,6 +75,7 @@ jsUI.view([
 			.cols(50)
 			.rows(6)
 			.disableResize(),
+		Line(),
 		Heading('Hello, World!'),
 		Text('brevity is the soul of wit.')
 			.textColor('green')
@@ -90,7 +92,18 @@ jsUI.view([
 			.caption('Thank you.')
 			.size('320px', '300px')
 			.border('blue')
-			.rounded('5px')
+			.shake()
+			.circle(),
+		ScrollView([
+			GridStack([
+				Image('domo.png'),
+				Image('domo.png'),
+				Image('domo.png'),
+				Image('domo.png'),
+				Image('domo.png')
+			])
+		])
+			.height('300px')
 	])
 ])
 	.fontSmoothing()
