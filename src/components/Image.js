@@ -9,8 +9,29 @@ class ImageTag extends Element {
 		const element = document.createElement('img');
 		super(element);
 		this.element = element;
-		if(src) {
+		this.element.alt = 'Image';
+		if (src) {
 			this.element.src = src;
 		}
+	}
+
+	src(src) {
+		return this.attribute('src', src);
+	}
+
+	caption(caption) {
+		return this.attribute('alt', caption);
+	}
+
+	crossOrigin(cors) {
+		return this.attribute('crossOrigin', cors);
+	}
+
+	decoding(decoding) {
+		return this.attribute('decoding', decoding);
+	}
+
+	lazyLoad() {
+		return this.attribute('loading', 'lazy');
 	}
 }
