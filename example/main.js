@@ -25,7 +25,10 @@ jsUI.styleElement('input')
 	.apply();
 
 jsUI.styleElement('textarea')
-	.textColor('red')
+	.rounded('5px')
+	.border('#c7c7c7', '2px')
+	.paddings(['8px', '5px'])
+	.font('system')
 	.apply();
 
 jsUI.view([
@@ -78,6 +81,8 @@ jsUI.view([
 			.italic()
 			.bold(),
 		Image('domo.png')
+			.lazyLoad()
+			.caption('Thank you.')
 			.size('320px', '300px')
 			.border('blue')
 			.rounded('5px')
