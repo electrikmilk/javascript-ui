@@ -10,42 +10,42 @@ export class EventElement extends ActionElement {
 	}
 
 	onClick(callback) {
-		this.#element.onclick = (e) => callback(e);
+		this.#element.onclick = (event) => callback(event);
 		return this;
 	}
 
 	onChange(callback) {
-		this.#element.onchange = (e) => callback(e);
+		this.#element.onchange = (event) => callback(event);
 		return this;
 	}
 
 	onSubmit(callback) {
-		this.#element.onsubmit = (e) => callback(e);
+		this.#element.onsubmit = (event) => callback(event);
 		return this;
 	}
 
 	onBlur(callback) {
-		this.#element.onblur = (e) => callback(e);
+		this.#element.onblur = (event) => callback(event);
 		return this;
 	}
 
 	onDoubleClick(callback) {
-		this.#element.ondblclick = (e) => callback(e);
+		this.#element.ondblclick = (event) => callback(event);
 		return this;
 	}
 
 	onFocus(callback) {
-		this.#element.onfocus = (e) => callback(e);
+		this.#element.onfocus = (event) => callback(event);
 		return this;
 	}
 
 	onError(callback) {
-		this.#element.onerror = (e) => callback(e);
+		this.#element.onerror = (event) => callback(event);
 		return this;
 	}
 
 	onKeypress(callback) {
-		this.#element.onkeyup = (e) => callback(e);
+		this.#element.onkeyup = (event) => callback(event);
 		return this;
 	}
 }
