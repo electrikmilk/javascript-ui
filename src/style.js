@@ -1,9 +1,11 @@
 import {addCSS} from './jsUI.js';
+import {StandardAnimation} from './animations.js';
 
-export class Style {
+export class Style extends StandardAnimation {
 	#element;
 
 	constructor(element) {
+		super(element);
 		this.#element = element;
 	}
 
@@ -13,7 +15,7 @@ export class Style {
 	}
 
 	disableResize() {
-		return this.style('resize','none')
+		return this.style('resize', 'none');
 	}
 
 	accent(color) {
@@ -23,7 +25,7 @@ export class Style {
 				'outline-color': color,
 				'caret-color': color
 			}
-		})
+		});
 		this.style('accent-color', color);
 		this.style('outline-color', color);
 		this.style('caret-color', color);
@@ -69,6 +71,10 @@ export class Style {
 
 	rounding(widths) {
 		return this.style('border-radius', widths.join(' '));
+	}
+
+	circle() {
+		return this.style('border-radius', '50%');
 	}
 
 	// background
