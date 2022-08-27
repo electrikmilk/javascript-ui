@@ -24,7 +24,43 @@ export * from './components/Image.js';
 
 import {Element} from './element.js';
 
+const head = document.querySelector('head');
+
 let globalCSS = '';
+
+window.onload = () => {
+	if (!document.querySelector('meta[name=viewport]')) {
+		let metaViewport = document.createElement('meta');
+		metaViewport.name = 'viewport';
+		metaViewport.content = 'width=device-width, initial-scale=1';
+		head.appendChild(metaViewport);
+	}
+	if (!document.querySelector('meta[name=http-equiv]')) {
+		let meta = document.createElement('meta');
+		meta.httpEquiv = 'X-UA-Compatible';
+		meta.content = 'IE=edge';
+		head.appendChild(meta);
+	}
+	if (!document.querySelector('meta[charset]')) {
+		let metaCharset = document.createElement('meta');
+		metaCharset.charset = 'UTF-8';
+		head.appendChild(metaCharset);
+	}
+};
+
+export function appIcon(src) {
+	const shortcutLink = document.createElement('link');
+	shortcutLink.rel="";
+
+	const touchIconLink = document.createElement('link');
+	touchIconLink.rel="";
+
+	shortcutLink.href = src;
+	touchIconLink.href = src;
+
+	head.appendChild(shortcutLink);
+	head.appendChild(touchIconLink);
+}
 
 export function view(components) {
 	if (components.default) {
@@ -48,7 +84,6 @@ function buildUI(parent, components) {
 }
 
 function applyGlobalStyle() {
-	const head = document.querySelector('head');
 	const style = document.createElement('style');
 	style.id = 'jsUI';
 	style.type = 'text/css';
