@@ -27,6 +27,9 @@ import {Element} from './element.js';
 let globalCSS = '';
 
 export function view(components) {
+	if (components.default) {
+		components = components.default;
+	}
 	buildUI(document.querySelector('body'), components);
 	setTimeout(function () {
 		applyGlobalStyle();
