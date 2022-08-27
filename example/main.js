@@ -17,19 +17,11 @@ jsUI.addCSS({
 	}
 });
 
-jsUI.styleElement('input')
+jsUI.globalStyle('input,textarea,select')
 	.rounded('5px')
 	.border('#c7c7c7', '2px')
 	.paddings(['8px', '5px'])
-	.font('system')
-	.apply();
-
-jsUI.styleElement('textarea')
-	.rounded('5px')
-	.border('#c7c7c7', '2px')
-	.paddings(['8px', '5px'])
-	.font('system')
-	.apply();
+	.font('system');
 
 jsUI.view([
 	Header([

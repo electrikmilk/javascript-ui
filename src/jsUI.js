@@ -50,10 +50,10 @@ window.onload = () => {
 
 export function appIcon(src) {
 	const shortcutLink = document.createElement('link');
-	shortcutLink.rel="";
+	shortcutLink.rel = '';
 
 	const touchIconLink = document.createElement('link');
-	touchIconLink.rel="";
+	touchIconLink.rel = '';
 
 	shortcutLink.href = src;
 	touchIconLink.href = src;
@@ -105,23 +105,25 @@ export function addCSS(rules) {
 	}
 }
 
-export function styleElement(tagName) {
-	return new GlobalElementStyle(tagName);
+export function globalStyle(selector) {
+	return new GlobalElementStyle(selector);
 }
 
 class GlobalElementStyle extends Element {
-	constructor(tagName) {
-		const element = document.createElement(tagName);
+	constructor(selector) {
+		const element = document.createElement('div');
 		super(element);
 		this.element = element;
-		this.tagName = tagName;
+		this.selector = selector;
+		const instance = this;
+		setTimeout(function () {
+			instance.apply();
+		}, 500);
 	}
 
 	apply() {
-		this.element.style.visibility = 'hidden';
 		document.querySelector('body').append(this.element);
-		this.element.style.removeProperty('visibility');
-		globalCSS += this.tagName + '{' + this.element.getAttribute('style') + '}';
+		globalCSS += this.selector + '{' + this.element.getAttribute('style') + '}';
 		this.element.remove();
 	}
 }
