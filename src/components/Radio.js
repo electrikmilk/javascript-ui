@@ -1,10 +1,10 @@
-import {Element} from '../element.js';
+import {EventElement} from '../events.js';
 
 export function Radio() {
 	return new InputRadio();
 }
 
-class InputRadio extends Element {
+class InputRadio extends EventElement {
 	constructor() {
 		const element = document.createElement('input');
 		super(element);

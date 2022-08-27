@@ -1,24 +1,27 @@
-import {Element} from '../element.js';
+import {EventElement} from '../events.js';
 
-export function Button(components) {
-	return new ButtonTag('button');
+export function Button(text) {
+	return new ButtonTag('button', text);
 }
 
-export function SubmitButton(components) {
-	return new ButtonTag('submit');
+export function SubmitButton(text) {
+	return new ButtonTag('submit', text);
 }
 
-export function ResetButton(components) {
-	return new ButtonTag('reset');
+export function ResetButton(text) {
+	return new ButtonTag('reset', text);
 }
 
-class ButtonTag extends Element {
-	constructor(type) {
+class ButtonTag extends EventElement {
+	constructor(type, text) {
 		const element = document.createElement('button');
 		super(element);
 		this.element = element;
-		if(type) {
+		if (type) {
 			this.element.type = type;
+		}
+		if(text) {
+			this.element.innerText = text;
 		}
 	}
 }

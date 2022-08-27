@@ -1,10 +1,10 @@
-import {Element} from '../element.js';
+import {EventElement} from '../events.js';
 
 export function TextBox() {
 	return new TextArea();
 }
 
-class TextArea extends Element {
+class TextArea extends EventElement {
 	constructor() {
 		const element = document.createElement('textarea');
 		super(element);
