@@ -1,11 +1,11 @@
 import {Element} from '../element.js';
 
-export function HStack(components, columns = 12) {
-	return new HStackTag(components, columns);
+export function HStack(components) {
+	return new HStackTag(components);
 }
 
 class HStackTag extends Element {
-	constructor(components, columns) {
+	constructor(components) {
 		const element = document.createElement('div');
 		super(element);
 		this.element = element;
@@ -13,7 +13,7 @@ class HStackTag extends Element {
 		this.element.style.display = 'grid';
 		this.element.style.gridAutoFlow = 'column dense';
 		this.element.style.gridTemplateRows = 'repeat(1, 1fr)';
-		this.element.style.gridTemplateColumns = 'repeat(' + columns + ', 1fr)';
+		this.element.style.gridTemplateColumns = 'repeat(' + this.components.length + ', 1fr)';
 	}
 }
 
@@ -22,14 +22,14 @@ export function VStack(components, rows = 12) {
 }
 
 class VStackTag extends Element {
-	constructor(components, rows) {
+	constructor(components) {
 		const element = document.createElement('div');
 		super(element);
 		this.element = element;
 		this.components = components;
 		this.element.style.display = 'grid';
 		this.element.style.gridAutoFlow = 'row dense';
-		this.element.style.gridTemplateRows = 'repeat(' + rows + ', 1fr)';
+		this.element.style.gridTemplateRows = 'repeat(' + this.components.length + ', 1fr)';
 		this.element.style.gridTemplateColumns = 'repeat(1, 1fr)';
 	}
 }
