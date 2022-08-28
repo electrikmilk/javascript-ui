@@ -26,9 +26,6 @@ export class Style extends StandardAnimation {
 				'caret-color': color
 			}
 		});
-		this.style('accent-color', color);
-		this.style('outline-color', color);
-		this.style('caret-color', color);
 		return this;
 	}
 
