@@ -76,11 +76,13 @@ class InstanceSelector extends Element {
 	}
 }
 
-export function view(components) {
+export function view(components, debugLog = false) {
 	buildUI(document.querySelector('body'), components);
 	setTimeout(function () {
 		applyGlobalStyle();
-		debug();
+		if (debugLog === true) {
+			debug();
+		}
 	}, 500);
 	return new Body();
 }
@@ -158,29 +160,8 @@ class Body extends Element {
 }
 
 function debug() {
-	const debug = new DocumentFragment();
 	const body = document.querySelector('body');
-	const domBody = document.createElement('code');
-	const bodyScript = document.querySelector('body script');
-	if (bodyScript) {
-		body.removeChild(bodyScript);
-	}
-	domBody.innerText = body.innerHTML.trim();
-
-	const debugHeaderHTML = document.createElement('h3');
-	debugHeaderHTML.innerText = 'Output HTML:';
-	debug.append(debugHeaderHTML);
-
-	debug.append(domBody);
-
-	const debugHeaderCSS = document.createElement('h3');
-	debugHeaderCSS.innerText = 'Output CSS:';
-	debug.append(debugHeaderCSS);
-
 	const globalStyle = document.querySelector('style#jsUI');
-	const cssBody = document.createElement('code');
-	cssBody.innerText = globalStyle.innerHTML;
-	debug.append(cssBody);
-
-	body.prepend(debug);
+	console.log('HTML', body);
+	console.log('CSS', globalStyle);
 }
