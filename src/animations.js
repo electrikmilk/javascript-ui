@@ -37,7 +37,7 @@ export class StandardAnimation {
 		return this;
 	}
 
-	rotate(duration = 1000, iterations = Infinity) {
+	rotate(duration = 1000, iterations = 1) {
 		this.#element.animate([
 			{
 				transform: 'rotate(0deg)'

@@ -66,7 +66,7 @@ jsUI.view([
 			.onClick((e) => {
 				console.log('clicked!', e.target);
 				select('domo')
-					.rotate(1000,1);
+					.rotate();
 			}),
 		Spacer(),
 		TextInput()
@@ -94,7 +94,7 @@ jsUI.view([
 			.name('domo')
 			.lazyLoad()
 			.caption('Thank you.')
-			.size('320px', '300px')
+			.size('300px', '300px')
 			.border('blue')
 			.shake()
 			.circle(),
