@@ -1,6 +1,16 @@
+<p align=center>
+	<img src="https://i.imgur.com/HnRViVq.png"/>
+</p>
+
 # jsUI
 
 jsUI is a way to describe HTML and CSS in Javascript that will then be applied to the HTML document body. Inspired by UI markup languages like SwiftUI.
+
+ - Useful shorthands for HTML tags and css properties
+ - Built-in standard animations like rotate, fadeIn, flip, shake
+ - Build in CSS tricks like truncation
+ - CSS properties are abtracted into views and stacks like ScrollView, GridStack, HStack, VStack, etc.
+ 
 
 ## Usage
 
