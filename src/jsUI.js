@@ -1,27 +1,28 @@
 'use strict';
 
-export * from './components/Button.js';
-export * from './components/CheckBox.js';
+export * from './elements/Button.js';
+export * from './elements/CheckBox.js';
+export * from './elements/Div.js';
+export * from './elements/Footer.js';
+export * from './elements/Line.js';
+export * from './elements/Header.js';
+export * from './elements/Hyperlink.js';
+export * from './elements/List.js';
+export * from './elements/ListItem.js';
+export * from './elements/Radio.js';
+export * from './elements/Section.js';
+export * from './elements/Tag.js';
+export * from './elements/Text.js';
+export * from './elements/TextBox.js';
+export * from './elements/TextInput.js';
+export * from './elements/Image.js';
+
+export * from './components/Dropdown.js';
 export * from './components/CheckBoxGroup.js';
-export * from './components/Div.js';
-export * from './components/Footer.js';
-export * from './components/Line.js';
-export * from './components/Header.js';
-export * from './components/Hyperlink.js';
-export * from './components/List.js';
-export * from './components/ListItem.js';
-export * from './components/Radio.js';
 export * from './components/RadioGroup.js';
-export * from './components/Section.js';
 export * from './components/Spacer.js';
-export * from './components/Tag.js';
-export * from './components/Text.js';
-export * from './components/TextBox.js';
-export * from './components/TextInput.js';
 export * from './components/Stack.js';
 export * from './components/View.js';
-export * from './components/Image.js';
-export * from './components/Dropdown.js';
 
 import {Element} from './element.js';
 
