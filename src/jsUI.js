@@ -29,6 +29,7 @@ import {Element} from './element.js';
 const head = document.querySelector('head');
 
 let globalCSS = '';
+let accent = '';
 
 window.onload = () => {
 	if (!document.querySelector('meta[name=viewport]')) {
@@ -62,6 +63,24 @@ export function appIcon(src) {
 
 	head.appendChild(shortcutLink);
 	head.appendChild(touchIconLink);
+}
+
+export function accentColor(hexColor) {
+	addCSS({
+		'::selection': {
+			'background': hexColor+'50'
+		},
+		'::moz-selection': {
+			'background': hexColor+'50'
+		},
+		'input,textarea,select': {
+			'accent-color': hexColor,
+			'outline-color': hexColor,
+			'caret-color': hexColor
+		}
+	});
+	accent = hexColor;
+	return this;
 }
 
 export function select(selector) {

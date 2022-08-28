@@ -1,4 +1,4 @@
-import {addCSS} from './jsUI.js';
+import {accentColor} from './jsUI.js';
 import {StandardAnimation} from './animations.js';
 
 export class Style extends StandardAnimation {
@@ -16,17 +16,6 @@ export class Style extends StandardAnimation {
 
 	disableResize() {
 		return this.style('resize', 'none');
-	}
-
-	accent(color) {
-		addCSS({
-			'input,textarea,select': {
-				'accent-color': color,
-				'outline-color': color,
-				'caret-color': color
-			}
-		});
-		return this;
 	}
 
 	// border
