@@ -9,7 +9,7 @@ export class Element extends Style {
 	}
 
 	name(name) {
-		this.#element.className = name;
+		this.#element.id = name;
 		return this;
 	}
 
