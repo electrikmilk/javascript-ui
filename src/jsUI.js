@@ -77,9 +77,6 @@ class InstanceSelector extends Element {
 }
 
 export function view(components) {
-	if (components.default) {
-		components = components.default;
-	}
 	buildUI(document.querySelector('body'), components);
 	setTimeout(function () {
 		applyGlobalStyle();
@@ -89,7 +86,13 @@ export function view(components) {
 }
 
 function buildUI(parent, components) {
+	if (components.default) {
+		components = components.default;
+	}
 	components.forEach(function (component) {
+		if (component.default) {
+			component = component.default;
+		}
 		parent.appendChild(component.element);
 		if (component.components) {
 			buildUI(component.element, component.components);
