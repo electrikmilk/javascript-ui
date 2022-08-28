@@ -8,6 +8,11 @@ export class Element extends Style {
 		this.#element = element;
 	}
 
+	name(name) {
+		this.#element.className = name;
+		return this;
+	}
+
 	attribute(attribute, value) {
 		this.#element.setAttribute(attribute, value);
 		return this;

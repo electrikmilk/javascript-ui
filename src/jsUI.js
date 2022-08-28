@@ -63,6 +63,18 @@ export function appIcon(src) {
 	head.appendChild(touchIconLink);
 }
 
+export function select(selector) {
+	return new InstanceSelector(selector);
+}
+
+class InstanceSelector extends Element {
+	constructor(selector) {
+		const element = document.querySelector('.' + selector);
+		super(element);
+		this.element = element;
+	}
+}
+
 export function view(components) {
 	if (components.default) {
 		components = components.default;

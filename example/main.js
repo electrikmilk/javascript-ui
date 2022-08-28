@@ -13,6 +13,7 @@ import {Button} from 'jsUI';
 import {Dropdown} from 'jsUI';
 import {Line} from 'jsUI';
 import {ScrollView} from 'jsUI';
+import {select} from 'jsUI';
 
 jsUI.addCSS({
 	'selector': {
@@ -64,6 +65,8 @@ jsUI.view([
 		Button('Button')
 			.onClick((e) => {
 				console.log('clicked!', e.target);
+				select('domo')
+					.rotate(1000,1);
 			}),
 		Spacer(),
 		TextInput()
@@ -88,6 +91,7 @@ jsUI.view([
 			.italic()
 			.bold(),
 		Image('domo.png')
+			.name('domo')
 			.lazyLoad()
 			.caption('Thank you.')
 			.size('320px', '300px')
