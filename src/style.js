@@ -3,6 +3,7 @@
  */
 
 import {StandardAnimation} from './animations.js';
+import {addCSS} from './jsUI.js';
 
 export class Style extends StandardAnimation {
 	#element;
