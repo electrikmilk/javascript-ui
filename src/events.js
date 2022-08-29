@@ -32,6 +32,7 @@ export class EventElement extends Style {
 		if(leaveCallback) {
 			this.#element.onmouseout = (event) => leaveCallback(this, event);
 		}
+		return this;
 	}
 
 	onFocus(callback) {
