@@ -1,4 +1,3 @@
-import {accentColor} from './jsUI.js';
 import {StandardAnimation} from './animations.js';
 
 export class Style extends StandardAnimation {
