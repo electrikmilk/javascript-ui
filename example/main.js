@@ -39,6 +39,9 @@ window.onload = () => {
 		.textColor('white')
 		.bold()
 		.shadowSmall()
+		.hover((e) => e
+			.backgroundColor('#8649dc')
+		)
 		.paddings(['8px', '15px']);
 	jsUI.globalStyle('hr')
 		.borderTop('lightgray', '1px', 'dashed')
