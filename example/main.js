@@ -17,12 +17,13 @@ import {select} from 'jsUI';
 import {Div} from 'jsUI';
 
 window.onload = () => {
-	jsUI.accentColor('#38ddba')
-	jsUI.addCSS({
-		'selector': {
-			'property': 'value'
-		}
-	});
+	jsUI.accentColor('#924ff0');
+	jsUI.appIcon('icon.png');
+	// jsUI.addCSS({
+	// 	'body': {
+	// 		'property': 'value'
+	// 	}
+	// });
 	jsUI.globalStyle('input,textarea,select,button')
 		.textSize('18px')
 		.rounded('5px')
@@ -30,133 +31,129 @@ window.onload = () => {
 		.paddings(['8px', '5px'])
 		.font('system');
 	jsUI.globalStyle('button')
-		.backgroundColor('#38ddba')
-		.borderColor('#2cc2a2')
+		.backgroundColor('#924ff0')
+		.borderColor('#8546de')
+		.textColor('white')
 		.bold()
+		.shadowSmall()
 		.paddings(['8px', '15px']);
 	jsUI.view([
 		Header([
-			HStack([
-				Hyperlink('Link')
-					.center()
-					.textColor('white')
-					.url('https://example.com'),
-				HSpacer(),
-				Text('LOGO')
-					.heading()
-					.bold()
-					.center(),
-				HSpacer(),
-				Hyperlink('Link')
-					.center()
-					.textColor('white')
-					.url('https://example.com')
-			])
+			Image('icon.png')
+				.caption('jsUI')
+				.width('50px')
+				.margins(['10px','0'])
 		])
+			.centerItems()
+			.sticky()
+			.borderBottom('darkgray', '2px')
 			.textColor('white')
 			.backgroundColor('black'),
-		VStack([
-			Text('Item'),
-			Text('Item'),
-			Text('Item'),
-			Text('Item'),
-			Text('Item')
-		])
-			.border('gray'),
 		Section([
-			Button('Button')
-				.block(),
-			Spacer(),
-			Dropdown({
-				'1': 'Item 1',
-				'2': 'Item 2'
-			}).onChange((e) => {
-				console.log('changed!', e.target);
-			}),
-			Spacer(2),
-			TextInput()
-				.block()
-				.placeholder('TextInput'),
-			Spacer(),
-			TextBox()
-				.placeholder('TextBox')
-				.cols(50)
-				.rows(6)
-				.disableResize(),
+			Text("Hello, World! This page was made using jsUI."),
 			Line(),
-			Heading('Hello, World!'),
-			Text('brevity is the soul of wit.')
-				.textColor('green')
-				.strikethrough()
-				.overline()
-				.underline()
-				.capitalize()
-				.width('100px')
-				.truncate(1)
-				.italic()
-				.bold(),
-			Section([
-				Div([
-					Div([
-						Image('domo.png')
-							.name('domo')
-							.lazyLoad()
-							.caption('Thank you...')
-							.size('300px', '300px')
-							.border('blue')
-							.circle()
-					])
-						.center(),
-					Spacer(),
-					HStack([
-						Button('Rotate')
-							.onClick(() => {
-								select('domo')
-									.rotate();
-							}),
-						Button('Shake')
-							.onClick(() => {
-								select('domo')
-									.shake();
-							}),
-						Button('Flip')
-							.onClick(() => {
-								select('domo')
-									.flip();
-							}),
-						Button('Bounce')
-							.onClick(() => {
-								select('domo')
-									.bounce();
-							}),
-						Button('Fade In')
-							.onClick(() => {
-								select('domo')
-									.fadeIn();
-							}),
-						Button('Fade Out')
-							.onClick(() => {
-								select('domo')
-									.fadeOut();
-							})
-					])
-						.gridGap('10px')
-				])
-			])
+			Heading("Animation"),
+			Image("domo.png")
+				.name('domo')
 				.center(),
 			Spacer(),
-			ScrollView([
-				GridStack([
-					Image('domo.png'),
-					Image('domo.png'),
-					Image('domo.png'),
-					Image('domo.png'),
-					Image('domo.png')
+			Div([
+				Heading("Moves", 3),
+				HStack([
+					Button('Rotate')
+						.onClick(() => {
+							select('domo')
+								.rotate();
+						}),
+					Button('Shake')
+						.onClick(() => {
+							select('domo')
+								.shake();
+						}),
+					Button('Flip')
+						.onClick(() => {
+							select('domo')
+								.flip();
+						}),
+					Button('Bounce')
+						.onClick(() => {
+							select('domo')
+								.bounce();
+						}),
+					Button('Grow')
+						.onClick(() => {
+							select('domo')
+								.grow();
+						}),
+					Button('Shrink')
+						.onClick(() => {
+							select('domo')
+								.shrink();
+						})
 				])
+					.gap('10px')
+
+			]),
+			Div([
+				Heading("Fades", 3),
+				HStack([
+					Button('Fade In')
+						.onClick(() => {
+							select('domo')
+								.fadeIn();
+						}),
+					Button('Fade Out')
+						.onClick(() => {
+							select('domo')
+								.fadeOut();
+						})
+				])
+					.gap('10px'),
+				Spacer(),
+				HStack([
+					Button('Fade In Up')
+						.onClick(() => {
+							select('domo')
+								.fadeInUp();
+						}),
+					Button('Fade In Left')
+						.onClick(() => {
+							select('domo')
+								.fadeInLeft();
+						}),
+					Button('Fade In Right')
+						.onClick(() => {
+							select('domo')
+								.fadeInRight();
+						}),
+				])
+					.gap('10px'),
+				Spacer(),
+				HStack([
+					Button('Fade Out Down')
+						.onClick(() => {
+							select('domo')
+								.fadeOutDown();
+						}),
+					Button('Fade Out Left')
+						.onClick(() => {
+							select('domo')
+								.fadeOutLeft();
+						}),
+					Button('Fade Out Right')
+						.onClick(() => {
+							select('domo')
+								.fadeOutRight();
+						})
+				])
+					.gap('10px')
+
 			])
-				.height('300px')
 		])
+			.paddings(['10px','20px'])
 	], true)
+		.margin(0)
+		.padding(0)
 		.textSize('18px')
 		.fontSmoothing()
 		.font('system');
