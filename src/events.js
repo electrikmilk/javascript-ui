@@ -26,6 +26,18 @@ export class EventElement extends Style {
 		this.#element.onsubmit = (event) => callback(event);
 		return this;
 	}
+	
+	onHover(callback, leaveCallback) {
+		this.#element.onmouseenter = (event) => callback(event);
+		if(leaveCallback) {
+			this.#element.onmouseleave = (event) => callback(event);
+		}
+	}
+	
+	onFocus(callback) {
+		this.#element.onfocus = (event) => callback(event);
+		return this;
+	}
 
 	onBlur(callback) {
 		this.#element.onblur = (event) => callback(event);
@@ -34,11 +46,6 @@ export class EventElement extends Style {
 
 	onDoubleClick(callback) {
 		this.#element.ondblclick = (event) => callback(event);
-		return this;
-	}
-
-	onFocus(callback) {
-		this.#element.onfocus = (event) => callback(event);
 		return this;
 	}
 
