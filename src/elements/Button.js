@@ -1,4 +1,4 @@
-import {EventElement} from '../events.js';
+import {Element} from '../element.js';
 
 export function Button(text) {
 	return new ButtonTag('button', text);
@@ -12,7 +12,7 @@ export function ResetButton(text) {
 	return new ButtonTag('reset', text);
 }
 
-class ButtonTag extends EventElement {
+class ButtonTag extends Element {
 	constructor(type, text) {
 		const element = document.createElement('button');
 		super(element);

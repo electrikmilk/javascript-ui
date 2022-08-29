@@ -1,6 +1,6 @@
-import {Style} from './style.js';
+import {EventElement} from './events.js';
 
-export class Element extends Style {
+export class Element extends EventElement {
 	#element;
 
 	constructor(element) {

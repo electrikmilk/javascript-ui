@@ -1,7 +1,6 @@
-import {Element} from './element.js';
+import {Style} from './style.js';
 
-class ActionElement extends Element {}
-export class EventElement extends ActionElement {
+export class EventElement extends Style {
 	#element;
 
 	constructor(element) {

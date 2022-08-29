@@ -89,7 +89,7 @@ export function select(selector) {
 
 class InstanceSelector extends Element {
 	constructor(selector) {
-		const element = document.querySelector('#' + selector);
+		const element = document.getElementById(selector);
 		super(element);
 		this.element = element;
 	}

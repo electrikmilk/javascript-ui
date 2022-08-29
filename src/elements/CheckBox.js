@@ -1,10 +1,10 @@
-import {EventElement} from '../events.js';
+import {Element} from '../element.js';
 
 export function CheckBox() {
 	return new InputCheckbox();
 }
 
-class InputCheckbox extends EventElement {
+class InputCheckbox extends Element {
 	constructor() {
 		const element = document.createElement('input');
 		super(element);
