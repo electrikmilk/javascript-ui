@@ -94,8 +94,13 @@ export function select(selector) {
 class InstanceSelector extends Element {
 	constructor(selector) {
 		const element = document.getElementById(selector);
-		super(element);
-		this.element = element;
+		if(element) {
+			super(element);
+			this.element = element;
+		} else {
+			console.error('Cannot find element with name: '+selector);
+			return;
+		}
 	}
 }
 
