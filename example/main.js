@@ -13,18 +13,17 @@ import {Button} from 'jsUI';
 import {Dropdown} from 'jsUI';
 import {Line} from 'jsUI';
 import {ScrollView} from 'jsUI';
-import {select} from 'jsUI';
 import {Div} from 'jsUI';
 
 window.onload = () => {
 	jsUI.accentColor('#924ff0');
-	jsUI.appIcon('icon.png');
+	jsUI.icon('icon.png');
 	// jsUI.addCSS({
 	// 	'body': {
 	// 		'property': 'value'
 	// 	}
 	// });
-	jsUI.globalStyle('input,textarea,select,button')
+	jsUI.globalStyle('input,textarea,jsUI.select,button')
 		.textSize('18px')
 		.rounded('5px')
 		.border('#c7c7c7')
@@ -37,6 +36,9 @@ window.onload = () => {
 		.bold()
 		.shadowSmall()
 		.paddings(['8px', '15px']);
+	jsUI.globalStyle('hr')
+		.borderTop('lightgray', '1px', 'dashed')
+		.borderBottom('none');
 	jsUI.view([
 		Header([
 			Image('icon.png')
@@ -61,33 +63,33 @@ window.onload = () => {
 				Heading("Moves", 3),
 				HStack([
 					Button('Rotate')
-						.onClick(() => {
-							select('domo')
-								.rotate();
+						.onClick(()=>{
+							jsUI.select('domo')
+								.rotate();r
 						}),
 					Button('Shake')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.shake();
 						}),
 					Button('Flip')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.flip();
 						}),
 					Button('Bounce')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.bounce();
 						}),
 					Button('Grow')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.grow();
 						}),
 					Button('Shrink')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.shrink();
 						})
 				])
@@ -99,12 +101,12 @@ window.onload = () => {
 				HStack([
 					Button('Fade In')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeIn();
 						}),
 					Button('Fade Out')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeOut();
 						})
 				])
@@ -113,17 +115,17 @@ window.onload = () => {
 				HStack([
 					Button('Fade In Up')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeInUp();
 						}),
 					Button('Fade In Left')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeInLeft();
 						}),
 					Button('Fade In Right')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeInRight();
 						}),
 				])
@@ -132,17 +134,17 @@ window.onload = () => {
 				HStack([
 					Button('Fade Out Down')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeOutDown();
 						}),
 					Button('Fade Out Left')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeOutLeft();
 						}),
 					Button('Fade Out Right')
 						.onClick(() => {
-							select('domo')
+							jsUI.select('domo')
 								.fadeOutRight();
 						})
 				])
