@@ -118,9 +118,13 @@ function buildUI(parent, components) {
 		if (component.default) {
 			component = component.default;
 		}
-		parent.appendChild(component.element);
-		if (component.components) {
-			buildUI(component.element, component.components);
+		if (Array.isArray(component)) {
+			buildUI(parent, component);
+		} else {
+			parent.appendChild(component.element);
+			if (component.components) {
+				buildUI(component.element, component.components);
+			}
 		}
 	});
 }
