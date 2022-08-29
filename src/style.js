@@ -32,6 +32,21 @@ export class Style extends StandardAnimation {
 	disableResize() {
 		return this.style('resize', 'none');
 	}
+	
+	hover(callback) {
+		callback(globalStyle(this.selector+':hover'))
+		return this;
+	}
+
+	active(callback) {
+		callback(globalStyle(this.selector+':active'))
+		return this;
+	}
+
+	focus(callback) {
+		callback(globalStyle(this.selector+':focus'))
+		return this;
+	}
 
 	// border
 
