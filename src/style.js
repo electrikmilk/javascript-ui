@@ -35,6 +35,66 @@ export class Style extends StandardAnimation {
 		return this;
 	}
 
+	borderTop(color, width, style) {
+		if (width) {
+			this.style('borderTopWidth', width);
+		} else {
+			this.style('borderTopWidth', '1px');
+		}
+		if (style) {
+			this.style('borderTopStyle', style);
+		} else {
+			this.style('borderTopStyle', 'solid');
+		}
+		this.style('borderTopColor', color);
+		return this;
+	}
+
+	borderLeft(color, width, style) {
+		if (width) {
+			this.style('borderLeftWidth', width);
+		} else {
+			this.style('borderLeftWidth', '1px');
+		}
+		if (style) {
+			this.style('borderLeftStyle', style);
+		} else {
+			this.style('borderLeftStyle', 'solid');
+		}
+		this.style('borderLeftColor', color);
+		return this;
+	}
+
+	borderRight(color, width, style) {
+		if (width) {
+			this.style('borderRightWidth', width);
+		} else {
+			this.style('borderRightWidth', '1px');
+		}
+		if (style) {
+			this.style('borderRightStyle', style);
+		} else {
+			this.style('borderRightStyle', 'solid');
+		}
+		this.style('borderRightColor', color);
+		return this;
+	}
+
+	borderBottom(color, width, style) {
+		if (width) {
+			this.style('borderBottomWidth', width);
+		} else {
+			this.style('borderBottomWidth', '1px');
+		}
+		if (style) {
+			this.style('borderBottomStyle', style);
+		} else {
+			this.style('borderBottomStyle', 'solid');
+		}
+		this.style('borderBottomColor', color);
+		return this;
+	}
+
 	borders(widths) {
 		return this.style('border-width', widths.join(' '));
 	}
@@ -208,12 +268,44 @@ export class Style extends StandardAnimation {
 		return this.style('margin', margins.join(' '));
 	}
 
+	marginTop(margin) {
+		return this.style('marginTop', margin);
+	}
+
+	marginLeft(margin) {
+		return this.style('marginLeft', margin);
+	}
+
+	marginRight(margin) {
+		return this.style('marginRight', margin);
+	}
+
+	marginBottom(margin) {
+		return this.style('marginBottom', margin);
+	}
+
 	padding(padding) {
 		return this.style('padding', padding);
 	}
 
 	paddings(paddings) {
 		return this.style('padding', paddings.join(' '));
+	}
+
+	paddingTop(padding) {
+		return this.style('paddingTop', padding);
+	}
+
+	paddingLeft(padding) {
+		return this.style('paddingLeft', padding);
+	}
+
+	paddingRight(padding) {
+		return this.style('paddingRight', padding);
+	}
+
+	paddingBottom(padding) {
+		return this.style('paddingBottom', padding);
 	}
 
 	// overflow
@@ -242,6 +334,24 @@ export class Style extends StandardAnimation {
 
 	position(position) {
 		return this.style('position', position);
+	}
+
+	sticky(top = '0') {
+		this.style('position', 'sticky');
+		this.style('top', top);
+		return this;
+	}
+
+	fixed() {
+		return this.style('position', 'fixed');
+	}
+
+	absolute() {
+		return this.style('position', 'absolute');
+	}
+
+	relative() {
+		return this.style('position', 'relative');
 	}
 
 	x(x) {
@@ -323,10 +433,22 @@ export class Style extends StandardAnimation {
 		return this;
 	}
 
-	center() {
+	centerItems() {
 		this.style('display', 'flex');
 		this.style('place-content', 'center');
 		this.style('place-items', 'center');
+		return this;
+	}
+
+	center() {
+		this.x(0);
+		this.y(0);
+		if (!this.#element.zIndex) {
+			this.z(-1);
+		}
+		this.block();
+		this.position('relative');
+		this.style('margin', '0 auto');
 		return this;
 	}
 
@@ -404,15 +526,15 @@ export class Style extends StandardAnimation {
 
 	// grid
 
-	gridInline() {
+	inlineGrid() {
 		return this.style('display', 'inline-grid');
 	}
 
-	gridColumn(columns) {
+	col(columns) {
 		return this.style('grid-column', `auto/span ${columns}`);
 	}
 
-	gridGap(gap) {
+	gap(gap) {
 		return this.style('grid-gap', gap);
 	}
 
