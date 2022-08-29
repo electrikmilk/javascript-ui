@@ -53,10 +53,10 @@ window.onload = () => {
 
 export function appIcon(src) {
 	const shortcutLink = document.createElement('link');
-	shortcutLink.rel = '';
+	shortcutLink.rel = 'icon';
 
 	const touchIconLink = document.createElement('link');
-	touchIconLink.rel = '';
+	touchIconLink.rel = 'apple-touch-icon';
 
 	shortcutLink.href = src;
 	touchIconLink.href = src;
