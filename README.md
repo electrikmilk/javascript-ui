@@ -11,6 +11,7 @@ jsUI is a way to describe HTML and CSS in Javascript that will then be applied t
  - Built-in CSS tricks like truncation, font smoothing, inset, fit, etc.
  - CSS properties are abtracted into views and stacks like ScrollView, GridStack, HStack, VStack, etc.
  
+[Documentation](https://github.com/electrikmilk/jsUI/wiki)
 
 ## Usage
 
