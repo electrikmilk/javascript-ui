@@ -43,7 +43,7 @@ export function GridStack(components, type = 'fill', min = '50%') {
 }
 
 class GridStackTag extends Element {
-	constructor(components, type, min) {
+	constructor(components, min = '200px', type) {
 		const element = document.createElement('div');
 		super(element);
 		this.element = element;
