@@ -32,19 +32,44 @@ export class Style extends StandardAnimation {
 	disableResize() {
 		return this.style('resize', 'none');
 	}
-	
+
+	#effectSelector(effect) {
+		if (!this.selector) {
+			console.error('Component instance does not have a selector!');
+			return false;
+		}
+		if (this.selector.includes(',')) {
+			let selectors = this.selector.trim().split(',');
+			return selectors.join(':' + effect + ',');
+		} else {
+			return this.selector + ':' + effect;
+		}
+	}
+
 	hover(callback) {
-		callback(globalStyle(this.selector+':hover'))
+		callback(
+			globalStyle(
+				this.#effectSelector('hover')
+			)
+		);
 		return this;
 	}
 
 	active(callback) {
-		callback(globalStyle(this.selector+':active'))
+		callback(
+			globalStyle(
+				this.#effectSelector('active')
+			)
+		);
 		return this;
 	}
 
 	focus(callback) {
-		callback(globalStyle(this.selector+':focus'))
+		callback(
+			globalStyle(
+				this.#effectSelector('focus')
+			)
+		);
 		return this;
 	}
 
@@ -236,7 +261,7 @@ export class Style extends StandardAnimation {
 		if (family === 'system') {
 			family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
 		}
-		if(this.#element.tagName === 'BODY') {
+		if (this.#element.tagName === 'BODY') {
 			addCSS({
 				'input,textarea,select,button': {
 					'font-family': family
