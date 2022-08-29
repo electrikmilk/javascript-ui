@@ -33,13 +33,9 @@ export class Style extends StandardAnimation {
 		return this.style('resize', 'none');
 	}
 
-	
-	transition(transition) {
-		return this.style('transition', transition);
-	}
 
-	transitionAll(duration = '0.3') {
-		return this.style('transition', 'all ' + duration + 's');
+	transition(property, duration, easing, delay) {
+		return this.style('transition', [property, duration, easing, delay].join(' '));
 	}
 
 	#effectSelector(effect) {
@@ -59,7 +55,7 @@ export class Style extends StandardAnimation {
 		callback(
 			globalStyle(
 				this.#effectSelector('hover')
-			).transitionAll()
+			)
 		);
 		return this;
 	}
@@ -68,7 +64,7 @@ export class Style extends StandardAnimation {
 		callback(
 			globalStyle(
 				this.#effectSelector('active')
-			).transitionAll()
+			)
 		);
 		return this;
 	}
@@ -77,7 +73,7 @@ export class Style extends StandardAnimation {
 		callback(
 			globalStyle(
 				this.#effectSelector('focus')
-			).transitionAll()
+			)
 		);
 		return this;
 	}
