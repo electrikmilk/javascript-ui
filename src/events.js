@@ -22,14 +22,9 @@ export class EventElement extends Style {
 		return this;
 	}
 
-	onSubmit(callback) {
-		this.#element.onsubmit = (event) => callback(this, event);
-		return this;
-	}
-
 	onHover(callback, leaveCallback) {
 		this.#element.onmouseenter = (event) => callback(this, event);
-		if(leaveCallback) {
+		if (leaveCallback) {
 			this.#element.onmouseout = (event) => leaveCallback(this, event);
 		}
 		return this;

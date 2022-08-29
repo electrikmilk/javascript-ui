@@ -26,4 +26,8 @@ class TextArea extends Element {
 	rows(rows) {
 		return this.attribute('rows', rows);
 	}
+
+	type(type) {
+		return this.attribute('type', type);
+	}
 }

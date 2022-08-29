@@ -2,13 +2,13 @@
  * Copyright (c) 2022 Brandon Jordan
  */
 
-import {EventElement} from '../events.js';
+import {Element} from '../element.js';
 
 export function Dropdown(options) {
 	return new DropdownGroup(options);
 }
 
-class DropdownGroup extends EventElement {
+class DropdownGroup extends Element {
 	constructor(options) {
 		const element = document.createElement('select');
 		for (let option in options) {

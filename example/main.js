@@ -7,8 +7,7 @@ import {Section} from 'jsUI';
 import {Text} from 'jsUI';
 import {Image} from 'jsUI';
 import {Heading} from 'jsUI';
-import {TextBox} from 'jsUI';
-import {TextInput} from 'jsUI';
+import {Form, Label, TextBox, TextInput} from 'jsUI';
 import {Spacer, HSpacer} from 'jsUI';
 import {VStack, HStack, GridStack} from 'jsUI';
 import {Hyperlink} from 'jsUI';
@@ -63,25 +62,34 @@ window.onload = () => {
 			Text('Hello, World! This page was made using jsUI.'),
 			Line(),
 			Heading('Form Controls'),
-			Button('Button')
-				.block(),
-			Spacer(),
-			Dropdown({
-				'1': 'Item 1',
-				'2': 'Item 2'
-			}).onChange((e) => {
-				console.log('changed!', e.target);
-			}),
-			Spacer(2),
-			TextInput()
-				.block()
-				.placeholder('TextInput'),
-			Spacer(),
-			TextBox()
-				.placeholder('TextBox')
-				.cols(50)
-				.rows(6)
-				.disableResize(),
+			Form([
+				Label('Dropdown Label', 'dropdown'),
+				Dropdown({
+					'1': 'Item 1',
+					'2': 'Item 2'
+				})
+					.name('dropdown')
+					.onChange((e) => {
+						console.log('changed!', e.target);
+					}),
+				Spacer(2),
+				TextInput()
+					.block()
+					.placeholder('TextInput'),
+				Spacer(),
+				TextBox()
+					.placeholder('TextBox')
+					.cols(50)
+					.rows(6)
+					.disableResize(),
+				Button('Button')
+					.block()
+			])
+				.action('/endpoint')
+				.method('POST')
+				.onSubmit((event) => {
+					event.preventDefault();
+				}),
 			Line(),
 			Heading('Animation'),
 			Div([

@@ -16,6 +16,7 @@ export * from './components/ListItem.js';
 export * from './components/Radio.js';
 export * from './components/Section.js';
 export * from './components/Tag.js';
+export * from './components/Form.js';
 export * from './components/Text.js';
 export * from './components/TextBox.js';
 export * from './components/TextInput.js';
@@ -94,11 +95,11 @@ export function select(selector) {
 class InstanceSelector extends Element {
 	constructor(selector) {
 		const element = document.getElementById(selector);
-		if(element) {
+		if (element) {
 			super(element);
 			this.element = element;
 		} else {
-			console.error('Cannot find element with name: '+selector);
+			console.error('Cannot find element with name: ' + selector);
 			return;
 		}
 	}

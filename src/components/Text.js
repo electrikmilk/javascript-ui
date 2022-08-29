@@ -33,3 +33,21 @@ class HeadingTag extends Element {
 		}
 	}
 }
+
+export function Label(text, forName) {
+	return new LabelTag(text, forName);
+}
+
+class LabelTag extends Element {
+	constructor(text, forName) {
+		const element = document.createElement('label');
+		super(element);
+		this.element = element;
+		if (text) {
+			this.element.innerText = text;
+		}
+		if (forName) {
+			this.attribute('for', forName);
+		}
+	}
+}
