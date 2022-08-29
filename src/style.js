@@ -45,7 +45,7 @@ export class Style extends StandardAnimation {
 		}
 		if (this.selector.includes(',')) {
 			let selectors = this.selector.trim().split(',');
-			return selectors.join(':' + effect + ',');
+			return selectors.join(':' + effect + ',') + ':' + effect;
 		} else {
 			return this.selector + ':' + effect;
 		}
