@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 import {StandardAnimation} from './animations.js';
 
 export class Style extends StandardAnimation {
@@ -14,14 +18,14 @@ export class Style extends StandardAnimation {
 	}
 
 	reboot() {
-		this.style('margin','0');
-		this.style('padding','0');
-		this.style('appearance','none');
-		this.style('-webkit-appearance','none');
-		this.style('-moz-appearance','none');
-		this.style('border','none');
-		this.style('background','none');
-		this.style('color','initial');
+		this.style('margin', '0');
+		this.style('padding', '0');
+		this.style('appearance', 'none');
+		this.style('-webkit-appearance', 'none');
+		this.style('-moz-appearance', 'none');
+		this.style('border', 'none');
+		this.style('background', 'none');
+		this.style('color', 'initial');
 	}
 
 	disableResize() {

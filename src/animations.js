@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 export class StandardAnimation {
 	#element;
 
@@ -193,7 +197,7 @@ export class StandardAnimation {
 				transform: 'rotate(0deg)'
 			},
 			{
-				transform: 'rotate(359deg)'
+				transform: 'rotate(360deg)'
 			}
 		], {
 			duration: duration,

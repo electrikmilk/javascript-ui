@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 import {Element} from '../element.js';
 
 export function Hyperlink(text) {

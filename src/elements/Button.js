@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 import {Element} from '../element.js';
 
 export function Button(text) {
@@ -20,7 +24,7 @@ class ButtonTag extends Element {
 		if (type) {
 			this.element.type = type;
 		}
-		if(text) {
+		if (text) {
 			this.element.innerText = text;
 		}
 	}

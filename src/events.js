@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 import {Style} from './style.js';
 
 export class EventElement extends Style {

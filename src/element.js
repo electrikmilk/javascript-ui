@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 import {EventElement} from './events.js';
 
 export class Element extends EventElement {
