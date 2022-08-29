@@ -53,6 +53,7 @@ window.onload = () => {
 				.width('50px')
 				.margins(['10px', '0'])
 		])
+			.z(100)
 			.centerItems()
 			.sticky()
 			.borderBottom('darkgray', '2px')
@@ -83,10 +84,6 @@ window.onload = () => {
 				.disableResize(),
 			Line(),
 			Heading('Animation'),
-			Image('domo.png')
-				.name('domo')
-				.center(),
-			Spacer(),
 			Div([
 				Heading('Moves', 3),
 				HStack([
@@ -113,6 +110,9 @@ window.onload = () => {
 					Button('Shrink')
 						.onClick((element) => {
 							element.shrink();
+							setTimeout(function () {
+								element.grow();
+							}, 1000);
 						})
 				])
 					.gap('10px')
@@ -128,6 +128,9 @@ window.onload = () => {
 					Button('Fade Out')
 						.onClick((element) => {
 							element.fadeOut();
+							setTimeout(function () {
+								element.fadeIn();
+							}, 1000);
 						})
 				])
 					.gap('10px'),
@@ -152,14 +155,23 @@ window.onload = () => {
 					Button('Fade Out Down')
 						.onClick((element) => {
 							element.fadeOutDown();
+							setTimeout(function () {
+								element.fadeInUp();
+							}, 1000);
 						}),
 					Button('Fade Out Left')
 						.onClick((element) => {
 							element.fadeOutLeft();
+							setTimeout(function () {
+								element.fadeInLeft();
+							}, 1000);
 						}),
 					Button('Fade Out Right')
 						.onClick((element) => {
 							element.fadeOutRight();
+							setTimeout(function () {
+								element.fadeInRight();
+							}, 1000);
 						})
 				])
 					.gap('10px')
@@ -206,7 +218,7 @@ window.onload = () => {
 					.height('300px')
 					.margin('3px')
 					.centerItems()
-			]),
+			], '50%'),
 			Heading('ScrollView', 3),
 			ScrollView([
 				GridStack([
@@ -234,9 +246,13 @@ window.onload = () => {
 						.height('300px')
 						.margin('3px')
 						.centerItems()
-				])
+				], '50%')
 			])
-				.height('300px')
+				.height('300px'),
+			Spacer(),
+			Image('domo.png')
+				.name('domo')
+				.center()
 		])
 			.paddings(['10px', '20px'])
 	], true)
