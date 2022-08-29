@@ -13,49 +13,49 @@ export class EventElement extends Style {
 	}
 
 	onClick(callback) {
-		this.#element.onclick = (event) => callback(event);
+		this.#element.onclick = (event) => callback(this, event);
 		return this;
 	}
 
 	onChange(callback) {
-		this.#element.onchange = (event) => callback(event);
+		this.#element.onchange = (event) => callback(this, event);
 		return this;
 	}
 
 	onSubmit(callback) {
-		this.#element.onsubmit = (event) => callback(event);
+		this.#element.onsubmit = (event) => callback(this, event);
 		return this;
 	}
-	
+
 	onHover(callback, leaveCallback) {
-		this.#element.onmouseenter = (event) => callback(event);
+		this.#element.onmouseenter = (event) => callback(this, event);
 		if(leaveCallback) {
-			this.#element.onmouseleave = (event) => callback(event);
+			this.#element.onmouseout = (event) => leaveCallback(this, event);
 		}
 	}
-	
+
 	onFocus(callback) {
-		this.#element.onfocus = (event) => callback(event);
+		this.#element.onfocus = (event) => callback(this, event);
 		return this;
 	}
 
 	onBlur(callback) {
-		this.#element.onblur = (event) => callback(event);
+		this.#element.onblur = (event) => callback(this, event);
 		return this;
 	}
 
 	onDoubleClick(callback) {
-		this.#element.ondblclick = (event) => callback(event);
+		this.#element.ondblclick = (event) => callback(this, event);
 		return this;
 	}
 
 	onError(callback) {
-		this.#element.onerror = (event) => callback(event);
+		this.#element.onerror = (event) => callback(this, event);
 		return this;
 	}
 
 	onKeypress(callback) {
-		this.#element.onkeyup = (event) => callback(event);
+		this.#element.onkeyup = (event) => callback(this, event);
 		return this;
 	}
 }
