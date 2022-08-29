@@ -88,34 +88,28 @@ window.onload = () => {
 				Heading('Moves', 3),
 				HStack([
 					Button('Rotate')
-						.onClick(() => {
-							jsUI.select('domo')
-								.rotate();
+						.onClick((element) => {
+							element.rotate();
 						}),
 					Button('Shake')
-						.onClick(() => {
-							jsUI.select('domo')
-								.shake();
+						.onClick((element) => {
+							element.shake();
 						}),
 					Button('Flip')
-						.onClick(() => {
-							jsUI.select('domo')
-								.flip();
+						.onClick((element) => {
+							element.flip();
 						}),
 					Button('Bounce')
-						.onClick(() => {
-							jsUI.select('domo')
-								.bounce();
+						.onClick((element) => {
+							element.bounce();
 						}),
 					Button('Grow')
-						.onClick(() => {
-							jsUI.select('domo')
-								.grow();
+						.onClick((element) => {
+							element.grow();
 						}),
 					Button('Shrink')
-						.onClick(() => {
-							jsUI.select('domo')
-								.shrink();
+						.onClick((element) => {
+							element.shrink();
 						})
 				])
 					.gap('10px')
@@ -125,52 +119,44 @@ window.onload = () => {
 				Heading('Fades', 3),
 				HStack([
 					Button('Fade In')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeIn();
+						.onClick((element) => {
+							element.fadeIn();
 						}),
 					Button('Fade Out')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeOut();
+						.onClick((element) => {
+							element.fadeOut();
 						})
 				])
 					.gap('10px'),
 				Spacer(),
 				HStack([
 					Button('Fade In Up')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeInUp();
+						.onClick((element) => {
+							element.fadeInUp();
 						}),
 					Button('Fade In Left')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeInLeft();
+						.onClick((element) => {
+							element.fadeInLeft();
 						}),
 					Button('Fade In Right')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeInRight();
+						.onClick((element) => {
+							element.fadeInRight();
 						})
 				])
 					.gap('10px'),
 				Spacer(),
 				HStack([
 					Button('Fade Out Down')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeOutDown();
+						.onClick((element) => {
+							element.fadeOutDown();
 						}),
 					Button('Fade Out Left')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeOutLeft();
+						.onClick((element) => {
+							element.fadeOutLeft();
 						}),
 					Button('Fade Out Right')
-						.onClick(() => {
-							jsUI.select('domo')
-								.fadeOutRight();
+						.onClick((element) => {
+							element.fadeOutRight();
 						})
 				])
 					.gap('10px')
