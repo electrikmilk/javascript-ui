@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 import * as jsUI from 'jsUI';
 import {Section} from 'jsUI';
 import {Text} from 'jsUI';
@@ -23,7 +27,7 @@ window.onload = () => {
 	// 		'property': 'value'
 	// 	}
 	// });
-	jsUI.globalStyle('input,textarea,jsUI.select,button')
+	jsUI.globalStyle('input,textarea,select,button')
 		.textSize('18px')
 		.rounded('5px')
 		.border('#c7c7c7')
@@ -44,7 +48,7 @@ window.onload = () => {
 			Image('icon.png')
 				.caption('jsUI')
 				.width('50px')
-				.margins(['10px','0'])
+				.margins(['10px', '0'])
 		])
 			.centerItems()
 			.sticky()
@@ -52,20 +56,41 @@ window.onload = () => {
 			.textColor('white')
 			.backgroundColor('black'),
 		Section([
-			Text("Hello, World! This page was made using jsUI."),
+			Text('Hello, World! This page was made using jsUI.'),
 			Line(),
-			Heading("Animation"),
-			Image("domo.png")
+			Heading('Form Controls'),
+			Button('Button')
+				.block(),
+			Spacer(),
+			Dropdown({
+				'1': 'Item 1',
+				'2': 'Item 2'
+			}).onChange((e) => {
+				console.log('changed!', e.target);
+			}),
+			Spacer(2),
+			TextInput()
+				.block()
+				.placeholder('TextInput'),
+			Spacer(),
+			TextBox()
+				.placeholder('TextBox')
+				.cols(50)
+				.rows(6)
+				.disableResize(),
+			Line(),
+			Heading('Animation'),
+			Image('domo.png')
 				.name('domo')
 				.center(),
 			Spacer(),
 			Div([
-				Heading("Moves", 3),
+				Heading('Moves', 3),
 				HStack([
 					Button('Rotate')
-						.onClick(()=>{
+						.onClick(() => {
 							jsUI.select('domo')
-								.rotate();r
+								.rotate();
 						}),
 					Button('Shake')
 						.onClick(() => {
@@ -97,7 +122,7 @@ window.onload = () => {
 
 			]),
 			Div([
-				Heading("Fades", 3),
+				Heading('Fades', 3),
 				HStack([
 					Button('Fade In')
 						.onClick(() => {
@@ -127,7 +152,7 @@ window.onload = () => {
 						.onClick(() => {
 							jsUI.select('domo')
 								.fadeInRight();
-						}),
+						})
 				])
 					.gap('10px'),
 				Spacer(),
@@ -150,9 +175,81 @@ window.onload = () => {
 				])
 					.gap('10px')
 
+			]),
+			Line(),
+			Heading('Stacks and Views'),
+			Heading('VStack', 3),
+			VStack([
+				Text('Item'),
+				Text('Item'),
+				Text('Item')
+			]),
+			Heading('HStack', 3),
+			HStack([
+				Text('Item'),
+				Text('Item'),
+				Text('Item'),
+				Text('Item')
+			]),
+			Heading('GridStack', 3),
+			GridStack([
+				Div()
+					.text('Item 1')
+					.backgroundColor('lightblue')
+					.height('300px')
+					.margin('3px')
+					.centerItems(),
+				Div()
+					.text('Item 2')
+					.backgroundColor('lightblue')
+					.height('300px')
+					.margin('3px')
+					.centerItems(),
+				Div()
+					.text('Item 3')
+					.backgroundColor('lightblue')
+					.height('300px')
+					.margin('3px')
+					.centerItems(),
+				Div()
+					.text('Item 4')
+					.backgroundColor('lightblue')
+					.height('300px')
+					.margin('3px')
+					.centerItems()
+			]),
+			Heading('ScrollView', 3),
+			ScrollView([
+				GridStack([
+					Div()
+						.text('Item 1')
+						.backgroundColor('lightblue')
+						.height('300px')
+						.margin('3px')
+						.centerItems(),
+					Div()
+						.text('Item 2')
+						.backgroundColor('lightblue')
+						.height('300px')
+						.margin('3px')
+						.centerItems(),
+					Div()
+						.text('Item 3')
+						.backgroundColor('lightblue')
+						.height('300px')
+						.margin('3px')
+						.centerItems(),
+					Div()
+						.text('Item 4')
+						.backgroundColor('lightblue')
+						.height('300px')
+						.margin('3px')
+						.centerItems()
+				])
 			])
+				.height('300px')
 		])
-			.paddings(['10px','20px'])
+			.paddings(['10px', '20px'])
 	], true)
 		.margin(0)
 		.padding(0)
