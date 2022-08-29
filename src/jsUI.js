@@ -51,7 +51,7 @@ window.onload = () => {
 	}
 };
 
-export function appIcon(src) {
+export function icon(src) {
 	const shortcutLink = document.createElement('link');
 	shortcutLink.rel = 'icon';
 
@@ -68,10 +68,10 @@ export function appIcon(src) {
 export function accentColor(hexColor) {
 	addCSS({
 		'::selection': {
-			'background': hexColor+'50'
+			'background': hexColor + '50'
 		},
 		'::moz-selection': {
-			'background': hexColor+'50'
+			'background': hexColor + '50'
 		},
 		'input,textarea,select': {
 			'accent-color': hexColor,
