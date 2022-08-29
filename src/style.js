@@ -33,6 +33,15 @@ export class Style extends StandardAnimation {
 		return this.style('resize', 'none');
 	}
 
+	
+	transition(transition) {
+		return this.style('transition', transition);
+	}
+
+	transitionAll(duration = '0.3') {
+		return this.style('transition', 'all ' + duration + 's');
+	}
+
 	#effectSelector(effect) {
 		if (!this.selector) {
 			console.error('Component instance does not have a selector!');
@@ -50,7 +59,7 @@ export class Style extends StandardAnimation {
 		callback(
 			globalStyle(
 				this.#effectSelector('hover')
-			)
+			).transitionAll()
 		);
 		return this;
 	}
@@ -59,7 +68,7 @@ export class Style extends StandardAnimation {
 		callback(
 			globalStyle(
 				this.#effectSelector('active')
-			)
+			).transitionAll()
 		);
 		return this;
 	}
@@ -68,7 +77,7 @@ export class Style extends StandardAnimation {
 		callback(
 			globalStyle(
 				this.#effectSelector('focus')
-			)
+			).transitionAll()
 		);
 		return this;
 	}
