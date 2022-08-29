@@ -38,12 +38,12 @@ class VStackTag extends Element {
 	}
 }
 
-export function GridStack(components, type = 'fill', min = '50%') {
-	return new GridStackTag(components, type, min);
+export function GridStack(components, min = '50%', type = 'fill') {
+	return new GridStackTag(components, min, type);
 }
 
 class GridStackTag extends Element {
-	constructor(components, min = '200px', type) {
+	constructor(components, min, type) {
 		const element = document.createElement('div');
 		super(element);
 		this.element = element;
