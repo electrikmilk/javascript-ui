@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2022 Brandon Jordan
+ */
+
 'use strict';
 
 export * from './elements/Button.js';
@@ -164,10 +168,6 @@ class GlobalElementStyle extends Element {
 		globalCSS += this.selector + '{' + this.element.getAttribute('style') + '}';
 		this.element.remove();
 	}
-}
-
-export function ForEach(array, callback) {
-	return array.forEach(callback);
 }
 
 class Body extends Element {
