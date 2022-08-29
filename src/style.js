@@ -14,6 +14,17 @@ export class Style extends StandardAnimation {
 		return this;
 	}
 
+	reboot() {
+		this.style('margin','0');
+		this.style('padding','0');
+		this.style('appearance','none');
+		this.style('-webkit-appearance','none');
+		this.style('-moz-appearance','none');
+		this.style('border','none');
+		this.style('background','none');
+		this.style('color','initial');
+	}
+
 	disableResize() {
 		return this.style('resize', 'none');
 	}
@@ -21,6 +32,10 @@ export class Style extends StandardAnimation {
 	// border
 
 	border(color, width, style) {
+		if (color === 'none') {
+			this.style('border', 'none');
+			return this;
+		}
 		if (width) {
 			this.style('borderWidth', width);
 		} else {
@@ -36,6 +51,10 @@ export class Style extends StandardAnimation {
 	}
 
 	borderTop(color, width, style) {
+		if (color === 'none') {
+			this.style('border-top', 'none');
+			return this;
+		}
 		if (width) {
 			this.style('borderTopWidth', width);
 		} else {
@@ -51,6 +70,10 @@ export class Style extends StandardAnimation {
 	}
 
 	borderLeft(color, width, style) {
+		if (color === 'none') {
+			this.style('border-left', 'none');
+			return this;
+		}
 		if (width) {
 			this.style('borderLeftWidth', width);
 		} else {
@@ -66,6 +89,10 @@ export class Style extends StandardAnimation {
 	}
 
 	borderRight(color, width, style) {
+		if (color === 'none') {
+			this.style('border-right', 'none');
+			return this;
+		}
 		if (width) {
 			this.style('borderRightWidth', width);
 		} else {
@@ -81,6 +108,10 @@ export class Style extends StandardAnimation {
 	}
 
 	borderBottom(color, width, style) {
+		if (color === 'none') {
+			this.style('border-bottom', 'none');
+			return this;
+		}
 		if (width) {
 			this.style('borderBottomWidth', width);
 		} else {
