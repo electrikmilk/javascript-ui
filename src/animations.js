@@ -15,7 +15,65 @@ export class StandardAnimation {
 			}
 		], {
 			duration: duration,
-			easing: 'ease-in',
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: 1
+		});
+		return this;
+	}
+
+	fadeInUp(duration = 1000) {
+		this.#element.animate([
+			{
+				opacity: '0%',
+				transform: 'translateY(40px)'
+			},
+			{
+				opacity: '100%',
+				transform: 'translateY(0)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: 1
+		});
+		return this;
+	}
+
+	fadeInLeft(duration = 1000) {
+		this.#element.animate([
+			{
+				opacity: '0%',
+				transform: 'translateX(-40px)'
+			},
+			{
+				opacity: '100%',
+				transform: 'translateY(0)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: 1
+		});
+		return this;
+	}
+
+	fadeInRight(duration = 1000) {
+		this.#element.animate([
+			{
+				opacity: '0%',
+				transform: 'translateX(40px)'
+			},
+			{
+				opacity: '100%',
+				transform: 'translateX(0)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
 			iterations: 1
 		});
 		return this;
@@ -31,8 +89,100 @@ export class StandardAnimation {
 			}
 		], {
 			duration: duration,
-			easing: 'ease-in',
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
 			iterations: 1
+		});
+		return this;
+	}
+
+	fadeOutDown(duration = 1000) {
+		this.#element.animate([
+			{
+				opacity: '100%',
+				transform: 'translateY(0)'
+			},
+			{
+				opacity: '0%',
+				transform: 'translateY(40px)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: 1
+		});
+		return this;
+	}
+
+	fadeOutLeft(duration = 1000) {
+		this.#element.animate([
+			{
+				opacity: '100%',
+				transform: 'translateX(0)'
+			},
+			{
+				opacity: '0%',
+				transform: 'translateX(-40px)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: 1
+		});
+		return this;
+	}
+
+	fadeOutRight(duration = 1000) {
+		this.#element.animate([
+			{
+				opacity: '100%',
+				transform: 'translateX(0)'
+			},
+			{
+				opacity: '0%',
+				transform: 'translateX(40px)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: 1
+		});
+		return this;
+	}
+
+	grow(duration = 1000, iterations = 1) {
+		this.#element.animate([
+			{
+				transform: 'scale(0)'
+			},
+			{
+				transform: 'scale(1)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: iterations
+		});
+		return this;
+	}
+
+	shrink(duration = 1000, iterations = 1) {
+		this.#element.animate([
+			{
+				transform: 'scale(1)'
+			},
+			{
+				transform: 'scale(0)'
+			}
+		], {
+			duration: duration,
+			fill: 'forwards',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
+			iterations: iterations
 		});
 		return this;
 	}
@@ -47,7 +197,7 @@ export class StandardAnimation {
 			}
 		], {
 			duration: duration,
-			easing: 'linear',
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
 			iterations: iterations
 		});
 		return this;
@@ -87,6 +237,7 @@ export class StandardAnimation {
 			}
 		], {
 			duration: duration,
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
 			iterations: iterations
 		});
 		return this;
@@ -178,6 +329,7 @@ export class StandardAnimation {
 			}
 		], {
 			duration: duration,
+			easing: 'cubic-bezier(0.42, 0, 0.58, 1)',
 			iterations: iterations
 		});
 		return this;
