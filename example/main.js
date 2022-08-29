@@ -55,7 +55,7 @@ window.onload = () => {
 			.z(100)
 			.centerItems()
 			.sticky()
-			.borderBottom('darkgray', '2px')
+			.shadowMedium()
 			.textColor('white')
 			.backgroundColor('black'),
 		Section([
