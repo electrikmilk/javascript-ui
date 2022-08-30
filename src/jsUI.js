@@ -246,7 +246,7 @@ export function route(name) {
 			return routes[route].url;
 		}
 	}
-	return '#';
+	return false;
 }
 
 function evaluateURL() {
