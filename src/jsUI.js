@@ -57,7 +57,10 @@ window.onload = () => {
 };
 
 export function view(components, debugLog = false) {
-	buildUI(document.querySelector('body'), components);
+	if (document.body.hasChildNodes()) {
+		document.body.innerHTML = '';
+	}
+	buildUI(document.body, components);
 	setTimeout(function () {
 		applyGlobalStyle();
 		if (debugLog === true) {
