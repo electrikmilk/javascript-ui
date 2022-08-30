@@ -19,8 +19,7 @@ class AnchorTag extends Element {
 	}
 
 	url(url) {
-		this.element.href = url;
-		return this;
+		return this.attribute('href',url);
 	}
 
 	target(target) {
@@ -41,12 +40,11 @@ class AnchorTag extends Element {
 	}
 
 	lang(lang) {
-		this.element.hreflang = lang;
-		return this;
+		return this.attribute('hreflang',lang);
 	}
 
 	mime(mime) {
-		this.element.type = mime;
+		return this.attribute('type',mime);
 	}
 
 	types(types) {
