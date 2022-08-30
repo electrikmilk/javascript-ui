@@ -201,3 +201,96 @@ function debug() {
 	console.log('HTML', body);
 	console.log('CSS', globalStyle);
 }
+
+/* === Router === */
+
+let routes = {};
+
+export function router(appRoutes) {
+	if (!routes || routes.constructor !== Object || routes.length === 0) {
+		console.error('[Router] No routes were provided!', routes);
+		return false;
+	}
+	for (let r in appRoutes) {
+		if (!appRoutes[r].url) {
+			console.error('[Router] Path was not provided for route!', appRoutes[r]);
+			return false;
+		}
+		if (!appRoutes[r].view) {
+			console.error('[Router] View was not provided for route!', appRoutes[r]);
+		}
+		if (!appRoutes[r].name) {
+			console.warn(`[Router] You have not provided a name for '${appRoutes[r].url}' route. You will not be able to reference this route other places in your code.`);
+		}
+	}
+	routes = appRoutes;
+	window.addEventListener('popstate', evaluateURL());
+	evaluateURL();
+}
+
+export function routeTo(route) {
+	for (let route in routes) {
+		if (routes[route].name === name) {
+			goTo(routes[route]);
+		}
+	}
+	return false;
+}
+
+export function route(name) {
+	for (let route in routes) {
+		if (routes[route].name === name) {
+			return routes[route].url;
+		}
+	}
+	return '#';
+}
+
+function evaluateURL() {
+	let found = false;
+	for (let route in routes) {
+		if (routes[route].url === window.location.pathname) {
+			goTo(route);
+		}
+	}
+	if (found === false) {
+		goTo(routes[0]);
+	}
+}
+
+function activateRoutes() {
+	document.querySelectorAll('a').forEach((link) => {
+		if (link.getAttribute('route')) {
+			link.setAttribute('href', route(link.getAttribute('route')));
+			link.removeAttribute('route');
+		}
+		link.onclick = (e) => {
+			e.preventDefault();
+			let found = false;
+			for (let route in routes) {
+				let href = link.getAttribute('href');
+				if (href === routes[route].url) {
+					found = true;
+					goTo(routes[route]);
+					break;
+				}
+			}
+			if (found === false) {
+				window.open(link.href, '_blank');
+			}
+		};
+	});
+}
+
+function goTo(route) {
+	if (route.url) {
+		history.pushState(null, null, route.url);
+	}
+	if (route.title) {
+		document.title = route.title;
+	}
+	if (route.view) {
+		view(route.view);
+	}
+	activateRoutes();
+}
