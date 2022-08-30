@@ -71,19 +71,26 @@ function buildUI(parent, components) {
 	if (components.default) {
 		components = components.default;
 	}
-	components.forEach(function (component) {
-		if (component.default) {
-			component = component.default;
-		}
-		if (Array.isArray(component)) {
-			buildUI(parent, component);
-		} else {
-			parent.appendChild(component.element);
-			if (component.components) {
-				buildUI(component.element, component.components);
+	if (Array.isArray(components)) {
+		components.forEach(function (component) {
+			if (component.default) {
+				component = component.default;
 			}
+			if (Array.isArray(component)) {
+				buildUI(parent, component);
+			} else {
+				parent.appendChild(component.element);
+				if (component.components) {
+					buildUI(component.element, component.components);
+				}
+			}
+		});
+	} else {
+		parent.appendChild(components.element);
+		if (components.components) {
+			buildUI(components.element, components.components);
 		}
-	});
+	}
 }
 
 function applyGlobalStyle() {
