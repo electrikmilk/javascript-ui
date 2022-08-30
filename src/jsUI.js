@@ -225,6 +225,7 @@ function debug() {
 
 let routes = [];
 let urlParams = [];
+let currentRoute;
 
 export function router(appRoutes) {
 	if (!appRoutes || !Array.isArray(appRoutes) || appRoutes.length === 0) {
@@ -307,16 +308,19 @@ function activateRoutes() {
 }
 
 function goTo(route) {
-	if (route.url) {
-		history.pushState(null, null, route.url);
+	if (route !== currentRoute) {
+		if (route.url) {
+			history.pushState(null, null, route.url);
+		}
+		if (route.view) {
+			view(route.view);
+		}
+		if (route.title) {
+			document.title = route.title;
+		}
+		currentRoute = route;
+		activateRoutes();
 	}
-	if (route.view) {
-		view(route.view);
-	}
-	if (route.title) {
-		document.title = route.title;
-	}
-	activateRoutes();
 }
 
 export function get(key) {
