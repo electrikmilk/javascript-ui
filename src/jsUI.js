@@ -340,5 +340,8 @@ function goTo(route) {
 	if (route.view) {
 		view(route.view);
 	}
+	if (route.title) {
+		document.title = route.title;
+	}
 	activateRoutes();
 }
