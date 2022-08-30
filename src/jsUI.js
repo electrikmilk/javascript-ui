@@ -263,12 +263,6 @@ export function route(name) {
 	return false;
 }
 
-export function get(key) {
-	if (Object.keys(urlParams).includes(key)) {
-		return urlParams[key];
-	}
-	return false;
-}
 
 function evaluateURL() {
 	let found = false;
@@ -281,32 +275,6 @@ function evaluateURL() {
 		goTo(routes[0]);
 	}
 	getParams();
-}
-
-function getParams() {
-	let url = window.location.pathname;
-	if (url.includes('?')) {
-		if (typeof URL !== 'undefined') {
-			let urlObject = new URL(url);
-			urlObject.searchParams.forEach(function (value, key) {
-				urlParams[key] = value;
-			});
-		} else {
-			if (url.includes('&')) {
-				let kvs = window.location.pathname.split('?')[1].split('&');
-				kvs.forEach(function (kv) {
-					const param = kv.split('=');
-					const key = decodeURIComponent(param[0]);
-					urlParams[key] = decodeURIComponent(param[1]);
-				});
-			} else {
-				let kv = window.location.href.split('?')[1];
-				const param = kv.split('=');
-				const key = decodeURIComponent(param[0]);
-				urlParams[key] = decodeURIComponent(param[1]);
-			}
-		}
-	}
 }
 
 function activateRoutes() {
@@ -344,4 +312,37 @@ function goTo(route) {
 		document.title = route.title;
 	}
 	activateRoutes();
+}
+
+export function get(key) {
+	if (Object.keys(urlParams).includes(key)) {
+		return urlParams[key];
+	}
+	return false;
+}
+
+function getParams() {
+	let url = window.location.pathname;
+	if (url.includes('?')) {
+		if (typeof URL !== 'undefined') {
+			let urlObject = new URL(url);
+			urlObject.searchParams.forEach(function (value, key) {
+				urlParams[key] = value;
+			});
+		} else {
+			if (url.includes('&')) {
+				let kvs = window.location.pathname.split('?')[1].split('&');
+				kvs.forEach(function (kv) {
+					const param = kv.split('=');
+					const key = decodeURIComponent(param[0]);
+					urlParams[key] = decodeURIComponent(param[1]);
+				});
+			} else {
+				let kv = window.location.href.split('?')[1];
+				const param = kv.split('=');
+				const key = decodeURIComponent(param[0]);
+				urlParams[key] = decodeURIComponent(param[1]);
+			}
+		}
+	}
 }
