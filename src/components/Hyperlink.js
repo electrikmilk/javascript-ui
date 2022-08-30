@@ -17,6 +17,10 @@ class AnchorTag extends Element {
 			this.element.innerText = text;
 		}
 	}
+	
+	route(name) {
+		return this.attribute('route', name);
+	}
 
 	url(url) {
 		return this.attribute('href',url);
