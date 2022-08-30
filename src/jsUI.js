@@ -227,7 +227,7 @@ export function router(appRoutes) {
 		}
 	}
 	routes = appRoutes;
-	window.addEventListener('popstate', evaluateURL());
+	window.addEventListener('popstate', evaluateURL);
 	evaluateURL();
 }
 
