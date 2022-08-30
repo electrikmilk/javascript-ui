@@ -34,7 +34,6 @@ import {Element} from './element.js';
 const head = document.querySelector('head');
 
 let globalCSS = '';
-let accent = '';
 
 window.onload = () => {
 	if (!document.querySelector('meta[name=viewport]')) {
@@ -147,6 +146,18 @@ class Body extends Element {
 		super(element);
 		this.element = element;
 	}
+
+	title(title) {
+		document.title = title;
+	}
+
+	icon(src) {
+		icon(src);
+	}
+
+	accent(hexColor) {
+		accentColor(hexColor);
+	}
 }
 
 export function icon(src) {
@@ -164,6 +175,9 @@ export function icon(src) {
 }
 
 export function accentColor(hexColor) {
+	if (!hexColor.includes('#')) {
+		console.warn('Accent color should be a hex color value for proper application.');
+	}
 	addCSS({
 		'::selection': {
 			'background': hexColor + '50'
@@ -177,7 +191,6 @@ export function accentColor(hexColor) {
 			'caret-color': hexColor
 		}
 	});
-	accent = hexColor;
 	return this;
 }
 
@@ -193,7 +206,7 @@ class InstanceSelector extends Element {
 			this.element = element;
 		} else {
 			console.error('Cannot find element with name: ' + selector);
-			return;
+			return false;
 		}
 	}
 }
@@ -201,13 +214,14 @@ class InstanceSelector extends Element {
 function debug() {
 	const body = document.querySelector('body');
 	const globalStyle = document.querySelector('style#jsUI');
-	console.log('HTML', body);
-	console.log('CSS', globalStyle);
+	console.log('[JSUI] Generated HTML', body);
+	console.log('[JSUI] Generated CSS', globalStyle);
 }
 
 /* === Router === */
 
-let routes = {};
+let routes = [];
+let urlParams = [];
 
 export function router(appRoutes) {
 	if (!routes || routes.constructor !== Object || routes.length === 0) {
@@ -216,14 +230,14 @@ export function router(appRoutes) {
 	}
 	for (let r in appRoutes) {
 		if (!appRoutes[r].url) {
-			console.error('[Router] Path was not provided for route!', appRoutes[r]);
+			console.error('[JSUI] [Router] Path was not provided for route!', appRoutes[r]);
 			return false;
 		}
 		if (!appRoutes[r].view) {
-			console.error('[Router] View was not provided for route!', appRoutes[r]);
+			console.error('[JSUI] [Router] View was not provided for route!', appRoutes[r]);
 		}
 		if (!appRoutes[r].name) {
-			console.warn(`[Router] You have not provided a name for '${appRoutes[r].url}' route. You will not be able to reference this route other places in your code.`);
+			console.warn(`[JSUI] [Router] You have not provided a name for '${appRoutes[r].url}' route. You will not be able to reference this route other places in your code.`);
 		}
 	}
 	routes = appRoutes;
@@ -249,6 +263,13 @@ export function route(name) {
 	return false;
 }
 
+export function get(key) {
+	if (Object.keys(urlParams).includes(key)) {
+		return urlParams[key];
+	}
+	return false;
+}
+
 function evaluateURL() {
 	let found = false;
 	for (let route in routes) {
@@ -258,6 +279,33 @@ function evaluateURL() {
 	}
 	if (found === false) {
 		goTo(routes[0]);
+	}
+	getParams();
+}
+
+function getParams() {
+	let url = window.location.pathname;
+	if (url.includes('?')) {
+		if (typeof URL !== 'undefined') {
+			let urlObject = new URL(url);
+			urlObject.searchParams.forEach(function (value, key) {
+				urlParams[key] = value;
+			});
+		} else {
+			if (url.includes('&')) {
+				let kvs = window.location.pathname.split('?')[1].split('&');
+				kvs.forEach(function (kv) {
+					const param = kv.split('=');
+					const key = decodeURIComponent(param[0]);
+					urlParams[key] = decodeURIComponent(param[1]);
+				});
+			} else {
+				let kv = window.location.href.split('?')[1];
+				const param = kv.split('=');
+				const key = decodeURIComponent(param[0]);
+				urlParams[key] = decodeURIComponent(param[1]);
+			}
+		}
 	}
 }
 
@@ -288,9 +336,6 @@ function activateRoutes() {
 function goTo(route) {
 	if (route.url) {
 		history.pushState(null, null, route.url);
-	}
-	if (route.title) {
-		document.title = route.title;
 	}
 	if (route.view) {
 		view(route.view);
