@@ -212,7 +212,7 @@ class InstanceSelector extends Element {
 }
 
 function debug() {
-	const body = document.querySelector('body');
+	const body = document.body;
 	const globalStyle = document.querySelector('style#jsUI');
 	console.log('[JSUI] Generated HTML', body);
 	console.log('[JSUI] Generated CSS', globalStyle);
