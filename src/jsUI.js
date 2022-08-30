@@ -231,7 +231,7 @@ export function router(appRoutes) {
 	evaluateURL();
 }
 
-export function routeTo(route) {
+export function routeTo(name) {
 	for (let route in routes) {
 		if (routes[route].name === name) {
 			goTo(routes[route]);
