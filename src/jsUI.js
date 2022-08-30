@@ -268,6 +268,7 @@ function evaluateURL() {
 	let found = false;
 	for (let route in routes) {
 		if (routes[route].url === window.location.pathname) {
+			found = true;
 			goTo(route);
 		}
 	}
@@ -338,7 +339,7 @@ function getParams() {
 					urlParams[key] = decodeURIComponent(param[1]);
 				});
 			} else {
-				let kv = window.location.href.split('?')[1];
+				let kv = window.location.pathname.split('?')[1];
 				const param = kv.split('=');
 				const key = decodeURIComponent(param[0]);
 				urlParams[key] = decodeURIComponent(param[1]);
