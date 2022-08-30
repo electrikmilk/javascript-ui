@@ -10,6 +10,7 @@ export * from './components/Div.js';
 export * from './components/Footer.js';
 export * from './components/Line.js';
 export * from './components/Header.js';
+export * from './components/Nav.js';
 export * from './components/Hyperlink.js';
 export * from './components/Lists.js';
 export * from './components/Radio.js';
