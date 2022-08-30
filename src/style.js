@@ -29,11 +29,6 @@ export class Style extends StandardAnimation {
 		this.style('color', 'initial');
 	}
 
-	disableResize() {
-		return this.style('resize', 'none');
-	}
-
-
 	transition(property, duration, easing, delay) {
 		return this.style('transition', [property, duration, easing, delay].join(' '));
 	}
@@ -76,6 +71,30 @@ export class Style extends StandardAnimation {
 			)
 		);
 		return this;
+	}
+
+	// misc
+
+	disableResize() {
+		return this.style('resize', 'none');
+	}
+
+	// list
+
+	listStyle(listStyle) {
+		return this.style('list-style', listStyle);
+	}
+
+	listStyleNone() {
+		return this.style('list-style', 'none');
+	}
+
+	listStyleType(listStyleType) {
+		return this.style('list-style-type', listStyleType);
+	}
+
+	listStyleImage(listStyleImage) {
+		return this.style('list-style-image', listStyleImage);
 	}
 
 	// border
@@ -243,6 +262,11 @@ export class Style extends StandardAnimation {
 
 	textSize(size) {
 		return this.style('font-size', size);
+	}
+
+	textDecorationNone() {
+		this.style('text-decoration', 'none');
+		return this;
 	}
 
 	textDecoration(decoration) {
@@ -483,6 +507,15 @@ export class Style extends StandardAnimation {
 		this.style('width', '-webkit-fill-available');
 		this.style('width', 'fill-available');
 		this.style('width', 'stretch');
+		return this;
+	}
+
+	fitHeight() {
+		this.style('height', '100%');
+		this.style('height', '-moz-available');
+		this.style('height', '-webkit-fill-available');
+		this.style('height', 'fill-available');
+		this.style('height', 'stretch');
 		return this;
 	}
 
