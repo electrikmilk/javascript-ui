@@ -56,55 +56,6 @@ window.onload = () => {
 	}
 };
 
-export function icon(src) {
-	const shortcutLink = document.createElement('link');
-	shortcutLink.rel = 'icon';
-
-	const touchIconLink = document.createElement('link');
-	touchIconLink.rel = 'apple-touch-icon';
-
-	shortcutLink.href = src;
-	touchIconLink.href = src;
-
-	head.appendChild(shortcutLink);
-	head.appendChild(touchIconLink);
-}
-
-export function accentColor(hexColor) {
-	addCSS({
-		'::selection': {
-			'background': hexColor + '50'
-		},
-		'::moz-selection': {
-			'background': hexColor + '50'
-		},
-		'input,textarea,select': {
-			'accent-color': hexColor,
-			'outline-color': hexColor,
-			'caret-color': hexColor
-		}
-	});
-	accent = hexColor;
-	return this;
-}
-
-export function select(selector) {
-	return new InstanceSelector(selector);
-}
-
-class InstanceSelector extends Element {
-	constructor(selector) {
-		const element = document.getElementById(selector);
-		if (element) {
-			super(element);
-			this.element = element;
-		} else {
-			console.error('Cannot find element with name: ' + selector);
-			return;
-		}
-	}
-}
-
 export function view(components, debugLog = false) {
 	buildUI(document.querySelector('body'), components);
 	setTimeout(function () {
@@ -174,7 +125,7 @@ class GlobalElementStyle extends Element {
 	}
 
 	apply() {
-		document.querySelector('body').append(this.element);
+		document.body.append(this.element);
 		globalCSS += this.selector + '{' + this.element.getAttribute('style') + '}';
 		this.element.remove();
 	}
@@ -182,9 +133,58 @@ class GlobalElementStyle extends Element {
 
 class Body extends Element {
 	constructor() {
-		const element = document.querySelector('body');
+		const element = document.body;
 		super(element);
 		this.element = element;
+	}
+}
+
+export function icon(src) {
+	const shortcutLink = document.createElement('link');
+	shortcutLink.rel = 'icon';
+
+	const touchIconLink = document.createElement('link');
+	touchIconLink.rel = 'apple-touch-icon';
+
+	shortcutLink.href = src;
+	touchIconLink.href = src;
+
+	head.appendChild(shortcutLink);
+	head.appendChild(touchIconLink);
+}
+
+export function accentColor(hexColor) {
+	addCSS({
+		'::selection': {
+			'background': hexColor + '50'
+		},
+		'::moz-selection': {
+			'background': hexColor + '50'
+		},
+		'input,textarea,select': {
+			'accent-color': hexColor,
+			'outline-color': hexColor,
+			'caret-color': hexColor
+		}
+	});
+	accent = hexColor;
+	return this;
+}
+
+export function select(selector) {
+	return new InstanceSelector(selector);
+}
+
+class InstanceSelector extends Element {
+	constructor(selector) {
+		const element = document.getElementById(selector);
+		if (element) {
+			super(element);
+			this.element = element;
+		} else {
+			console.error('Cannot find element with name: ' + selector);
+			return;
+		}
 	}
 }
 
