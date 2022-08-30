@@ -224,8 +224,8 @@ let routes = [];
 let urlParams = [];
 
 export function router(appRoutes) {
-	if (!routes || routes.constructor !== Object || routes.length === 0) {
-		console.error('[Router] No routes were provided!', routes);
+	if (!appRoutes || !Array.isArray(appRoutes) || appRoutes.length === 0) {
+		console.error('[Router] Invalid or empty routes were provided!', appRoutes);
 		return false;
 	}
 	for (let r in appRoutes) {
@@ -243,6 +243,7 @@ export function router(appRoutes) {
 	routes = appRoutes;
 	window.addEventListener('popstate', evaluateURL);
 	evaluateURL();
+	return new Body();
 }
 
 export function routeTo(name) {
