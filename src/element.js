@@ -5,25 +5,25 @@
 import {EventElement} from './events.js';
 
 export class Element extends EventElement {
-	#element;
+	element;
 
 	constructor(element) {
 		super(element);
-		this.#element = element;
+		this.element = element;
 	}
 
 	name(name) {
-		this.#element.id = name;
+		this.element.id = name;
 		return this;
 	}
 
 	attribute(attribute, value) {
-		this.#element.setAttribute(attribute, value);
+		this.element.setAttribute(attribute, value);
 		return this;
 	}
 
 	property(property, value) {
-		this.#element[property] = value;
+		this.element[property] = value;
 		return this;
 	}
 
@@ -37,7 +37,7 @@ export class Element extends EventElement {
 
 	classes(classes) {
 		if (Array.isArray(classes)) {
-			this.#element.className = classes.join(' ');
+			this.element.className = classes.join(' ');
 		}
 		return this;
 	}

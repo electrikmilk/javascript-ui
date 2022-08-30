@@ -6,15 +6,15 @@ import {StandardAnimation} from './animations.js';
 import {addCSS, globalStyle} from './jsUI.js';
 
 export class Style extends StandardAnimation {
-	#element;
+	element;
 
 	constructor(element) {
 		super(element);
-		this.#element = element;
+		this.element = element;
 	}
 
 	style(property, value) {
-		this.#element.style[property] = value;
+		this.element.style[property] = value;
 		return this;
 	}
 
@@ -38,7 +38,7 @@ export class Style extends StandardAnimation {
 		return this.style('transition', [property, duration, easing, delay].join(' '));
 	}
 
-	#effectSelector(effect) {
+	effectSelector(effect) {
 		if (!this.selector) {
 			console.error('Component instance does not have a selector!');
 			return false;
@@ -54,7 +54,7 @@ export class Style extends StandardAnimation {
 	hover(callback) {
 		callback(
 			globalStyle(
-				this.#effectSelector('hover')
+				this.effectSelector('hover')
 			)
 		);
 		return this;
@@ -63,7 +63,7 @@ export class Style extends StandardAnimation {
 	active(callback) {
 		callback(
 			globalStyle(
-				this.#effectSelector('active')
+				this.effectSelector('active')
 			)
 		);
 		return this;
@@ -72,7 +72,7 @@ export class Style extends StandardAnimation {
 	focus(callback) {
 		callback(
 			globalStyle(
-				this.#effectSelector('focus')
+				this.effectSelector('focus')
 			)
 		);
 		return this;
@@ -246,8 +246,8 @@ export class Style extends StandardAnimation {
 	}
 
 	textDecoration(decoration) {
-		if (this.#element.style.textDecoration) {
-			this.style('text-decoration', this.#element.style.textDecoration + ' ' + decoration);
+		if (this.element.style.textDecoration) {
+			this.style('text-decoration', this.element.style.textDecoration + ' ' + decoration);
 		} else {
 			this.style('text-decoration', decoration);
 		}
@@ -266,7 +266,7 @@ export class Style extends StandardAnimation {
 		if (family === 'system') {
 			family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
 		}
-		if (this.#element.tagName === 'BODY') {
+		if (this.element.tagName === 'BODY') {
 			addCSS({
 				'input,textarea,select,button': {
 					'font-family': family
@@ -530,7 +530,7 @@ export class Style extends StandardAnimation {
 	center() {
 		this.x(0);
 		this.y(0);
-		if (!this.#element.zIndex) {
+		if (!this.element.zIndex) {
 			this.z(-1);
 		}
 		this.block();

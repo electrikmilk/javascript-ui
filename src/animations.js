@@ -3,14 +3,14 @@
  */
 
 export class StandardAnimation {
-	#element;
+	element;
 
 	constructor(element) {
-		this.#element = element;
+		this.element = element;
 	}
 
 	fadeIn(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '0'
 			},
@@ -27,7 +27,7 @@ export class StandardAnimation {
 	}
 
 	fadeInUp(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '0%',
 				transform: 'translateY(40px)'
@@ -46,7 +46,7 @@ export class StandardAnimation {
 	}
 
 	fadeInLeft(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '0%',
 				transform: 'translateX(-40px)'
@@ -65,7 +65,7 @@ export class StandardAnimation {
 	}
 
 	fadeInRight(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '0%',
 				transform: 'translateX(40px)'
@@ -84,7 +84,7 @@ export class StandardAnimation {
 	}
 
 	fadeOut(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '100%'
 			},
@@ -101,7 +101,7 @@ export class StandardAnimation {
 	}
 
 	fadeOutDown(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '100%',
 				transform: 'translateY(0)'
@@ -120,7 +120,7 @@ export class StandardAnimation {
 	}
 
 	fadeOutLeft(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '100%',
 				transform: 'translateX(0)'
@@ -139,7 +139,7 @@ export class StandardAnimation {
 	}
 
 	fadeOutRight(duration = 1000) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				opacity: '100%',
 				transform: 'translateX(0)'
@@ -158,7 +158,7 @@ export class StandardAnimation {
 	}
 
 	grow(duration = 1000, iterations = 1) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				transform: 'scale(0)'
 			},
@@ -175,7 +175,7 @@ export class StandardAnimation {
 	}
 
 	shrink(duration = 1000, iterations = 1) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				transform: 'scale(1)'
 			},
@@ -192,7 +192,7 @@ export class StandardAnimation {
 	}
 
 	rotate(duration = 1000, iterations = 1) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				transform: 'rotate(0deg)'
 			},
@@ -208,7 +208,7 @@ export class StandardAnimation {
 	}
 
 	bounce(duration = 500, iterations = 1) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				transform: 'translateY(0)'
 			},
@@ -248,7 +248,7 @@ export class StandardAnimation {
 	}
 
 	flip(duration = 500, iterations = 1) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				transform: 'perspective(400px) rotateY(0)',
 				animationTimingFunction: 'ease-out'
@@ -297,7 +297,7 @@ export class StandardAnimation {
 	}
 
 	shake(duration = 1000, iterations = 1) {
-		this.#element.animate([
+		this.element.animate([
 			{
 				transform: 'translateX(0)'
 			},
