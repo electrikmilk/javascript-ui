@@ -11,8 +11,7 @@ export * from './components/Footer.js';
 export * from './components/Line.js';
 export * from './components/Header.js';
 export * from './components/Hyperlink.js';
-export * from './components/List.js';
-export * from './components/ListItem.js';
+export * from './components/Lists.js';
 export * from './components/Radio.js';
 export * from './components/Section.js';
 export * from './components/Tag.js';
@@ -149,14 +148,17 @@ class Body extends Element {
 
 	title(title) {
 		document.title = title;
+		return this;
 	}
 
 	icon(src) {
 		icon(src);
+		return this;
 	}
 
 	accentColor(hexColor) {
 		accentColor(hexColor);
+		return this;
 	}
 }
 
