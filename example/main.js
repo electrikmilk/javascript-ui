@@ -7,8 +7,6 @@ import * as jsUI from 'jsUI';
 import index from './pages/index.js';
 
 window.onload = () => {
-	jsUI.accentColor('#924ff0');
-	jsUI.icon('icon.png');
 	jsUI.globalStyle('input,textarea,select,button')
 		.textSize('18px')
 		.rounded('5px')
@@ -31,6 +29,8 @@ window.onload = () => {
 	jsUI.router([
 		{name: 'home', url: '/', title: 'jsUI', view: index}
 	])
+		.accentColor('#924ff0')
+		.icon('icon.png')
 		.margin(0)
 		.padding(0)
 		.textSize('18px')

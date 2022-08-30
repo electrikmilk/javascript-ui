@@ -155,7 +155,7 @@ class Body extends Element {
 		icon(src);
 	}
 
-	accent(hexColor) {
+	accentColor(hexColor) {
 		accentColor(hexColor);
 	}
 }
