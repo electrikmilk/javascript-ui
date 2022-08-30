@@ -10,11 +10,26 @@ export function Dropdown(options) {
 
 class DropdownGroup extends Element {
 	constructor(options) {
-		const element = document.createElement('select');
+		const select = document.createElement('select');
 		for (let option in options) {
-			element.innerHTML += '<option value="' + option + '">' + options[option] + '</option>';
+			if (options[option].constructor === Object) {
+				const optgroup = document.createElement('optgroup');
+				optgroup.label = option;
+				for (let groupOption in options[option]) {
+					const optionTag = document.createElement('option');
+					optionTag.value = groupOption;
+					optionTag.innerText = options[option][groupOption];
+					optgroup.appendChild(optionTag);
+				}
+				select.appendChild(optgroup);
+			} else {
+				const optionTag = document.createElement('option');
+				optionTag.value = option;
+				optionTag.innerText = options[option];
+				select.appendChild(optionTag);
+			}
 		}
-		super(element);
-		this.element = element;
+		super(select);
+		this.element = select;
 	}
 }

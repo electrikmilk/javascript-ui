@@ -72,6 +72,16 @@ window.onload = () => {
 					.onChange((e) => {
 						console.log('changed!', e.target);
 					}),
+				Dropdown({
+					'Group 1': {
+						'1': 'Item 1',
+						'2': 'Item 2'
+					},
+					'Group 2': {
+						'3': 'Item 3',
+						'4': 'Item 4'
+					}
+				}),
 				Spacer(2),
 				TextInput()
 					.block()
