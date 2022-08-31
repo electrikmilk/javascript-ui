@@ -14,9 +14,15 @@ export function HSpacer(size = 1) {
 
 class BreakTag extends Element {
 	constructor(times) {
-		const element = new DocumentFragment();
-		for (let i = 0; i < times; i++) {
-			element.append(document.createElement('br'));
+		let element;
+		if (times === 1) {
+			element = document.createElement('br');
+		} else {
+			element = new DocumentFragment();
+			for (let i = 0; i < times; i++) {
+				let brTag = document.createElement('br');
+				element.append(brTag);
+			}
 		}
 		super(element);
 		this.element = element;
