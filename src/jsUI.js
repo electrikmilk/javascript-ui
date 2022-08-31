@@ -274,7 +274,7 @@ function evaluateURL() {
 	for (let route in routes) {
 		if (routes[route].url === window.location.pathname) {
 			found = true;
-			goTo(route);
+			goTo(routes[route]);
 		}
 	}
 	if (found === false) {
