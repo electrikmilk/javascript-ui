@@ -84,10 +84,6 @@ class DetailsTag extends Element {
 	}
 }
 
-export function Section(components) {
-	return new SectionTag(components);
-}
-
 export function Footer(components) {
 	return new FooterTag(components);
 }
@@ -125,6 +121,10 @@ class NavTag extends Element {
 		this.element = element;
 		this.components = components;
 	}
+}
+
+export function Section(components) {
+	return new SectionTag(components);
 }
 
 class SectionTag extends Element {
