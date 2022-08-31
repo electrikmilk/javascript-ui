@@ -7,7 +7,7 @@ import {Header, Div, Image, Nav, List, ListItem, Hyperlink, HStack, HSpacer} fro
 
 jsUI.globalStyle('nav ul')
 	.padding(0)
-	.margins(['23px', '0'])
+	.margins(['20px', '0'])
 	.listStyleNone();
 
 jsUI.globalStyle('nav ul li')
@@ -16,7 +16,14 @@ jsUI.globalStyle('nav ul li')
 
 jsUI.globalStyle('nav ul li a')
 	.textDecorationNone()
-	.textColor('white');
+	.rounded('5px')
+	.transition('all', '0.3s')
+	.paddings(['5px', '8px'])
+	.hover((e) => e
+		.textColor('white')
+		.backgroundColor('#888888')
+	)
+	.textColor('#dddddd');
 
 export default [
 	Nav([
@@ -25,16 +32,26 @@ export default [
 				.caption('jsUI')
 				.width('50px')
 				.margins(['10px', '0']),
-			List([
-				ListItem([
-					Hyperlink('Home')
-						.route('home')
-				]),
-				ListItem([
-					Hyperlink('Animation')
-						.route('animation')
+			HSpacer(),
+			Div([
+				List([
+					ListItem([
+						Hyperlink('Home')
+							.route('home')
+					])
+						.onClick((element) => {
+							element.bounce();
+						}),
+					ListItem([
+						Hyperlink('Animation')
+							.route('animation')
+					])
+						.onClick((element) => {
+							element.bounce();
+						})
 				])
 			])
+				.textRight()
 		])
 	])
 		.paddings(['0px', '10px'])

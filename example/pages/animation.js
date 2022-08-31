@@ -103,5 +103,6 @@ export default [
 				.gap('10px')
 
 		])
-	]).paddings(['10px', '20px'])
+	])
+		.paddings(['10px', '20px'])
 ];
