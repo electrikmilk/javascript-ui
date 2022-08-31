@@ -14,16 +14,20 @@ class AnchorTag extends Element {
 		super(element);
 		this.element = element;
 		if (text) {
-			this.element.innerText = text;
+			if (!Array.isArray(text)) {
+				this.element.innerText = text;
+			} else {
+				this.components = text;
+			}
 		}
 	}
-	
+
 	route(name) {
 		return this.attribute('route', name);
 	}
 
 	url(url) {
-		return this.attribute('href',url);
+		return this.attribute('href', url);
 	}
 
 	target(target) {
@@ -44,11 +48,11 @@ class AnchorTag extends Element {
 	}
 
 	lang(lang) {
-		return this.attribute('hreflang',lang);
+		return this.attribute('hreflang', lang);
 	}
 
 	mime(mime) {
-		return this.attribute('type',mime);
+		return this.attribute('type', mime);
 	}
 
 	types(types) {
