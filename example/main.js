@@ -5,6 +5,7 @@
 import * as jsUI from 'jsUI';
 
 import index from './pages/index.js';
+import animation from './pages/animation.js';
 
 window.onload = () => {
 	jsUI.globalStyle('input,textarea,select,button')
@@ -27,7 +28,8 @@ window.onload = () => {
 		.borderTop('lightgray', '1px', 'dashed')
 		.borderBottom('none');
 	jsUI.router([
-		{name: 'home', url: '/', title: 'jsUI', view: index}
+		{name: 'home', url: '/', title: 'jsUI', view: index},
+		{name: 'animation', url: '/animation', title: 'Animation - jsUI', view: animation}
 	])
 		.accentColor('#924ff0')
 		.icon('icon.png')

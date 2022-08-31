@@ -20,56 +20,77 @@ import {
 	HStack,
 	VStack,
 	GridStack,
-	ScrollView
+	ScrollView,
+	RadioGroup
 } from 'jsUI';
 
+import NavBar from '../components/NavBar.js';
+
 export default [
-	Header([
-		Image('icon.png')
-			.caption('jsUI')
-			.width('50px')
-			.margins(['10px', '0'])
-	])
-		.z(100)
-		.centerItems()
-		.sticky()
-		.shadowMedium()
-		.textColor('white')
-		.backgroundColor('black'),
+	NavBar,
 	Section([
 		Text('Hello, World! This page was made using jsUI.'),
 		Line(),
 		Heading('Form Controls'),
 		Form([
-			Label('Dropdown Label', 'dropdown'),
-			Dropdown({
-				'1': 'Item 1',
-				'2': 'Item 2'
-			})
-				.name('dropdown')
-				.onChange((e) => {
-					console.log('changed!', e.target);
-				}),
-			Dropdown({
-				'Group 1': {
+			HStack([
+				Label('Dropdown Label', 'dropdown'),
+				Dropdown({
 					'1': 'Item 1',
 					'2': 'Item 2'
-				},
-				'Group 2': {
-					'3': 'Item 3',
-					'4': 'Item 4'
-				}
-			}),
-			Spacer(2),
-			TextInput()
-				.block()
-				.placeholder('TextInput'),
+				})
+					.name('dropdown')
+					.onChange((e) => {
+						console.log('changed!', e.target);
+					})
+			]),
 			Spacer(),
-			TextBox()
-				.placeholder('TextBox')
-				.cols(50)
-				.rows(6)
-				.disableResize(),
+			HStack([
+				Label('Grouped Dropdown Label', 'groupedDropdown'),
+				Dropdown({
+					'Group 1': {
+						'1': 'Item 1',
+						'2': 'Item 2'
+					},
+					'Group 2': {
+						'3': 'Item 3',
+						'4': 'Item 4'
+					}
+				})
+					.name('groupedDropdown')
+					.onChange((e) => {
+						console.log('changed!', e.target);
+					})
+			]),
+			Spacer(),
+			HStack([
+				Label('TextInput Label', 'textInput'),
+				TextInput()
+					.name('textInput')
+					.block()
+					.placeholder('TextInput')
+			]),
+			Spacer(),
+			HStack([
+				Label('TextBox Label', 'textBox'),
+				TextBox()
+					.name('textBox')
+					.placeholder('TextBox')
+					.cols(50)
+					.rows(6)
+					.disableResize()
+			]),
+			Spacer(),
+			HStack([
+				Label('Radio Group Label', 'radioGroup'),
+				Div([
+					RadioGroup('radioGroup', {
+						'yes': 'Yes',
+						'no': 'No'
+					})
+				])
+			]),
+			Spacer(),
 			Button('Button')
 				.block()
 		])
@@ -78,101 +99,7 @@ export default [
 			.onSubmit((event) => {
 				event.preventDefault();
 			}),
-		Line(),
-		Heading('Animation'),
-		Div([
-			Heading('Moves', 3),
-			HStack([
-				Button('Rotate')
-					.onClick((element) => {
-						element.rotate();
-					}),
-				Button('Shake')
-					.onClick((element) => {
-						element.shake();
-					}),
-				Button('Flip')
-					.onClick((element) => {
-						element.flip();
-					}),
-				Button('Bounce')
-					.onClick((element) => {
-						element.bounce();
-					}),
-				Button('Grow')
-					.onClick((element) => {
-						element.grow();
-					}),
-				Button('Shrink')
-					.onClick((element) => {
-						element.shrink();
-						setTimeout(function () {
-							element.grow();
-						}, 1000);
-					})
-			])
-				.gap('10px')
-
-		]),
-		Div([
-			Heading('Fades', 3),
-			HStack([
-				Button('Fade In')
-					.onClick((element) => {
-						element.fadeIn();
-					}),
-				Button('Fade Out')
-					.onClick((element) => {
-						element.fadeOut();
-						setTimeout(function () {
-							element.fadeIn();
-						}, 1000);
-					})
-			])
-				.gap('10px'),
-			Spacer(),
-			HStack([
-				Button('Fade In Up')
-					.onClick((element) => {
-						element.fadeInUp();
-					}),
-				Button('Fade In Left')
-					.onClick((element) => {
-						element.fadeInLeft();
-					}),
-				Button('Fade In Right')
-					.onClick((element) => {
-						element.fadeInRight();
-					})
-			])
-				.gap('10px'),
-			Spacer(),
-			HStack([
-				Button('Fade Out Down')
-					.onClick((element) => {
-						element.fadeOutDown();
-						setTimeout(function () {
-							element.fadeInUp();
-						}, 1000);
-					}),
-				Button('Fade Out Left')
-					.onClick((element) => {
-						element.fadeOutLeft();
-						setTimeout(function () {
-							element.fadeInLeft();
-						}, 1000);
-					}),
-				Button('Fade Out Right')
-					.onClick((element) => {
-						element.fadeOutRight();
-						setTimeout(function () {
-							element.fadeInRight();
-						}, 1000);
-					})
-			])
-				.gap('10px')
-
-		]),
+		Spacer(),
 		Line(),
 		Heading('Stacks and Views'),
 		Heading('VStack', 3),
