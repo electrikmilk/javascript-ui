@@ -2,9 +2,9 @@
  * Copyright (c) 2022 Brandon Jordan
  */
 
-import {EventElement} from './events.js';
+import {Events} from './events.js';
 
-export class Element extends EventElement {
+export class Element extends Events {
 	element;
 
 	constructor(element) {

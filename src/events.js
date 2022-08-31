@@ -4,7 +4,7 @@
 
 import {Style} from './style.js';
 
-export class EventElement extends Style {
+export class Events extends Style {
 	element;
 
 	constructor(element) {
