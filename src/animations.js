@@ -219,7 +219,7 @@ export class StandardAnimation {
 				transform: 'translateY(0)'
 			},
 			{
-				transform: 'rotate(-15px)'
+				transform: 'translateY(-15px)'
 			},
 			{
 				transform: 'translateY(0)'
