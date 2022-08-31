@@ -4,23 +4,26 @@
 
 'use strict';
 
+export * from './components/Audio.js';
 export * from './components/Button.js';
 export * from './components/CheckBox.js';
+export * from './components/Canvas.js';
 export * from './components/Div.js';
-export * from './components/Footer.js';
+export * from './components/Dialog.js';
+export * from './components/Frame.js';
 export * from './components/Line.js';
-export * from './components/Header.js';
-export * from './components/Nav.js';
 export * from './components/Hyperlink.js';
 export * from './components/Lists.js';
 export * from './components/Radio.js';
-export * from './components/Section.js';
+export * from './components/Semantic.js';
+export * from './components/Picture.js';
 export * from './components/Tag.js';
 export * from './components/Form.js';
 export * from './components/Text.js';
 export * from './components/TextBox.js';
 export * from './components/TextInput.js';
 export * from './components/Image.js';
+export * from './components/Video.js';
 
 export * from './components/Dropdown.js';
 export * from './components/CheckBoxGroup.js';
