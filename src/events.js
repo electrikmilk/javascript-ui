@@ -12,6 +12,11 @@ export class Events extends Style {
 		this.element = element;
 	}
 
+	onLoad(callback) {
+		this.element.onload = (event) => callback(this, event);
+		return this;
+	}
+
 	onClick(callback) {
 		this.element.onclick = (event) => callback(this, event);
 		return this;
