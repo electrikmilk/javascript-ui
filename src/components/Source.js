@@ -27,7 +27,6 @@ class SourceTag extends Element {
 	}
 
 	media(media) {
-		this.element.media(media);
-		return this;
+		return this.attribute('media', media);
 	}
 }
