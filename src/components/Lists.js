@@ -30,15 +30,21 @@ class OrderedList extends Element {
 	}
 }
 
-export function ListItem(components) {
-	return new ListTag(components);
+export function ListItem(text) {
+	return new ListTag(text);
 }
 
 class ListTag extends Element {
-	constructor(components) {
+	constructor(text) {
 		const element = document.createElement('li');
 		super(element);
 		this.element = element;
-		this.components = components;
+		if (text) {
+			if (!Array.isArray(text)) {
+				this.element.innerText = text;
+			} else {
+				this.components = text;
+			}
+		}
 	}
 }
