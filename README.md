@@ -7,9 +7,10 @@
 jsUI is a way to describe HTML and CSS in Javascript that will then be applied to the HTML document body. Inspired by UI markup languages like SwiftUI.
 
  - Useful shorthands for HTML tags and css properties
- - Built-in standard animations like rotate, fade, flip, shake
+ - Built-in standard animations like rotate, fade, flip, shake, and more...
  - Built-in CSS tricks like truncation, font smoothing, inset, fit, etc.
  - CSS properties are abtracted into views and stacks like ScrollView, GridStack, HStack, VStack, etc.
+ - Built-in router
  
 [Playground](https://codepen.io/internetgho5t/pen/ZExgBbm) &bull; [Documentation](https://github.com/electrikmilk/jsUI/wiki) &bull; [NPM](https://www.npmjs.com/package/javascript-ui)
 
