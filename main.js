@@ -32,7 +32,7 @@ window.onload = () => {
 		{name: 'animation', url: '/animation', title: 'Animation - jsUI', view: animation}
 	])
 		.accentColor('#924ff0')
-		.icon('logo.png')
+		.icon('icon.png')
 		.margin(0)
 		.padding(0)
 		.textSize('18px')

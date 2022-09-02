@@ -28,7 +28,7 @@ jsUI.globalStyle('nav ul li a')
 export default [
 	Nav([
 		HStack([
-			Image('logo.png')
+			Image('icon.png')
 				.caption('jsUI')
 				.width('50px')
 				.margins(['10px', '0']),
