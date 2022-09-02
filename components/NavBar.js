@@ -2,8 +2,8 @@
  * Copyright (c) 2022 Brandon Jordan
  */
 
-import * as jsUI from 'jsUI';
-import {Header, Div, Image, Nav, List, ListItem, Hyperlink, HStack, HSpacer} from 'jsUI';
+import * as jsUI from 'javascript-ui';
+import {Header, Div, Image, Nav, List, ListItem, Hyperlink, HStack, HSpacer} from 'javascript-ui';
 
 jsUI.globalStyle('nav ul')
 	.padding(0)

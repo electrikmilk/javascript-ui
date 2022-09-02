@@ -22,7 +22,7 @@ import {
 	GridStack,
 	ScrollView,
 	RadioGroup
-} from 'jsUI';
+} from 'javascript-ui';
 
 import NavBar from '../components/NavBar.js';
 
