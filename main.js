@@ -4,7 +4,7 @@
 
 import * as jsUI from 'javascript-ui';
 
-import index from './pages';
+import index from './pages/index.js';
 import animation from './pages/animation.js';
 
 window.onload = () => {
