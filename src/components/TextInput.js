@@ -16,6 +16,14 @@ class TextBox extends Element {
 		this.element.type = 'text';
 	}
 
+	type(type) {
+		return this.attribute('type', type);
+	}
+
+	name(name) {
+		return this.attribute('name', name);
+	}
+
 	placeholder(placeholder) {
 		return this.attribute('placeholder', placeholder);
 	}

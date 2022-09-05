@@ -15,6 +15,10 @@ class TextArea extends Element {
 		this.element = element;
 	}
 
+	name(name) {
+		return this.attribute('name', name);
+	}
+
 	placeholder(placeholder) {
 		return this.attribute('placeholder', placeholder);
 	}
@@ -25,9 +29,5 @@ class TextArea extends Element {
 
 	rows(rows) {
 		return this.attribute('rows', rows);
-	}
-
-	type(type) {
-		return this.attribute('type', type);
 	}
 }

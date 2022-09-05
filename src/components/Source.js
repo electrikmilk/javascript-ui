@@ -23,7 +23,7 @@ class SourceTag extends Element {
 	}
 
 	type(type) {
-		return this.attribute('src', type);
+		return this.attribute('type', type);
 	}
 
 	media(media) {

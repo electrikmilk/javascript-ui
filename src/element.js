@@ -12,11 +12,6 @@ export class Element extends Events {
 		this.element = element;
 	}
 
-	name(name) {
-		this.element.id = name;
-		return this;
-	}
-
 	attribute(attribute, value) {
 		this.element.setAttribute(attribute, value);
 		return this;
@@ -29,6 +24,10 @@ export class Element extends Events {
 
 	defaultValue(value) {
 		return this.attribute('value', value);
+	}
+
+	id(id) {
+		return this.attribute('id', id);
 	}
 
 	class(className) {
