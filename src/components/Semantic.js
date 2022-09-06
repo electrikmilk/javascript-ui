@@ -110,6 +110,19 @@ class HeaderTag extends Element {
 	}
 }
 
+export function Main(components) {
+	return new MainTag(components);
+}
+
+class MainTag extends Element {
+	constructor(components) {
+		const element = document.createElement('main');
+		super(element);
+		this.element = element;
+		this.components = components;
+	}
+}
+
 export function Nav(components) {
 	return new NavTag(components);
 }

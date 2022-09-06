@@ -4,15 +4,19 @@
 
 import {Element} from '../element.js';
 
-export function TextBox() {
-	return new TextArea();
+export function Textarea() {
+	return new TextareaTag();
 }
 
-class TextArea extends Element {
+class TextareaTag extends Element {
 	constructor() {
 		const element = document.createElement('textarea');
 		super(element);
 		this.element = element;
+	}
+
+	defaultValue(value) {
+		return this.element.innerText = value;
 	}
 
 	name(name) {

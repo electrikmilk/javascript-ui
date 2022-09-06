@@ -12,8 +12,8 @@ import {
 	Form,
 	Label,
 	Dropdown,
-	TextBox,
-	TextInput,
+	Textarea,
+	Input,
 	Spacer,
 	Button,
 	Div,
@@ -65,7 +65,7 @@ export default [
 			Spacer(),
 			HStack([
 				Label('TextInput Label', 'textInput'),
-				TextInput()
+				Input()
 					.name('textInput')
 					.block()
 					.placeholder('TextInput')
@@ -73,7 +73,7 @@ export default [
 			Spacer(),
 			HStack([
 				Label('TextBox Label', 'textBox'),
-				TextBox()
+				Textarea()
 					.name('textBox')
 					.placeholder('TextBox')
 					.cols(50)

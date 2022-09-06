@@ -14,4 +14,8 @@ class CanvasTag extends Element {
 		super(element);
 		this.element = element;
 	}
+
+	context(id = '2d') {
+		return this.element.getContext(id);
+	}
 }

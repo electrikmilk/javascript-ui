@@ -22,10 +22,6 @@ export class Element extends Events {
 		return this;
 	}
 
-	defaultValue(value) {
-		return this.attribute('value', value);
-	}
-
 	id(id) {
 		return this.attribute('id', id);
 	}

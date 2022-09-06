@@ -6,7 +6,6 @@
 
 export * from './components/Audio.js';
 export * from './components/Button.js';
-export * from './components/CheckBox.js';
 export * from './components/Canvas.js';
 export * from './components/Div.js';
 export * from './components/Dialog.js';
@@ -14,14 +13,18 @@ export * from './components/Frame.js';
 export * from './components/Line.js';
 export * from './components/Hyperlink.js';
 export * from './components/Lists.js';
-export * from './components/Radio.js';
 export * from './components/Semantic.js';
 export * from './components/Picture.js';
+export * from './components/Progress.js';
+export * from './components/Meter.js';
 export * from './components/Tag.js';
 export * from './components/Form.js';
 export * from './components/Text.js';
-export * from './components/TextBox.js';
-export * from './components/TextInput.js';
+export * from './components/Input.js';
+export * from './components/Textarea.js';
+export * from './components/Table.js';
+export * from './components/Source.js';
+export * from './components/Track.js';
 export * from './components/Image.js';
 export * from './components/Video.js';
 
