@@ -4,7 +4,7 @@
 
 import {Element} from '../element.js';
 
-export function Textarea() {
+export function TextBox() {
 	return new TextareaTag();
 }
 

@@ -12,7 +12,7 @@ import {
 	Form,
 	Label,
 	Dropdown,
-	Textarea,
+	TextBox,
 	Input,
 	Spacer,
 	Button,
@@ -73,7 +73,7 @@ export default [
 			Spacer(),
 			HStack([
 				Label('TextBox Label', 'textBox'),
-				Textarea()
+				TextBox()
 					.name('textBox')
 					.placeholder('TextBox')
 					.cols(50)
