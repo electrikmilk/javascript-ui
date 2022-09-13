@@ -3,7 +3,6 @@
  */
 
 import {
-	Header,
 	Image,
 	Section,
 	Text,
@@ -13,10 +12,10 @@ import {
 	Label,
 	Dropdown,
 	TextBox,
-	Input,
 	Spacer,
 	Button,
 	Div,
+	TextInput,
 	HStack,
 	VStack,
 	GridStack,
@@ -39,7 +38,7 @@ export default [
 					'1': 'Item 1',
 					'2': 'Item 2'
 				})
-					.name('dropdown')
+					.id('dropdown')
 					.onChange((e) => {
 						console.log('changed!', e.target);
 					})
@@ -57,7 +56,7 @@ export default [
 						'4': 'Item 4'
 					}
 				})
-					.name('groupedDropdown')
+					.id('groupedDropdown')
 					.onChange((e) => {
 						console.log('changed!', e.target);
 					})
@@ -65,8 +64,8 @@ export default [
 			Spacer(),
 			HStack([
 				Label('TextInput Label', 'textInput'),
-				Input()
-					.name('textInput')
+				TextInput()
+					.id('textInput')
 					.block()
 					.placeholder('TextInput')
 			]),
@@ -74,7 +73,7 @@ export default [
 			HStack([
 				Label('TextBox Label', 'textBox'),
 				TextBox()
-					.name('textBox')
+					.id('textBox')
 					.placeholder('TextBox')
 					.cols(50)
 					.rows(6)
@@ -174,7 +173,7 @@ export default [
 			.height('300px'),
 		Spacer(),
 		Image('domo.png')
-			.name('domo')
+			.id('domo')
 			.center()
 	])
 		.paddings(['10px', '20px'])
