@@ -30,12 +30,41 @@ class AnchorTag extends Element {
 		return this.attribute('href', url);
 	}
 
+	openNewTab() {
+		return this.target('_blank');
+	}
+
+	openWindow(features) {
+		let url = this.element.href;
+		let windowFeatures = [];
+		if (features) {
+			for (let feature in features) {
+				if (features[feature] === false) {
+					continue;
+				}
+				if (features[feature] === true) {
+					windowFeatures.push(feature);
+				} else {
+					windowFeatures.push(feature + '=' + features[feature]);
+				}
+			}
+		}
+		this.element.onclick = (e) => {
+			e.preventDefault();
+			window.open(url, '_blank', windowFeatures.join(','));
+		};
+	}
+
 	target(target) {
 		if (!target.includes('_')) {
 			target = '_' + target;
 		}
 		this.element.target = target;
 		return this;
+	}
+
+	relationship(relationships) {
+		return this.attribute('rel', relationships.join(' '));
 	}
 
 	download(bool) {
