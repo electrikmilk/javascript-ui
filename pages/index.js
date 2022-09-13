@@ -3,20 +3,20 @@
  */
 
 import {
-	Header,
 	Image,
 	Section,
 	Text,
+	Hyperlink,
 	Line,
 	Heading,
 	Form,
 	Label,
 	Dropdown,
 	TextBox,
-	TextInput,
 	Spacer,
 	Button,
 	Div,
+	TextInput,
 	HStack,
 	VStack,
 	GridStack,
@@ -30,6 +30,9 @@ export default [
 	NavBar,
 	Section([
 		Text('Hello, World! This page was made using jsUI.'),
+		Hyperlink('View Source')
+			.url('https://github.com/electrikmilk/javascript-ui/tree/gh-pages')
+			.openNewTab(),
 		Line(),
 		Heading('Form Controls'),
 		Form([
@@ -39,7 +42,7 @@ export default [
 					'1': 'Item 1',
 					'2': 'Item 2'
 				})
-					.name('dropdown')
+					.id('dropdown')
 					.onChange((e) => {
 						console.log('changed!', e.target);
 					})
@@ -57,7 +60,7 @@ export default [
 						'4': 'Item 4'
 					}
 				})
-					.name('groupedDropdown')
+					.id('groupedDropdown')
 					.onChange((e) => {
 						console.log('changed!', e.target);
 					})
@@ -66,7 +69,7 @@ export default [
 			HStack([
 				Label('TextInput Label', 'textInput'),
 				TextInput()
-					.name('textInput')
+					.id('textInput')
 					.block()
 					.placeholder('TextInput')
 			]),
@@ -74,7 +77,7 @@ export default [
 			HStack([
 				Label('TextBox Label', 'textBox'),
 				TextBox()
-					.name('textBox')
+					.id('textBox')
 					.placeholder('TextBox')
 					.cols(50)
 					.rows(6)
@@ -174,7 +177,6 @@ export default [
 			.height('300px'),
 		Spacer(),
 		Image('domo.png')
-			.name('domo')
 			.center()
 	])
 		.paddings(['10px', '20px'])
