@@ -2,7 +2,7 @@
  * Copyright (c) 2022 Brandon Jordan
  */
 
-import * as jsUI from 'javascript-ui';
+import * as jsUI from 'https://cdn.skypack.dev/javascript-ui';
 
 import index from './pages/index.js';
 import animation from './pages/animation.js';

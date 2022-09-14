@@ -2,7 +2,7 @@
  * Copyright (c) 2022 Brandon Jordan
  */
 
-import {Heading, Div, HStack, Button, Spacer, Section, Line} from 'javascript-ui';
+import {Heading, Div, HStack, Button, Spacer, Section, Line} from 'https://cdn.skypack.dev/javascript-ui';
 import NavBar from '../components/NavBar.js';
 
 export default [

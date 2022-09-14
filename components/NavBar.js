@@ -2,8 +2,18 @@
  * Copyright (c) 2022 Brandon Jordan
  */
 
-import * as jsUI from 'javascript-ui';
-import {Header, Div, Image, Nav, List, ListItem, Hyperlink, HStack, HSpacer} from 'javascript-ui';
+import * as jsUI from 'https://cdn.skypack.dev/javascript-ui';
+import {
+	Header,
+	Div,
+	Image,
+	Nav,
+	List,
+	ListItem,
+	Hyperlink,
+	HStack,
+	HSpacer
+} from 'https://cdn.skypack.dev/javascript-ui';
 
 jsUI.globalStyle('nav ul')
 	.padding(0)

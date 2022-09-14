@@ -22,7 +22,7 @@ import {
 	GridStack,
 	ScrollView,
 	RadioGroup
-} from 'javascript-ui';
+} from 'https://cdn.skypack.dev/javascript-ui';
 
 import NavBar from '../components/NavBar.js';
 
