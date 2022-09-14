@@ -5,16 +5,76 @@
 import {Element} from '../element.js';
 
 export function Text(text) {
-	return new ParagraphTag(text);
+	return new TextTag(text);
 }
 
-class ParagraphTag extends Element {
+class TextTag extends Element {
 	constructor(text) {
-		const element = document.createElement('p');
+		const element = document.createElement('span');
 		super(element);
 		this.element = element;
 		if (text) {
 			this.element.innerText = text;
+		}
+	}
+}
+
+export function Bold(text) {
+	return new BoldTag(text);
+}
+
+class BoldTag extends Element {
+	constructor(text) {
+		const element = document.createElement('strong');
+		super(element);
+		this.element = element;
+		if (text) {
+			this.element.innerText = text;
+		}
+	}
+}
+
+export function Italic(text) {
+	return new ItalicTag(text);
+}
+
+class ItalicTag extends Element {
+	constructor(text) {
+		const element = document.createElement('em');
+		super(element);
+		this.element = element;
+		if (text) {
+			this.element.innerText = text;
+		}
+	}
+}
+
+export function Paragraph(components) {
+	return new ParagraphTag(components);
+}
+
+class ParagraphTag extends Element {
+	constructor(components) {
+		const element = document.createElement('p');
+		super(element);
+		this.element = element;
+		if (components) {
+			if (Array.isArray(components)) {
+				let i = 0;
+				for (let component in components) {
+					if (components[component].element.innerText) {
+						if (i === 0) {
+							components[component].element.innerText += ' ';
+						} else {
+							components[component].element.innerText = ' ' + components[component].element.innerText + ' ';
+						}
+					}
+					++i;
+				}
+				this.components = components;
+			} else {
+				this.element.innerText = components;
+			}
 		}
 	}
 }
