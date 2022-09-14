@@ -194,6 +194,9 @@ export function accentColor(hexColor) {
 		'::moz-selection': {
 			'background': hexColor + '50'
 		},
+		'a:link': {
+			'color': hexColor
+		},
 		'input,textarea,select': {
 			'accent-color': hexColor,
 			'outline-color': hexColor,
