@@ -19,6 +19,8 @@ class InputRadioGroup extends Element {
 			element.append(radio);
 			const label = document.createElement('label');
 			label.innerText = options[option];
+			label.style.paddingLeft = '5px';
+			label.style.paddingRight = '10px';
 			label.setAttribute('for', option);
 			element.append(label);
 		}
