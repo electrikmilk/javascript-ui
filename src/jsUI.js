@@ -21,7 +21,6 @@ export * from './components/Tag.js';
 export * from './components/Form.js';
 export * from './components/Text.js';
 export * from './components/Input.js';
-export * from './components/TextBox.js';
 export * from './components/Table.js';
 export * from './components/Source.js';
 export * from './components/Track.js';
