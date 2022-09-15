@@ -236,7 +236,7 @@ let routes = [];
 let urlParams = [];
 let currentRoute;
 
-export function router(appRoutes) {
+export function router(appRoutes, debugLog) {
 	if (!appRoutes || !Array.isArray(appRoutes) || appRoutes.length === 0) {
 		console.error('[Router] Invalid or empty routes were provided!', appRoutes);
 		return false;
@@ -256,6 +256,11 @@ export function router(appRoutes) {
 	routes = appRoutes;
 	window.addEventListener('popstate', evaluateURL);
 	evaluateURL();
+	setTimeout(function () {
+		if (debugLog === true) {
+			debug();
+		}
+	}, 500);
 	return new Body();
 }
 
