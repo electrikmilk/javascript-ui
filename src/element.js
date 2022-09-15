@@ -44,4 +44,41 @@ export class Element extends Events {
 	html(html) {
 		return this.property('innerHTML', html);
 	}
+
+	copy(text) {
+		if (navigator.clipboard) {
+			this.onClick(() => {
+				const type = 'text/plain';
+				const blob = new Blob([text], {type});
+				const data = [new ClipboardItem({[type]: blob})];
+				navigator.clipboard.write(data)
+					.then(() => console.log('[JSUI] Content was copied'))
+					.catch((error) => console.log('[JSUI] Error copying content', error));
+			});
+		}
+		return this;
+	}
+
+	share(content) {
+		let data;
+		if (content.constructor && content.constructor === Object) {
+			data = content;
+		} else if (content.includes('http')) {
+			data = {
+				url: content
+			};
+		} else {
+			data = {
+				text: content
+			};
+		}
+		if (navigator.share && navigator.canShare(data)) {
+			navigator.share(data)
+				.then(() => console.log('[JSUI] Content was shared'))
+				.catch((error) => console.log('[JSUI] Error sharing content', error));
+		} else {
+			console.error('[JSUI] Unable to share!');
+		}
+		return this;
+	}
 }
