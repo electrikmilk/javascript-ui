@@ -21,18 +21,19 @@ jsUI.globalStyle('nav ul')
 	.listStyleNone();
 
 jsUI.globalStyle('nav ul li')
-	.padding('5px')
-	.hover((e) => e
-		.textColor('white')
-		.backgroundColor('#888888')
-	)
-	.textColor('#dddddd');
+	.padding('5px');
 
 jsUI.globalStyle('nav ul li a')
 	.textDecorationNone()
 	.rounded('5px')
 	.transition('all', '0.3s')
-	.paddings(['5px', '8px']);
+	.paddings(['5px', '8px'])
+	.hover((e) => e
+		.textColor('white')
+		.backgroundColor('#888888')
+	)
+	.textColor('#dddddd');
+;
 
 export default [
 	Nav([
