@@ -47,3 +47,9 @@ Resulting HTML:
 Result in browser:
 
 ![Example](https://i.imgur.com/8MgKcE4.png)
+
+---
+
+Thanks for taking interest in this project :) I work on jsUI because it's fun and because I feel like I discover more and more uses for it the more I work on it. I've come to find it's very hackable, it has more possibilities than I originally thought when I started the project and I love stuff like that.
+
+This project aims to create a framework that allows you to create UI in a way that feels more natural and fun and not a chore.
