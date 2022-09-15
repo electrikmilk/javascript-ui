@@ -40,6 +40,7 @@ import {Element} from './element.js';
 const head = document.querySelector('head');
 
 let globalCSS = '';
+let accent;
 
 window.onload = () => {
 	if (!document.querySelector('meta[name=viewport]')) {
@@ -183,7 +184,12 @@ export function icon(src) {
 	head.appendChild(touchIconLink);
 }
 
+export function getAccentColor() {
+	return accent;
+}
+
 export function accentColor(hexColor) {
+	accent = hexColor;
 	if (!hexColor.includes('#')) {
 		console.warn('Accent color should be a hex color value for proper application.');
 	}
