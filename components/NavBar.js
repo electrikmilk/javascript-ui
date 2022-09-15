@@ -21,6 +21,7 @@ jsUI.globalStyle('nav ul')
 	.listStyleNone();
 
 jsUI.globalStyle('nav ul li')
+	.inlineBlock()
 	.padding('5px');
 
 jsUI.globalStyle('nav ul li a')
