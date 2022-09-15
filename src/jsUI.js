@@ -31,6 +31,7 @@ export * from './components/Dropdown.js';
 export * from './components/Logic.js';
 export * from './components/CheckBoxGroup.js';
 export * from './components/RadioGroup.js';
+export * from './components/Spinner.js';
 export * from './components/Spacer.js';
 export * from './components/Stack.js';
 export * from './components/View.js';
@@ -202,6 +203,9 @@ export function accentColor(hexColor) {
 		},
 		'a:link': {
 			'color': hexColor
+		},
+		'.jsui-spinner': {
+			'border-top-color': hexColor
 		},
 		'input,textarea,select': {
 			'accent-color': hexColor,
