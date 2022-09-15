@@ -79,7 +79,7 @@ class InputTag extends Element {
 	}
 }
 
-export function ColorInput() {
+export function ColorPicker() {
 	return new InputColor();
 }
 
