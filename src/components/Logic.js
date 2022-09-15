@@ -35,11 +35,11 @@ class ConditionalComponent extends Element {
 		super(element);
 		this.element = element;
 		if (evalTo === true) {
-			if ((condition)) {
+			if (condition) {
 				this.components = components;
 			}
 		} else if (evalTo === false) {
-			if (!(condition)) {
+			if (!condition) {
 				this.components = components;
 			}
 		}
