@@ -6,6 +6,12 @@ import {Element} from '../element.js';
 import {onWindowResize} from '../window.js';
 
 export const If = {
+	True(condition, components) {
+		return new ConditionalComponent(condition, components, true);
+	},
+	False(condition, components) {
+		return new ConditionalComponent(condition, components, false);
+	},
 	DeviceMobile: (components) => {
 		return new MobileComponent(components);
 	},
@@ -23,6 +29,22 @@ export const If = {
 	}
 };
 
+class ConditionalComponent extends Element {
+	constructor(condition, components, evalTo) {
+		const element = document.createElement('span');
+		super(element);
+		this.element = element;
+		if (evalTo === true) {
+			if ((condition)) {
+				this.components = components;
+			}
+		} else if (evalTo === false) {
+			if (!(condition)) {
+				this.components = components;
+			}
+		}
+	}
+}
 
 class MobileComponent extends Element {
 	constructor(components) {
