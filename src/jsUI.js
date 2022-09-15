@@ -29,6 +29,7 @@ export * from './components/Image.js';
 export * from './components/Video.js';
 
 export * from './components/Dropdown.js';
+export * from './components/Logic.js';
 export * from './components/CheckBoxGroup.js';
 export * from './components/RadioGroup.js';
 export * from './components/Spacer.js';

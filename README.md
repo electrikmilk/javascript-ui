@@ -30,7 +30,7 @@ import {Section,Text} from 'javascript-ui';
 
 jsUI.view([
 	Section([
-		Text('Hello, World!')
+		Paragraph('Hello, World!')
 			.textColor('green')
 	])
 ]);

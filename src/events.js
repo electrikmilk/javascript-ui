@@ -3,6 +3,7 @@
  */
 
 import {Style} from './style.js';
+import {onWindowResize} from './window.js';
 
 export class Events extends Style {
 	element;
@@ -10,6 +11,45 @@ export class Events extends Style {
 	constructor(element) {
 		super(element);
 		this.element = element;
+	}
+
+	onDeviceSmall(callback) {
+		if (window.innerWidth <= 640) {
+			callback(this);
+		}
+		const instance = this;
+		onWindowResize(() => {
+			if (window.innerWidth <= 640) {
+				callback(this);
+			}
+		});
+		return this;
+	}
+
+	onDeviceMedium(callback) {
+		if (window.innerWidth > 640 && window.innerWidth <= 1007) {
+			callback(this);
+		}
+		const instance = this;
+		onWindowResize(() => {
+			if (window.innerWidth > 640 && window.innerWidth <= 1007) {
+				callback(this);
+			}
+		});
+		return this;
+	}
+
+	onDeviceLarge(callback) {
+		if (window.innerWidth > 1007) {
+			callback(this);
+		}
+		const instance = this;
+		onWindowResize(() => {
+			if (window.innerWidth > 1007) {
+				callback(this);
+			}
+		});
+		return this;
 	}
 
 	onLoad(callback) {
