@@ -642,10 +642,6 @@ export class Style extends StandardAnimation {
 		return this.style('opacity', opacity);
 	}
 
-	hidden() {
-		return this.style('display', 'none');
-	}
-
 	// display
 
 	block() {
@@ -658,6 +654,14 @@ export class Style extends StandardAnimation {
 
 	inlineBlock() {
 		return this.style('display', 'inline-block');
+	}
+
+	show() {
+		return this.block();
+	}
+
+	hide() {
+		return this.style('display', 'none');
 	}
 
 	// grid
