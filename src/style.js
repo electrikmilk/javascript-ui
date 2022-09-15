@@ -353,16 +353,28 @@ export class Style extends StandardAnimation {
 		return this;
 	}
 
-	uppercase() {
+	upperCase() {
 		return this.style('text-transform', 'uppercase');
 	}
 
-	lowercase() {
+	lowerCase() {
 		return this.style('text-transform', 'lowercase');
 	}
 
 	capitalize() {
 		return this.style('text-transform', 'capitalize');
+	}
+
+	titleCase() {
+		let nonTitles = ['of', 'a', 'the', 'and', 'an', 'or', 'nor', 'but', 'is', 'if', 'then', 'else', 'when', 'at', 'from', 'by', 'on', 'off', 'for', 'in', 'out', 'over', 'to', 'into', 'with'];
+		let words = this.element.innerText.split(' ');
+		words.forEach(function (word, idx) {
+			if (idx === 0 || !nonTitles.includes(word)) {
+				words[idx] = word[0].toUpperCase() + word.substring(1, word.length);
+			}
+		});
+		this.element.innerText = words.join(' ');
+		return this;
 	}
 
 	// spacing
