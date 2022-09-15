@@ -36,6 +36,20 @@ class TextareaTag extends Element {
 	}
 }
 
+export function TextEditor(components) {
+	return new ContentEditable(components);
+}
+
+class ContentEditable extends Element {
+	constructor(components) {
+		const element = document.createElement('div');
+		super(element);
+		this.element = element;
+		this.components = components;
+		this.element.contentEditable = true;
+	}
+}
+
 export function TextInput() {
 	return new InputTag();
 }
