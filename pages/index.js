@@ -21,7 +21,11 @@ import {
 	VStack,
 	GridStack,
 	ScrollView,
-	RadioGroup
+	RadioGroup,
+	Paragraph,
+	Italic,
+	Bold,
+	If
 } from 'https://cdn.skypack.dev/javascript-ui';
 
 import NavBar from '../components/NavBar.js';
@@ -29,12 +33,22 @@ import NavBar from '../components/NavBar.js';
 export default [
 	NavBar,
 	Section([
-		Text('Hello, World! This page was made using jsUI.'),
-		Hyperlink('View Source')
-			.url('https://github.com/electrikmilk/javascript-ui/tree/gh-pages')
-			.openNewTab(),
+		Paragraph([
+			Italic('Hello, World!'),
+			Text('This page was made using'),
+			Bold('jsUI!'),
+			Hyperlink('View Source')
+				.url('https://github.com/electrikmilk/javascript-ui/tree/gh-pages')
+				.openNewTab()
+		]),
+		If.DeviceMobile([
+			Paragraph('Hello, Mobile User! Yep, there\'s logic for this! ;)')
+		]),
 		Line(),
-		Heading('Form Controls'),
+		Heading('Form Controls')
+			.onDeviceSmall(e => e.textSize('24px'))
+			.onDeviceMedium(e => e.textSize('28px'))
+			.onDeviceLarge(e => e.textSize('32px')),
 		Form([
 			HStack([
 				Label('Dropdown Label', 'dropdown'),
@@ -107,16 +121,16 @@ export default [
 		Heading('Stacks and Views'),
 		Heading('VStack', 3),
 		VStack([
-			Text('Item'),
-			Text('Item'),
-			Text('Item')
+			Paragraph('Item'),
+			Paragraph('Item'),
+			Paragraph('Item')
 		]),
 		Heading('HStack', 3),
 		HStack([
-			Text('Item'),
-			Text('Item'),
-			Text('Item'),
-			Text('Item')
+			Paragraph('Item'),
+			Paragraph('Item'),
+			Paragraph('Item'),
+			Paragraph('Item')
 		]),
 		Heading('GridStack', 3),
 		GridStack([
