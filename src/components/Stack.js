@@ -21,8 +21,8 @@ class HStackTag extends Element {
 	}
 }
 
-export function VStack(components, rows = 12) {
-	return new VStackTag(components, rows);
+export function VStack(components) {
+	return new VStackTag(components);
 }
 
 class VStackTag extends Element {
