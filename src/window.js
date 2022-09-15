@@ -13,3 +13,15 @@ window.onresize = () => {
 export function onWindowResize(callback) {
 	resizeCallbacks.push(callback);
 }
+
+let loadCallbacks = [];
+
+window.onload = () => {
+	loadCallbacks.forEach((callback) => {
+		callback();
+	});
+};
+
+export function onWindowLoad(callback) {
+	loadCallbacks.push(callback);
+}
