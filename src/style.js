@@ -29,10 +29,6 @@ export class Style extends StandardAnimation {
 		this.style('color', 'initial');
 	}
 
-	transition(property, duration, easing, delay) {
-		return this.style('transition', [property, duration, easing, delay].join(' '));
-	}
-
 	effectSelector(effect) {
 		if (!this.selector) {
 			console.error('Component instance does not have a selector!');
@@ -77,6 +73,14 @@ export class Style extends StandardAnimation {
 
 	disableResize() {
 		return this.style('resize', 'none');
+	}
+
+	transition(property, duration, easing, delay) {
+		return this.style('transition', [property, duration, easing, delay].join(' '));
+	}
+
+	colorScheme(scheme) {
+		return this.style('color-scheme', scheme);
 	}
 
 	// list
