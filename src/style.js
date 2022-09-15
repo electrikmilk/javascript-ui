@@ -517,7 +517,7 @@ export class Style extends StandardAnimation {
 		return this.style('height', value);
 	}
 
-	fit() {
+	fitWidth() {
 		this.style('width', '100%');
 		this.style('width', '-moz-available');
 		this.style('width', '-webkit-fill-available');
@@ -532,6 +532,12 @@ export class Style extends StandardAnimation {
 		this.style('height', '-webkit-fill-available');
 		this.style('height', 'fill-available');
 		this.style('height', 'stretch');
+		return this;
+	}
+
+	fitViewport() {
+		this.style('width', '100vw');
+		this.style('height', '100vh');
 		return this;
 	}
 
@@ -569,7 +575,7 @@ export class Style extends StandardAnimation {
 		return this;
 	}
 
-	centerItems() {
+	centerContent() {
 		this.style('display', 'flex');
 		this.style('place-content', 'center');
 		this.style('place-items', 'center');
