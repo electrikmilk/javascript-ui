@@ -99,6 +99,18 @@ class InputRange extends InputTag {
 		super();
 		this.element.type = 'range';
 	}
+
+	min(min) {
+		return this.attribute('min', min);
+	}
+
+	max(max) {
+		return this.attribute('max', max);
+	}
+
+	step(step) {
+		return this.attribute('step', step);
+	}
 }
 
 export function SecureInput() {
