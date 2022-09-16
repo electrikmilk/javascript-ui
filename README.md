@@ -26,7 +26,7 @@ Import and add components to the `view()` function.
 
 ```javascript
 import * as jsUI from 'javascript-ui';
-import {Section,Text} from 'javascript-ui';
+import {Section,Paragraph} from 'javascript-ui';
 
 jsUI.view([
 	Section([
