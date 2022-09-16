@@ -139,25 +139,25 @@ export default [
 				.backgroundColor('lightblue')
 				.height('300px')
 				.margin('3px')
-				.centerItems(),
+				.centerContent(),
 			Div()
 				.text('Item 2')
 				.backgroundColor('lightblue')
 				.height('300px')
 				.margin('3px')
-				.centerItems(),
+				.centerContent(),
 			Div()
 				.text('Item 3')
 				.backgroundColor('lightblue')
 				.height('300px')
 				.margin('3px')
-				.centerItems(),
+				.centerContent(),
 			Div()
 				.text('Item 4')
 				.backgroundColor('lightblue')
 				.height('300px')
 				.margin('3px')
-				.centerItems()
+				.centerContent()
 		], '50%'),
 		Heading('ScrollView', 3),
 		ScrollView([
@@ -167,25 +167,25 @@ export default [
 					.backgroundColor('lightblue')
 					.height('300px')
 					.margin('3px')
-					.centerItems(),
+					.centerContent(),
 				Div()
 					.text('Item 2')
 					.backgroundColor('lightblue')
 					.height('300px')
 					.margin('3px')
-					.centerItems(),
+					.centerContent(),
 				Div()
 					.text('Item 3')
 					.backgroundColor('lightblue')
 					.height('300px')
 					.margin('3px')
-					.centerItems(),
+					.centerContent(),
 				Div()
 					.text('Item 4')
 					.backgroundColor('lightblue')
 					.height('300px')
 					.margin('3px')
-					.centerItems()
+					.centerContent()
 			], '50%')
 		])
 			.height('300px'),
