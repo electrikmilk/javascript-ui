@@ -294,6 +294,12 @@ export class Style extends StandardAnimation {
 		if (family === 'system') {
 			family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
 		}
+		if (family === 'sans') {
+			family = 'Roboto, Helvetica, Arial, sans-serif';
+		}
+		if (family === 'serif') {
+			family = 'Didot, Garamond, Georgia, Times New Roman, serif';
+		}
 		if (this.element.tagName === 'BODY') {
 			addCSS({
 				'input,textarea,select,button': {
