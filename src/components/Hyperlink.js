@@ -63,7 +63,7 @@ class AnchorTag extends Element {
 		return this;
 	}
 
-	relationship(relationships) {
+	relationships(relationships) {
 		return this.attribute('rel', relationships.join(' '));
 	}
 
