@@ -2,9 +2,12 @@
 	<img src="https://i.imgur.com/HnRViVq.png"/>
 </p>
 
-# jsUI
+# javascript-ui
 
-jsUI is a way to describe HTML and CSS in Javascript that will then be applied to the HTML document body. Inspired by UI
+[![License](https://img.shields.io/github/license/electrikmilk/javascript-ui)](https://github.com/electrikmilk/javascript-ui/blob/main/LICENSE)
+[![Version](https://img.shields.io/npm/v/javascript-ui)](https://www.npmjs.com/package/javascript-ui)
+
+javascript-ui is a way to describe HTML and CSS in Javascript that will then be applied to the HTML document body. Inspired by UI
 markup languages like SwiftUI.
 
 - Useful shorthands for HTML tags and css properties
@@ -15,7 +18,6 @@ markup languages like SwiftUI.
 
 [Playground](https://codepen.io/internetgho5t/pen/ZExgBbm)
 &bull; [Documentation](https://github.com/electrikmilk/jsUI/wiki)
-&bull; [NPM](https://www.npmjs.com/package/javascript-ui)
 
 ## Usage
 
