@@ -4,15 +4,18 @@
 
 # jsUI
 
-jsUI is a way to describe HTML and CSS in Javascript that will then be applied to the HTML document body. Inspired by UI markup languages like SwiftUI.
+jsUI is a way to describe HTML and CSS in Javascript that will then be applied to the HTML document body. Inspired by UI
+markup languages like SwiftUI.
 
- - Useful shorthands for HTML tags and css properties
- - Built-in standard animations like rotate, fade, flip, shake, and more...
- - Built-in CSS tricks like truncation, font smoothing, inset, fit, etc.
- - CSS properties are abtracted into views and stacks like ScrollView, GridStack, HStack, VStack, etc.
- - Built-in router
- 
-[Playground](https://codepen.io/internetgho5t/pen/ZExgBbm) &bull; [Documentation](https://github.com/electrikmilk/jsUI/wiki) &bull; [NPM](https://www.npmjs.com/package/javascript-ui)
+- Useful shorthands for HTML tags and css properties
+- Built-in standard animations like rotate, fade, flip, shake, and more...
+- Built-in CSS tricks like truncation, font smoothing, inset, fit, etc.
+- CSS properties are abtracted into views and stacks like ScrollView, GridStack, HStack, VStack, etc.
+- Built-in router
+
+[Playground](https://codepen.io/internetgho5t/pen/ZExgBbm)
+&bull; [Documentation](https://github.com/electrikmilk/jsUI/wiki)
+&bull; [NPM](https://www.npmjs.com/package/javascript-ui)
 
 ## Usage
 
@@ -22,23 +25,24 @@ Install via NPM:
 npm i javascript-ui
 ```
 
-Import and add components to the `view()` function.
+Import and add elements to the `view()` function.
 
 ```javascript
 import * as jsUI from 'javascript-ui';
-import {Section,Paragraph} from 'javascript-ui';
+import {Section, Paragraph} from 'javascript-ui';
 
 jsUI.view([
-	Section([
-		Paragraph('Hello, World!')
-			.textColor('green')
-	])
+    Section([
+        Paragraph('Hello, World!')
+            .textColor('green')
+    ])
 ]);
 ```
 
 Resulting HTML:
 
 ```html
+
 <section>
     <p style="color: green;">Hello, World!</p>
 </section>
@@ -50,6 +54,9 @@ Result in browser:
 
 ---
 
-Thanks for taking interest in this project :) I work on jsUI because it's fun and because I feel like I discover more and more uses for it the more I work on it. I've come to find it's very hackable, it has more possibilities than I originally thought when I started the project and I love stuff like that.
+Thanks for taking interest in this project :) I work on jsUI because it's fun and because I feel like I discover more
+and more uses for it the more I work on it. I've come to find it's very hackable, it has more possibilities than I
+originally thought when I started the project and I love stuff like that.
 
-This project aims to create a framework that allows you to create UI in a way that feels more natural and fun and not a chore.
+This project aims to create a framework that allows you to create UI in a way that feels more natural and fun and not a
+chore.
