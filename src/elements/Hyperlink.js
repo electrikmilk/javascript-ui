@@ -4,12 +4,12 @@
 
 import {Element} from '../element.js';
 
-export function Hyperlink(text) {
-    return new AnchorTag(text);
+export function Hyperlink(text, url = null) {
+    return new AnchorTag(text, url);
 }
 
 class AnchorTag extends Element {
-    constructor(text) {
+    constructor(text, url) {
         const element = document.createElement('a');
         super(element);
         this.element = element;
@@ -19,6 +19,9 @@ class AnchorTag extends Element {
             } else {
                 this.elements = text;
             }
+        }
+        if (url) {
+            this.url(url);
         }
     }
 
