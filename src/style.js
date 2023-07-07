@@ -671,6 +671,14 @@ export class Style extends StandardAnimation {
         return this.style('display', 'inline-block');
     }
 
+    flex() {
+        return this.style('display', 'flex');
+    }
+
+    gap(gap) {
+        return this.style('gap', gap);
+    }
+
     show() {
         return this.block();
     }
@@ -681,6 +689,10 @@ export class Style extends StandardAnimation {
 
     // grid
 
+    grid() {
+        return this.style('display', 'grid');
+    }
+
     inlineGrid() {
         return this.style('display', 'inline-grid');
     }
@@ -689,7 +701,7 @@ export class Style extends StandardAnimation {
         return this.style('grid-column', `auto/span ${columns}`);
     }
 
-    gap(gap) {
+    gridGap(gap) {
         return this.style('grid-gap', gap);
     }
 
