@@ -241,6 +241,9 @@ export class Style extends StandardAnimation {
     fontSmoothing() {
         this.style('-webkit-font-smoothing', 'antialiased');
         this.style('-moz-osx-font-smoothing', 'grayscale');
+        this.style('-webkit-text-size-adjust', '100%');
+        this.style('text-rendering', 'optimizeLegibility');
+        this.style('font-synthesis', 'none');
         return this;
     }
 
@@ -295,7 +298,7 @@ export class Style extends StandardAnimation {
             family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
         }
         if (family === 'sans') {
-            family = 'Roboto, Helvetica, Arial, sans-serif';
+            family = 'Inter, system-ui, Roboto, Avenir, Helvetica, Arial, sans-serif';
         }
         if (family === 'serif') {
             family = 'Didot, Garamond, Georgia, Times New Roman, serif';
