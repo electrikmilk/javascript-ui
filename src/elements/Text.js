@@ -10,12 +10,10 @@ export function Text(text) {
 
 class TextTag extends Element {
     constructor(text) {
-        const element = document.createElement('span');
+        const element = document.createTextNode(text);
         super(element);
         this.element = element;
-        if (text) {
-            this.element.innerText = text;
-        }
+        this.element.innerText = text;
     }
 }
 
