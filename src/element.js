@@ -12,6 +12,34 @@ export class Element extends Events {
         this.element = element;
     }
 
+    model(store) {
+        let tagname = this.element.tagName ?? null;
+        if (tagname) {
+            tagname = tagname.toLowerCase();
+        }
+        const self = this;
+        store.model((value) => {
+            if (self.element.textContent) {
+                self.element.textContent = value;
+            } else {
+                switch (tagname) {
+                    case 'input':
+                        self.element.value = value;
+                        break;
+                    case 'button':
+                        self.element.textContent = value;
+                        break;
+                    case 'select':
+                        self.element.value = value;
+                        break;
+                    default:
+                        self.element.innerText = value;
+                }
+            }
+        });
+        return this;
+    }
+
     attribute(attribute, value) {
         this.element.setAttribute(attribute, value);
         return this;
