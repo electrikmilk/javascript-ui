@@ -58,17 +58,6 @@ class ParagraphTag extends Element {
         this.element = element;
         if (elements) {
             if (Array.isArray(elements)) {
-                let i = 0;
-                for (let element in elements) {
-                    if (elements[element].element.innerText) {
-                        if (i === 0) {
-                            elements[element].element.innerText += ' ';
-                        } else {
-                            elements[element].element.innerText = ' ' + elements[element].element.innerText + ' ';
-                        }
-                    }
-                    ++i;
-                }
                 this.elements = elements;
             } else {
                 this.element.innerText = elements;
