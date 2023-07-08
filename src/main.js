@@ -75,7 +75,7 @@ export function view(elements, debugLog = false) {
     setTimeout(function () {
         applyGlobalStyle();
         if (debugLog === true) {
-            debug();
+            debug(elements);
         }
     }, 500);
     return new Body();
@@ -237,9 +237,32 @@ class InstanceSelector extends Element {
     }
 }
 
-export function debug() {
+export function debug(elements) {
     const body = document.body;
     const globalStyle = document.querySelector('style#jsUI');
     console.log('[javascript-ui] Generated HTML', body);
     console.log('[javascript-ui] Generated CSS', globalStyle);
+    console.group('[javascript-ui] Elements Tree');
+    printElements(elements);
+    console.groupEnd();
+}
+
+function printElements(elements) {
+    elements.forEach((element) => {
+        console.group(`[${element.constructor.name}]`);
+        if (element.element) {
+            const tagName = element.element ? element.element.tagName ?? null : null;
+            if (tagName) {
+                console.log(`HTML Tag: <${element.element.tagName.toLowerCase()}/>`);
+            }
+        }
+        if (element.elements) {
+            console.group('Elements');
+            printElements(element.elements);
+            console.groupEnd();
+        } else {
+            console.log(`Content: "${element.element.innerHTML ?? element.element.innerText}"`);
+        }
+        console.groupEnd();
+    })
 }
