@@ -40,6 +40,7 @@ export * from './elements/View.js';
 import {Element} from './element.js';
 
 export * from './store.js';
+export * from './router.js';
 
 const head = document.querySelector('head');
 
