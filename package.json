@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/electrikmilk/javascript-ui.git"
   },
-  "main": "src/jsUI.js",
+  "main": "src/main.js",
   "dependencies": {
   },
   "bugs": {
