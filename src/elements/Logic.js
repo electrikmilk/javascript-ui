@@ -34,14 +34,8 @@ class ConditionalElement extends Element {
         const element = document.createElement('span');
         super(element);
         this.element = element;
-        if (evalTo === true) {
-            if (condition) {
-                this.elements = elements;
-            }
-        } else if (evalTo === false) {
-            if (!condition) {
-                this.elements = elements;
-            }
+        if ((condition) === evalTo) {
+            this.elements = elements;
         }
     }
 }
