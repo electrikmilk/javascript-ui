@@ -77,6 +77,19 @@ export class Element extends Events {
         return this;
     }
 
+    addClass(c) {
+        let classes = this.element.className.split(' ');
+        classes.push(c);
+        this.element.className = classes.join(' ');
+    }
+
+    removeClass(c) {
+        let classes = this.element.className.split(' ');
+        let classIndex = classes.indexOf(c);
+        classes = classes.splice(classIndex, 1);
+        this.element.className = classes.join(' ');
+    }
+
     text(text) {
         return this.property('innerText', text);
     }
