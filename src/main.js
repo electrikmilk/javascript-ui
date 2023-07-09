@@ -263,11 +263,15 @@ function printElements(elements) {
                 console.log(`HTML Tag: <${element.element.tagName.toLowerCase()}/>`);
             }
         }
-        if (element.elements) {
-            console.group('Elements');
-            printElements(element.elements);
+        if (element.elements || Array.isArray(element)) {
+            console.group('[Elements]');
+            if (Array.isArray(element)) {
+                printElements(element);
+            } else {
+                printElements(element.elements);
+            }
             console.groupEnd();
-        } else {
+        } else if (element.element) {
             console.log(`Content: "${element.element.innerHTML ?? element.element.innerText}"`);
         }
         console.groupEnd();
