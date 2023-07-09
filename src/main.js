@@ -93,17 +93,24 @@ function buildUI(parent, elements) {
             if (Array.isArray(element)) {
                 buildUI(parent, element);
             } else {
-                parent.appendChild(element.element);
-                if (element.elements) {
-                    buildUI(element.element, element.elements);
-                }
+                mountElement(parent, element);
             }
         });
     } else {
-        parent.appendChild(elements.element);
-        if (elements.elements) {
-            buildUI(elements.element, elements.elements);
-        }
+        mountElement(parent, elements);
+    }
+}
+
+function mountElement(parent, element) {
+    if (element.createdCallback) {
+        element.createdCallback(element);
+    }
+    parent.appendChild(element.element);
+    if (element.mountedCallback) {
+        element.mountedCallback(element);
+    }
+    if (element.elements) {
+        buildUI(element.element, element.elements);
     }
 }
 

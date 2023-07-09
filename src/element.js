@@ -6,10 +6,22 @@ import {Events} from './events.js';
 
 export class Element extends Events {
     element;
+    mountedCallback;
+    createdCallback;
 
     constructor(element) {
         super(element);
         this.element = element;
+    }
+
+    created(callback) {
+        this.createdCallback = callback;
+        return this;
+    }
+
+    mounted(callback) {
+        this.mountedCallback = callback;
+        return this;
     }
 
     model(store) {
