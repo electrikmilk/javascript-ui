@@ -71,12 +71,12 @@ export function view(elements, debugLog = false) {
     if (document.body.hasChildNodes()) {
         document.body.innerHTML = '';
     }
+    if (debugLog === true) {
+        debug(elements);
+    }
     buildUI(document.body, elements);
     setTimeout(function () {
         applyGlobalStyle();
-        if (debugLog === true) {
-            debug(elements);
-        }
     }, 500);
     return new Body();
 }
