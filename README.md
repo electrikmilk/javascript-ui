@@ -7,15 +7,14 @@
 [![License](https://img.shields.io/github/license/electrikmilk/javascript-ui)](https://github.com/electrikmilk/javascript-ui/blob/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/javascript-ui)](https://www.npmjs.com/package/javascript-ui)
 
-javascript-ui is a way to describe HTML and CSS in Javascript that will then be applied to the HTML document body.
-Inspired by UI
-markup languages like SwiftUI.
+Javascript UI is a JavaScript framework. It describes HTML and CSS in Javascript simliar to SwiftUI.
 
 - Useful shorthands for HTML tags and css properties
 - Built-in standard animations like rotate, fade, flip, shake, and more...
-- Built-in CSS tricks like truncation, font smoothing, inset, fit, etc.
+- Built-in CSS tricks like truncation, font smoothing, fit, etc.
 - CSS properties are abtracted into views and stacks like ScrollView, GridStack, HStack, VStack, etc.
 - Built-in router
+- Store and state management
 
 [Playground](https://codepen.io/internetgho5t/pen/ZExgBbm)
 &bull; [Documentation](https://github.com/electrikmilk/jsUI/wiki)
