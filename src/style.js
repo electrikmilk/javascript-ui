@@ -108,17 +108,9 @@ export class Style extends StandardAnimation {
             this.style('border', 'none');
             return this;
         }
-        if (width) {
-            this.style('borderWidth', width);
-        } else {
-            this.style('borderWidth', '1px');
-        }
-        if (style) {
-            this.style('borderStyle', style);
-        } else {
-            this.style('borderStyle', 'solid');
-        }
-        this.style('borderColor', color);
+        this.style('borderWidth', width ?? '1px');
+        this.style('borderStyle', style ?? 'solid');
+        this.style('borderColor', color ?? 'black');
         return this;
     }
 
