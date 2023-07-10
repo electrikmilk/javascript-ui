@@ -679,6 +679,14 @@ export class Style extends StandardAnimation {
         return this.style('display', 'none');
     }
 
+    toggle() {
+        if (this.style.display === 'none') {
+            this.show();
+        } else {
+            this.hide();
+        }
+    }
+
     // grid
 
     grid() {
