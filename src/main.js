@@ -26,16 +26,16 @@ export * from './elements/Source.js';
 export * from './elements/Track.js';
 export * from './elements/Image.js';
 export * from './elements/Video.js';
-
 export * from './elements/Dropdown.js';
-export * from './elements/Logic.js';
-export * from './elements/Repeat.js';
 export * from './elements/CheckBoxGroup.js';
 export * from './elements/RadioGroup.js';
-export * from './elements/Spinner.js';
 export * from './elements/Spacer.js';
-export * from './elements/Stack.js';
-export * from './elements/View.js';
+
+export * from './components/Logic.js';
+export * from './components/Repeat.js';
+export * from './components/Spinner.js';
+export * from './components/Stack.js';
+export * from './components/View.js';
 
 import {Element} from './element.js';
 
