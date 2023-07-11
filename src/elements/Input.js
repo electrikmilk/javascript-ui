@@ -5,27 +5,59 @@
 import {Element} from '../element.js';
 
 export function TextInput() {
-    return new UserInputTag();
+    return new InputTag('text');
 }
 
-class UserInputTag extends Element {
-    constructor() {
+export function SpinBox() {
+    return new InputTag('number');
+}
+
+export function SecureInput() {
+    return new InputTag('password');
+}
+
+export function ColorPicker() {
+    return new InputTag('color');
+}
+
+export function Slider() {
+    return new InputRange();
+}
+
+export function CheckBox() {
+    return new InputCheckbox();
+}
+
+export function Radio() {
+    return new InputRadio();
+}
+
+export function TextBox() {
+    return new TextareaTag();
+}
+
+export function TextEditor(elements) {
+    return new ContentEditable(elements);
+}
+
+class InputTag extends Element {
+    constructor(type) {
         const element = document.createElement('input');
         super(element);
         this.element = element;
-        this.element.type = 'text';
-    }
-
-    defaultValue(value) {
-        return this.attribute('value', value);
-    }
-
-    getValue() {
-        return this.element.getAttribute('value');
+        this.element.type = type;
     }
 
     type(type) {
         return this.attribute('type', type);
+    }
+
+    value() {
+        return this.element.value;
+    }
+
+    setValue(value) {
+        return this.attribute('value', value);
     }
 
     name(name) {
@@ -37,15 +69,20 @@ class UserInputTag extends Element {
     }
 }
 
-export function TextBox() {
-    return new TextareaTag();
-}
-
-class TextareaTag extends UserInputTag {
+class TextareaTag extends Element {
     constructor() {
         const element = document.createElement('textarea');
         super(element);
         this.element = element;
+    }
+
+    value() {
+        return this.element.innerText;
+    }
+
+    setValue(text) {
+        this.element.innerText = text;
+        return this;
     }
 
     cols(columns) {
@@ -55,41 +92,19 @@ class TextareaTag extends UserInputTag {
     rows(rows) {
         return this.attribute('rows', rows);
     }
-}
 
-export function TextEditor(elements) {
-    return new ContentEditable(elements);
-}
+    name(name) {
+        return this.attribute('name', name);
+    }
 
-class ContentEditable extends Element {
-    constructor(elements) {
-        const element = document.createElement('div');
-        super(element);
-        this.element = element;
-        this.elements = elements;
-        this.element.contentEditable = true;
+    placeholder(placeholder) {
+        return this.attribute('placeholder', placeholder);
     }
 }
 
-export function ColorPicker() {
-    return new InputColor();
-}
-
-class InputColor extends UserInputTag {
+class InputRange extends InputTag {
     constructor() {
-        super();
-        this.element.type = 'color';
-    }
-}
-
-export function Slider() {
-    return new InputRange();
-}
-
-class InputRange extends UserInputTag {
-    constructor() {
-        super();
-        this.element.type = 'range';
+        super('range');
     }
 
     min(min) {
@@ -105,43 +120,54 @@ class InputRange extends UserInputTag {
     }
 }
 
-export function SecureInput() {
-    return new InputPassword();
-}
-
-class InputPassword extends UserInputTag {
+class InputCheckbox extends CheckableInput {
     constructor() {
-        super();
-        this.element.type = 'password';
+        super('checkbox');
+    }
+
+    checked(state = null) {
+        this.setChecked(state);
+        return this;
     }
 }
 
-export function CheckBox() {
-    return new InputCheckbox();
-}
-
-class InputCheckbox extends UserInputTag {
+class InputRadio extends CheckableInput {
     constructor() {
-        super();
-        this.element.type = 'checkbox';
+        super('radio');
     }
 
-    checked() {
-        return this.attribute('checked', '');
+    selected(state = null) {
+        this.setChecked(state);
+        return this;
     }
 }
 
-export function Radio() {
-    return new InputRadio();
-}
-
-class InputRadio extends UserInputTag {
-    constructor() {
-        super();
-        this.element.type = 'radio';
+class CheckableInput extends InputTag {
+    constructor(type) {
+        super(type);
     }
 
-    selected() {
-        return this.attribute('checked', '');
+    setChecked(state = null) {
+        if (state || state === false) {
+            if (state && !this.element.checked) {
+                this.attribute('checked', '');
+            } else {
+                this.element.removeAttribute('checked');
+            }
+        } else if (this.element.checked) {
+            this.attribute('checked', '');
+        } else {
+            this.element.removeAttribute('checked');
+        }
+    }
+}
+
+class ContentEditable extends Element {
+    constructor(elements) {
+        const element = document.createElement('div');
+        super(element);
+        this.element = element;
+        this.elements = elements;
+        this.element.contentEditable = true;
     }
 }
