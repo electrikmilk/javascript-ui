@@ -24,6 +24,16 @@ export class Element extends Events {
         return this;
     }
 
+    show(store) {
+        store.model(store, (value) => {
+            if ((value) === true) {
+                this.show();
+            } else if ((value) === false) {
+                this.hide();
+            }
+        })
+    }
+
     model(store, callback = null) {
         if (callback) {
             store.model((value) => callback(this, value));
