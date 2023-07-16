@@ -5,19 +5,23 @@
 import {Element} from '../element.js';
 
 export function TextInput() {
-    return new InputTag('text');
+    return new TextInputTag();
 }
 
 export function SpinBox() {
-    return new InputTag('number');
+    return new TextInputTag('number');
+}
+
+export function EmailInput() {
+    return new TextInputTag('email');
 }
 
 export function SecureInput() {
-    return new InputTag('password');
+    return new TextInputTag('password');
 }
 
 export function ColorPicker() {
-    return new InputTag('color');
+    return new TextInputTag('color');
 }
 
 export function Slider() {
@@ -51,13 +55,11 @@ class InputTag extends Element {
     type(type) {
         return this.attribute('type', type);
     }
+}
 
-    value() {
-        return this.element.value;
-    }
-
-    setValue(value) {
-        return this.attribute('value', value);
+class BaseTextInput extends InputTag {
+    constructor(type) {
+        super(type);
     }
 
     name(name) {
@@ -67,9 +69,31 @@ class InputTag extends Element {
     placeholder(placeholder) {
         return this.attribute('placeholder', placeholder);
     }
+
+    autofocus(state = null) {
+        this.toggleAttribute('autofocus', state)
+    }
+
+    required(state = null) {
+        this.toggleAttribute('required', state)
+    }
 }
 
-class TextareaTag extends Element {
+class TextInputTag extends BaseTextInput {
+    constructor(type = 'text') {
+        super(type);
+    }
+
+    value() {
+        return this.element.value;
+    }
+
+    setValue(value) {
+        return this.attribute('value', value);
+    }
+}
+
+class TextareaTag extends BaseTextInput {
     constructor() {
         const element = document.createElement('textarea');
         super(element);
@@ -81,8 +105,7 @@ class TextareaTag extends Element {
     }
 
     setValue(text) {
-        this.element.innerText = text;
-        return this;
+        return this.property('innerText', text);
     }
 
     cols(columns) {
@@ -91,14 +114,6 @@ class TextareaTag extends Element {
 
     rows(rows) {
         return this.attribute('rows', rows);
-    }
-
-    name(name) {
-        return this.attribute('name', name);
-    }
-
-    placeholder(placeholder) {
-        return this.attribute('placeholder', placeholder);
     }
 }
 
