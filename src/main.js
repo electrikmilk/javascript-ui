@@ -82,14 +82,8 @@ export function view(elements, debugLog = false) {
 }
 
 function render(parent, elements) {
-    if (elements.default) {
-        elements = elements.default;
-    }
     if (Array.isArray(elements)) {
         elements.forEach(function (element) {
-            if (element.default) {
-                element = element.default;
-            }
             if (Array.isArray(element)) {
                 render(parent, element);
             } else {
