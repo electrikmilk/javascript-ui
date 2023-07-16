@@ -28,9 +28,7 @@ class Store {
 
     #react() {
         const self = this;
-        this.callbacks.forEach(callback => {
-            callback(self.state);
-        });
+        this.callbacks.forEach(callback => callback(self.state));
     }
 
     model(callback) {
