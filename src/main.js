@@ -111,12 +111,8 @@ function mount(parent, element) {
 function applyGlobalStyle() {
     const style = document.createElement('style');
     style.id = 'jsUI';
-    style.type = 'text/css';
-    if (style.styleSheet) {
-        style.styleSheet.cssText = globalCSS;
-    } else {
-        style.appendChild(document.createTextNode(globalCSS));
-    }
+    style.setAttribute('type', 'text/css');
+    style.innerText = globalCSS;
     head.appendChild(style);
 }
 
