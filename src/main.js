@@ -33,6 +33,7 @@ export * from './elements/Spacer.js';
 
 export * from './components/Logic.js';
 export * from './components/Repeat.js';
+export * from './components/Model.js';
 export * from './components/Spinner.js';
 export * from './components/Stack.js';
 export * from './components/View.js';
