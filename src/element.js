@@ -41,7 +41,12 @@ export class Element extends Events {
             } else {
                 switch (tagname) {
                     case 'input':
-                        self.element.value = value;
+                        const type = self.element.getAttribute('type');
+                        if (type === 'checkbox' || type === 'radio') {
+                            self.setChecked(value);
+                        } else {
+                            self.element.value = value;
+                        }
                         break;
                     case 'button':
                         self.element.textContent = value;
