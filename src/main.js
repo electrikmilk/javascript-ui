@@ -74,14 +74,14 @@ export function view(elements, debugLog = false) {
     if (debugLog === true) {
         debug(elements);
     }
-    buildUI(document.body, elements);
+    render(document.body, elements);
     setTimeout(function () {
         applyGlobalStyle();
     }, 500);
     return new Body();
 }
 
-function buildUI(parent, elements) {
+export function render(parent, elements) {
     if (elements.default) {
         elements = elements.default;
     }
@@ -91,17 +91,17 @@ function buildUI(parent, elements) {
                 element = element.default;
             }
             if (Array.isArray(element)) {
-                buildUI(parent, element);
+                render(parent, element);
             } else {
-                mountElement(parent, element);
+                mount(parent, element);
             }
         });
     } else {
-        mountElement(parent, elements);
+        mount(parent, elements);
     }
 }
 
-function mountElement(parent, element) {
+function mount(parent, element) {
     if (element.createdCallback) {
         element.createdCallback(element);
     }
@@ -110,7 +110,7 @@ function mountElement(parent, element) {
         element.mountedCallback(element);
     }
     if (element.elements) {
-        buildUI(element.element, element.elements);
+        render(element.element, element.elements);
     }
 }
 
