@@ -495,11 +495,7 @@ export class Style extends StandardAnimation {
     }
 
     inset(value) {
-        this.style('top', value);
-        this.style('left', value);
-        this.style('right', value);
-        this.style('bottom', value);
-        return this;
+        return this.style('inset', value);
     }
 
     // dimensions
