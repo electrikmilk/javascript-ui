@@ -17,10 +17,10 @@ export class Events extends Style {
         if (window.innerWidth <= 640) {
             callback(this);
         }
-        const instance = this;
+        const self = this;
         onWindowResize(() => {
             if (window.innerWidth <= 640) {
-                callback(this);
+                callback(self);
             }
         });
         return this;
@@ -30,10 +30,10 @@ export class Events extends Style {
         if (window.innerWidth > 640 && window.innerWidth <= 1007) {
             callback(this);
         }
-        const instance = this;
+        const self = this;
         onWindowResize(() => {
             if (window.innerWidth > 640 && window.innerWidth <= 1007) {
-                callback(this);
+                callback(self);
             }
         });
         return this;
@@ -43,10 +43,10 @@ export class Events extends Style {
         if (window.innerWidth > 1007) {
             callback(this);
         }
-        const instance = this;
+        const self = this;
         onWindowResize(() => {
             if (window.innerWidth > 1007) {
-                callback(this);
+                callback(self);
             }
         });
         return this;
