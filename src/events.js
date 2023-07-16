@@ -64,9 +64,7 @@ export class Events extends Style {
 
     onChange(callback) {
         this.element.onchange = (event) => callback(this, event);
-        const tagname = this.element.tagName.toLowerCase();
-        const inputTypes = ['text', 'search', 'url', 'number', 'password', 'email', 'tel'];
-        if ((tagname === 'INPUT' && inputTypes.contains(this.element.type)) || tagname === 'TEXTAREA') {
+        if (this.isTextInput()) {
             this.element.onkeyup = (event) => callback(this, event);
         }
         return this;
