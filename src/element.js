@@ -24,7 +24,7 @@ export class Element extends Events {
         return this;
     }
 
-    show(store) {
+    if(store) {
         store.model(store, (value) => {
             if ((value) === true) {
                 this.show();
