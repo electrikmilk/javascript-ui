@@ -7,7 +7,7 @@ export function store(state) {
 }
 
 class Store {
-    constructor(state) {
+    constructor(state = null) {
         this.state = state;
         this.callbacks = [];
     }
