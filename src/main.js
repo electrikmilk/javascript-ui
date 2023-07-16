@@ -81,7 +81,7 @@ export function view(elements, debugLog = false) {
     return new Body();
 }
 
-export function render(parent, elements) {
+function render(parent, elements) {
     if (elements.default) {
         elements = elements.default;
     }
