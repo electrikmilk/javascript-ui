@@ -24,7 +24,12 @@ export class Element extends Events {
         return this;
     }
 
-    model(store) {
+    model(store, callback = null) {
+        if (callback) {
+            store.model((value) => callback(this, value));
+            return this;
+        }
+
         let tagname = this.element.tagName ?? null;
         if (tagname) {
             tagname = tagname.toLowerCase();
