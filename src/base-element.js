@@ -12,6 +12,16 @@ export class BaseElement {
         this.element = element;
     }
 
+    selector() {
+        let selector = this.tag();
+        if (this.element.id) {
+            selector += '#' + this.element.id;
+        } else if (this.element.className) {
+            selector += '.' + this.element.className;
+        }
+        return selector;
+    }
+
     toggleAttribute(attribute, state = null) {
         if (state || state === false) {
             if (state && !this.element.checked) {
