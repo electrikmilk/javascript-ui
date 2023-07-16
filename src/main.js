@@ -68,7 +68,10 @@ window.onload = () => {
     }
 };
 
+let elementsTree;
+
 export function view(elements, debugLog = false) {
+    elementsTree = elements;
     if (document.body.hasChildNodes()) {
         document.body.innerHTML = '';
     }
@@ -82,7 +85,20 @@ export function view(elements, debugLog = false) {
     return new Body();
 }
 
-function render(parent, elements) {
+function updateView(debugLog = false) {
+    if (document.body.hasChildNodes()) {
+        document.body.innerHTML = '';
+    }
+    if (debugLog === true) {
+        debug(elementsTree);
+    }
+    render(document.body, elementsTree);
+    setTimeout(function () {
+        document.querySelector('style#jsUI').innerText = globalCSS;
+    }, 500);
+}
+
+export function render(parent, elements) {
     if (Array.isArray(elements)) {
         elements.forEach(function (element) {
             if (Array.isArray(element)) {
