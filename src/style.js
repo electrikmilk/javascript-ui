@@ -27,6 +27,7 @@ export class Style extends StandardAnimation {
         this.style('border', 'none');
         this.style('background', 'none');
         this.style('color', 'initial');
+        return this;
     }
 
     effectSelector(effect) {
