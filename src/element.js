@@ -28,10 +28,7 @@ export class Element extends Events {
             return this;
         }
 
-        let tagname = this.element.tagName ?? null;
-        if (tagname) {
-            tagname = tagname.toLowerCase();
-        }
+        const tagname = this.tag();
         const self = this;
         store.model((value) => {
             if (self.element.textContent) {

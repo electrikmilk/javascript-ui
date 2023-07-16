@@ -295,7 +295,7 @@ export class Style extends StandardAnimation {
         if (family === 'serif') {
             family = 'Didot, Garamond, Georgia, Times New Roman, serif';
         }
-        if (this.element.tagName === 'BODY') {
+        if (this.tag() === 'body') {
             addCSS({
                 'input,textarea,select,button': {
                     'font-family': family

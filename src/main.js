@@ -265,9 +265,9 @@ function printElements(elements) {
     elements.forEach((element) => {
         console.group(`[${element.constructor.name}]`);
         if (element.element) {
-            const tagName = element.element ? element.element.tagName ?? null : null;
+            const tagName = element.tag();
             if (tagName) {
-                console.log(`HTML Tag: <${element.element.tagName.toLowerCase()}/>`);
+                console.log(`HTML Tag: <${tagName}/>`);
             }
         }
         if (element.elements || Array.isArray(element)) {
