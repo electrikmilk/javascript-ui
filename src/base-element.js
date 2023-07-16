@@ -12,6 +12,21 @@ export class BaseElement {
         this.element = element;
     }
 
+    toggleAttribute(attribute, state = null) {
+        if (state || state === false) {
+            if (state && !this.element.checked) {
+                this.attribute(attribute, '');
+            } else {
+                this.element.removeAttribute(attribute);
+            }
+        } else if (this.element.checked) {
+            this.attribute(attribute, '');
+        } else {
+            this.element.removeAttribute(attribute);
+        }
+        return this;
+    }
+
     tag() {
         let tagName = null;
         if (this.element && this.element.tagName) {

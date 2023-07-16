@@ -120,45 +120,23 @@ class InputRange extends InputTag {
     }
 }
 
-class CheckableInput extends InputTag {
-    constructor(type) {
-        super(type);
-    }
-
-    setChecked(state = null) {
-        if (state || state === false) {
-            if (state && !this.element.checked) {
-                this.attribute('checked', '');
-            } else {
-                this.element.removeAttribute('checked');
-            }
-        } else if (this.element.checked) {
-            this.attribute('checked', '');
-        } else {
-            this.element.removeAttribute('checked');
-        }
-    }
-}
-
-class InputCheckbox extends CheckableInput {
+class InputCheckbox extends InputTag {
     constructor() {
         super('checkbox');
     }
 
     checked(state = null) {
-        this.setChecked(state);
-        return this;
+        return this.toggleAttribute('checked', state);
     }
 }
 
-class InputRadio extends CheckableInput {
+class InputRadio extends InputTag {
     constructor() {
         super('radio');
     }
 
     selected(state = null) {
-        this.setChecked(state);
-        return this;
+        return this.toggleAttribute('checked', state);
     }
 }
 
