@@ -14,6 +14,6 @@ class OverflowDiv extends Element {
         super(element);
         this.element = element;
         this.elements = elements;
-        this.element.style.overflow = (auto === true ? 'auto' : 'scroll');
+        this.overflow(auto === true ? 'auto' : 'scroll');
     }
 }

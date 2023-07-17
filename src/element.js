@@ -54,7 +54,7 @@ export class Element extends Events {
                 }
             }
         });
-        if (this.tag() === 'input' || this.tag() === 'textarea') {
+        if (this.isTextInput()) {
             this.onChange((element) => {
                 store.set(element.value());
             });
