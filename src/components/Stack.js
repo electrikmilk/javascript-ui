@@ -39,16 +39,16 @@ class VStackTag extends Element {
 }
 
 export function GridStack(elements, min = '50%', type = 'fill') {
-    return new GridStackTag(elements, min, type);
+    return new GridDiv(elements, min, type);
 }
 
-class GridStackTag extends Element {
+class GridDiv extends Element {
     constructor(elements, min, type) {
         const element = document.createElement('div');
         super(element);
         this.element = element;
         this.elements = elements;
-        this.element.style.display = 'grid';
+        this.grid();
         this.element.style.gridAutoFlow = 'unset';
         this.element.style.gridTemplateColumns = 'repeat(auto-' + type + ', minmax(' + min + ', 1fr))';
     }

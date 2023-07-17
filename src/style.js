@@ -543,7 +543,15 @@ export class Style extends StandardAnimation {
         return this.style('aspect-ratio', ratio);
     }
 
-    // flex placement
+    // flex
+
+    flex() {
+        return this.style('display', 'flex');
+    }
+
+    gap(gap) {
+        return this.style('gap', gap);
+    }
 
     placeItems(placement) {
         return this.style('place-items', placement);
@@ -666,14 +674,6 @@ export class Style extends StandardAnimation {
 
     inlineBlock() {
         return this.style('display', 'inline-block');
-    }
-
-    flex() {
-        return this.style('display', 'flex');
-    }
-
-    gap(gap) {
-        return this.style('gap', gap);
     }
 
     show() {
