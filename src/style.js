@@ -30,6 +30,16 @@ export class Style extends StandardAnimation {
         return this;
     }
 
+    selector() {
+        let selector = this.tag();
+        if (this.element.id) {
+            selector += '#' + this.element.id;
+        } else if (this.element.className) {
+            selector += '.' + this.element.className;
+        }
+        return selector;
+    }
+
     effectSelector(effect) {
         if (!this.selector) {
             console.error('Element instance does not have a selector!');
