@@ -240,15 +240,15 @@ export class Style extends StandardAnimation {
         return this;
     }
 
-    textLeft() {
+    alignLeft() {
         return this.style('text-align', 'left');
     }
 
-    textCenter() {
+    alignCenter() {
         return this.style('text-align', 'center');
     }
 
-    textRight() {
+    alignRight() {
         return this.style('text-align', 'right');
     }
 
@@ -256,11 +256,11 @@ export class Style extends StandardAnimation {
         return this.style('color', color);
     }
 
-    textWeight(weight) {
+    fontWeight(weight) {
         return this.style('font-weight', weight);
     }
 
-    textSize(size) {
+    fontSize(size) {
         return this.style('font-size', size);
     }
 
