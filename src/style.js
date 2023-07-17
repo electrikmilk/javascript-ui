@@ -294,7 +294,7 @@ export class Style extends StandardAnimation {
             family = 'Inter, system-ui, Roboto, Avenir, Helvetica, Arial, sans-serif';
         }
         if (family === 'serif') {
-            family = 'Didot, Garamond, Georgia, Times New Roman, serif';
+            family = 'Garamond, Georgia, Times New Roman, serif';
         }
         if (this.tag() === 'body') {
             addCSS({
