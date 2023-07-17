@@ -287,14 +287,16 @@ export class Style extends StandardAnimation {
     }
 
     font(family) {
-        if (family === 'system') {
-            family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
-        }
-        if (family === 'sans') {
-            family = 'Inter, system-ui, Roboto, Avenir, Helvetica, Arial, sans-serif';
-        }
-        if (family === 'serif') {
-            family = 'Garamond, Georgia, Times New Roman, serif';
+        switch (family) {
+            case 'system':
+                family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"';
+                break;
+            case 'sans':
+                family = 'Inter, system-ui, Roboto, Avenir, Helvetica, Arial, sans-serif';
+                break;
+            case 'serif':
+                family = 'Garamond, Georgia, Times New Roman, serif';
+                break;
         }
         if (this.tag() === 'body') {
             addCSS({
