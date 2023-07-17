@@ -17,3 +17,18 @@ class OverflowDiv extends Element {
         this.overflow(auto === true ? 'auto' : 'scroll');
     }
 }
+
+export function FlexContent(elements) {
+    return new FlexDiv(elements);
+}
+
+class FlexDiv extends Element {
+    constructor(elements, auto) {
+        const element = document.createElement('div');
+        super(element);
+        this.element = element;
+        this.elements = elements;
+        this.flex();
+        this.placeItems('center');
+    }
+}
