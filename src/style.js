@@ -545,6 +545,14 @@ export class Style extends StandardAnimation {
 
     // flex placement
 
+    placeItems(placement) {
+        return this.style('place-items', placement);
+    }
+
+    placeContent(placement) {
+        return this.style('place-content', placement);
+    }
+
     topLeft() {
         this.style('display', 'flex');
         this.style('place-content', 'flex-start');
