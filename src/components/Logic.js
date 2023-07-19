@@ -56,6 +56,52 @@ class ConditionalElement extends Element {
     }
 }
 
+export function Switch(conditional) {
+    return new SwitchElement(conditional);
+}
+
+class SwitchElement extends Element {
+    conditional;
+    cases = {};
+    default = null;
+
+    constructor(conditional) {
+        const element = document.createElement('span');
+        super(element);
+        this.element = element;
+        this.conditional = conditional;
+    }
+
+    Case(conditional, elements) {
+        this.cases[`${conditional}`] = {
+            conditional: conditional,
+            elements: elements
+        };
+        return this;
+    }
+
+    Default(elements) {
+        this.default = elements;
+        return this;
+    }
+
+    EndSwitch() {
+        for (const i in this.cases) {
+            const c = this.cases[`${i}`];
+            const conditional = c.conditional;
+            const elements = c.elements;
+            if ((conditional) === this.conditional) {
+                this.elements = elements;
+                return this;
+            }
+        }
+        if (this.default) {
+            this.elements = this.default;
+        }
+        return this;
+    }
+}
+
 class MobileElement extends Element {
     constructor(elements) {
         const element = document.createElement('span');
