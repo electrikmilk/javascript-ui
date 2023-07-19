@@ -14,12 +14,12 @@ export class BaseElement {
 
     toggleAttribute(attribute, state = null) {
         if (state || state === false) {
-            if (state && !this.element.checked) {
+            if (state && !this.element.hasAttribute(attribute)) {
                 this.attribute(attribute, '');
             } else {
                 this.element.removeAttribute(attribute);
             }
-        } else if (this.element.checked) {
+        } else if (this.element.hasAttribute(attribute)) {
             this.attribute(attribute, '');
         } else {
             this.element.removeAttribute(attribute);
