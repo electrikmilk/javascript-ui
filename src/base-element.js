@@ -23,7 +23,7 @@ export class BaseElement {
             } else {
                 this.element.removeAttribute(attribute);
             }
-        } else if (this.element.hasAttribute(attribute)) {
+        } else if (!this.element.hasAttribute(attribute)) {
             this.attribute(attribute, '');
         } else {
             this.element.removeAttribute(attribute);
