@@ -12,6 +12,10 @@ export class BaseElement {
         this.element = element;
     }
 
+    tabIndex(index) {
+        return this.attribute('tabindex', index);
+    }
+
     toggleAttribute(attribute, state = null) {
         if (state || state === false) {
             if (state && !this.element.hasAttribute(attribute)) {
