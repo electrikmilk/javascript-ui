@@ -234,6 +234,33 @@ export function accentColor(hexColor) {
     return this;
 }
 
+export function ref(reference) {
+    const ref = findRef(elementsTree, reference);
+    if (!ref) {
+        console.warn(`[javascript-ui] No element with reference '${reference}'.`);
+    }
+    return ref;
+}
+
+function findRef(elements, reference) {
+    let referencedElement = null;
+    for (let e in elements) {
+        const element = elements[e];
+        if (Array.isArray(element)) {
+            return findRef(element, reference);
+        } else {
+            if (element.reference && element.reference === reference) {
+                referencedElement = element;
+                break;
+            }
+            if (element.elements) {
+                return findRef(element.elements, reference);
+            }
+        }
+    }
+    return referencedElement;
+}
+
 export function select(selector) {
     return new InstanceSelector(selector);
 }

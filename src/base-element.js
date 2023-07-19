@@ -4,12 +4,18 @@
 
 export class BaseElement {
     element;
+    reference;
     mountedCallback;
     createdCallback;
     #inputTypes = ['text', 'search', 'url', 'number', 'password', 'email', 'tel'];
 
     constructor(element) {
         this.element = element;
+    }
+
+    ref(reference) {
+        this.reference = reference;
+        return this;
     }
 
     tabIndex(index) {
