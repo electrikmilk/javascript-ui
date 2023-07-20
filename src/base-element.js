@@ -2,6 +2,8 @@
  * Copyright (c) 2023 Brandon Jordan
  */
 
+let references = {};
+
 export class BaseElement {
     element;
     reference;
@@ -14,7 +16,13 @@ export class BaseElement {
     }
 
     ref(reference) {
+        const existingRef = references[reference];
+        if (existingRef) {
+            console.error(`[javascript-ui] Existing element ${existingRef.constructor.name} already has the reference '${reference}'.`);
+            return null;
+        }
         this.reference = reference;
+        references[reference] = this;
         return this;
     }
 
