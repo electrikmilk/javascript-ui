@@ -9,7 +9,7 @@ import animation from './pages/animation.js';
 
 window.onload = () => {
 	jsUI.globalStyle('input,textarea,select,button')
-		.textSize('18px')
+		.fontSize('18px')
 		.rounded('5px')
 		.border('#c7c7c7')
 		.paddings(['8px', '5px'])
