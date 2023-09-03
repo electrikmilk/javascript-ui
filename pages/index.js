@@ -47,9 +47,9 @@ export default [
 		]),
 		Line(),
 		Heading('Form Controls')
-			.onDeviceSmall(e => e.textSize('24px'))
-			.onDeviceMedium(e => e.textSize('28px'))
-			.onDeviceLarge(e => e.textSize('32px')),
+			.onDeviceSmall(e => e.fontSize('24px'))
+			.onDeviceMedium(e => e.fontSize('28px'))
+			.onDeviceLarge(e => e.fontSize('32px')),
 		Form([
 			HStack([
 				Label('Dropdown Label', 'dropdown'),
