@@ -2,7 +2,7 @@
  * Copyright (c) 2023 Brandon Jordan
  */
 
-import {Body, printDebug, view} from "./main";
+import {Body, printDebug, view} from './main.js';
 
 let routes = [];
 let urlParams = [];

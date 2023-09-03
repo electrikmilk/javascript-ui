@@ -1,24 +1,24 @@
 {
-  "name": "javascript-ui",
-  "version": "1.0.5",
-  "author": "Brandon Jordan (https://github.com/electrikmilk)",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/electrikmilk/javascript-ui.git"
-  },
-  "main": "src/main.js",
-  "dependencies": {
-  },
-  "bugs": {
-    "url": "https://github.com/electrikmilk/javascript-ui/issues"
-  },
-  "keywords": [
-    "javascript-ui",
-    "css-in-js",
-    "swift-ui"
-  ],
-  "files": [
-    "src/*"
-  ],
-  "license": "GPL-2.0-only"
+    "name": "javascript-ui",
+    "version": "1.0.5",
+    "author": "Brandon Jordan (https://github.com/electrikmilk)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/electrikmilk/javascript-ui.git"
+    },
+    "main": "./src/main.js",
+    "dependencies": {
+    },
+    "bugs": {
+        "url": "https://github.com/electrikmilk/javascript-ui/issues"
+    },
+    "keywords": [
+        "javascript-ui",
+        "css-in-js",
+        "swift-ui"
+    ],
+    "files": [
+        "src/*"
+    ],
+    "license": "GPL-2.0-only"
 }
