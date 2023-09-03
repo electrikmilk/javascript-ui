@@ -55,27 +55,27 @@ export class Style extends StandardAnimation {
 
     hover(callback) {
         callback(
-            globalStyle(
-                this.effectSelector('hover')
-            )
+                globalStyle(
+                        this.effectSelector('hover'),
+                ),
         );
         return this;
     }
 
     active(callback) {
         callback(
-            globalStyle(
-                this.effectSelector('active')
-            )
+                globalStyle(
+                        this.effectSelector('active'),
+                ),
         );
         return this;
     }
 
     focus(callback) {
         callback(
-            globalStyle(
-                this.effectSelector('focus')
-            )
+                globalStyle(
+                        this.effectSelector('focus'),
+                ),
         );
         return this;
     }
@@ -311,8 +311,8 @@ export class Style extends StandardAnimation {
         if (this.tag() === 'body') {
             addCSS({
                 'input,textarea,select,button': {
-                    'font-family': family
-                }
+                    'font-family': family,
+                },
             });
         }
         return this.style('font-family', family);
@@ -386,7 +386,7 @@ export class Style extends StandardAnimation {
     titleCase() {
         let nonTitles = ['of', 'a', 'the', 'and', 'an', 'or', 'nor', 'but', 'is', 'if', 'then', 'else', 'when', 'at', 'from', 'by', 'on', 'off', 'for', 'in', 'out', 'over', 'to', 'into', 'with'];
         let words = this.element.innerText.split(' ');
-        words.forEach(function (word, idx) {
+        words.forEach(function(word, idx) {
             if (idx === 0 || !nonTitles.includes(word)) {
                 words[idx] = word[0].toUpperCase() + word.substring(1, word.length);
             }

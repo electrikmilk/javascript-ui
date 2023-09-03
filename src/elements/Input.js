@@ -71,11 +71,11 @@ class BaseTextInput extends InputTag {
     }
 
     autofocus(state = null) {
-        this.toggleAttribute('autofocus', state)
+        this.toggleAttribute('autofocus', state);
     }
 
     required(state = null) {
-        this.toggleAttribute('required', state)
+        this.toggleAttribute('required', state);
     }
 }
 

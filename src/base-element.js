@@ -120,17 +120,15 @@ export class BaseElement {
             data = content;
         } else if (content.includes('http')) {
             data = {
-                url: content
+                url: content,
             };
         } else {
             data = {
-                text: content
+                text: content,
             };
         }
         if (navigator.share && navigator.canShare(data)) {
-            navigator.share(data)
-                .then(() => console.log('[javascript-ui] Content was shared'))
-                .catch((error) => console.log('[javascript-ui] Error sharing content', error));
+            navigator.share(data).then(() => console.log('[javascript-ui] Content was shared')).catch((error) => console.log('[javascript-ui] Error sharing content', error));
         } else {
             console.error('[javascript-ui] Unable to share!');
         }

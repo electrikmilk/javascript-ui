@@ -28,7 +28,7 @@ export function router(appRoutes, debugLog) {
     routes = appRoutes;
     window.addEventListener('popstate', evaluateURL);
     evaluateURL();
-    setTimeout(function () {
+    setTimeout(function() {
         if (debugLog === true) {
             printDebug();
         }
@@ -121,13 +121,13 @@ function getParams() {
     if (url.includes('?')) {
         if (typeof URL !== 'undefined') {
             let urlObject = new URL(url);
-            urlObject.searchParams.forEach(function (value, key) {
+            urlObject.searchParams.forEach(function(value, key) {
                 urlParams[key] = value;
             });
         } else {
             if (url.includes('&')) {
                 let kvs = window.location.pathname.split('?')[1].split('&');
-                kvs.forEach(function (kv) {
+                kvs.forEach(function(kv) {
                     const param = kv.split('=');
                     const key = decodeURIComponent(param[0]);
                     urlParams[key] = decodeURIComponent(param[1]);

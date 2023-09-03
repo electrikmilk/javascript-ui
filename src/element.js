@@ -19,7 +19,7 @@ export class Element extends Events {
             } else if ((value) === false) {
                 this.hide();
             }
-        })
+        });
     }
 
     model(store, callback = null) {
@@ -68,9 +68,7 @@ export class Element extends Events {
                 const type = 'text/plain';
                 const blob = new Blob([text], {type});
                 const data = [new ClipboardItem({[type]: blob})];
-                navigator.clipboard.write(data)
-                    .then(() => console.log('[javascript-ui] Content was copied'))
-                    .catch((error) => console.log('[javascript-ui] Error copying content', error));
+                navigator.clipboard.write(data).then(() => console.log('[javascript-ui] Content was copied')).catch((error) => console.log('[javascript-ui] Error copying content', error));
             });
         }
         return this;

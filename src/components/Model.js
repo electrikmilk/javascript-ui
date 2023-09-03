@@ -2,8 +2,8 @@
  * Copyright (c) 2023 Brandon Jordan
  */
 
-import {Element} from "../element.js";
-import {render} from "../main.js";
+import {Element} from '../element.js';
+import {render} from '../main.js';
 
 export function Model(store, callback) {
     return new ModelElement(store, callback);
