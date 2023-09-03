@@ -48,6 +48,8 @@ const head = document.querySelector('head');
 let globalCSS = '';
 let accent;
 
+let debugMode = false;
+
 window.onload = () => {
     if (!document.querySelector('meta[name=viewport]')) {
         let metaViewport = document.createElement('meta');
@@ -68,39 +70,39 @@ window.onload = () => {
     }
 };
 
-let elementsTree;
+export let elementsTree;
 
-export function view(elements, debugLog = false) {
+export function view(elements, debug = false) {
     elementsTree = elements;
     if (document.body.hasChildNodes()) {
         document.body.innerHTML = '';
     }
-    if (debugLog === true) {
-        debug(elements);
+    if (debug === true) {
+        printDebug(elements);
     }
     render(document.body, elements);
-    setTimeout(function () {
+    setTimeout(function() {
         applyGlobalStyle();
     }, 500);
     return new Body();
 }
 
-function updateView(debugLog = false) {
+function updateView(debug = false) {
     if (document.body.hasChildNodes()) {
         document.body.innerHTML = '';
     }
-    if (debugLog === true) {
-        debug(elementsTree);
+    if (debug === true) {
+        printDebug(elementsTree);
     }
     render(document.body, elementsTree);
-    setTimeout(function () {
+    setTimeout(function() {
         document.querySelector('style#jsUI').innerText = globalCSS;
     }, 500);
 }
 
 export function render(parent, elements) {
     if (Array.isArray(elements)) {
-        elements.forEach(function (element) {
+        elements.forEach(function(element) {
             if (Array.isArray(element)) {
                 render(parent, element);
             } else {
@@ -154,7 +156,7 @@ class GlobalElementStyle extends Element {
         this.element = element;
         this.selector = selector;
         const instance = this;
-        setTimeout(function () {
+        setTimeout(function() {
             instance.#apply();
         }, 100);
     }
@@ -214,22 +216,22 @@ export function accentColor(hexColor) {
     }
     addCSS({
         '::selection': {
-            'background': hexColor + '50'
+            'background': hexColor + '50',
         },
         '::moz-selection': {
-            'background': hexColor + '50'
+            'background': hexColor + '50',
         },
         'a:link': {
-            'color': hexColor
+            'color': hexColor,
         },
         '.jsui-spinner': {
-            'border-top-color': hexColor
+            'border-top-color': hexColor,
         },
         'input,textarea,select': {
             'accent-color': hexColor,
             'outline-color': hexColor,
-            'caret-color': hexColor
-        }
+            'caret-color': hexColor,
+        },
     });
     return this;
 }
@@ -262,23 +264,23 @@ function findRef(elements, reference) {
 }
 
 export function select(selector) {
-    return new InstanceSelector(selector);
+    return new Selector(selector);
 }
 
-class InstanceSelector extends Element {
+class Selector extends Element {
     constructor(selector) {
-        const element = document.getElementById(selector);
+        const element = document.querySelector(selector);
         if (element) {
             super(element);
             this.element = element;
         } else {
-            console.error('Cannot find element with name: ' + selector);
+            console.error('Cannot find element with selector: ' + selector);
             return false;
         }
     }
 }
 
-export function debug(elements) {
+export function printDebug(elements) {
     const body = document.body;
     const globalStyle = document.querySelector('style#jsUI');
     console.log('[javascript-ui] Generated HTML', body);
@@ -293,8 +295,15 @@ function printElements(elements) {
         console.group(`[${element.constructor.name}]`);
         if (element.element) {
             const tagName = element.tag();
+            const selector = element.selector();
             if (tagName) {
                 console.log(`HTML Tag: <${tagName}/>`);
+            }
+            if (selector) {
+                console.log(`Selector: ${selector}`);
+            }
+            if (element.reference) {
+                console.log(`Reference: ${element.reference}`);
             }
         }
         if (element.elements || Array.isArray(element)) {
@@ -309,5 +318,5 @@ function printElements(elements) {
             console.log(`Content: "${element.element.innerHTML ?? element.element.innerText}"`);
         }
         console.groupEnd();
-    })
+    });
 }

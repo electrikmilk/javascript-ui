@@ -2,7 +2,7 @@
  * Copyright (c) 2023 Brandon Jordan
  */
 
-import {Body, debug, view} from "./main";
+import {Body, printDebug, view} from "./main";
 
 let routes = [];
 let urlParams = [];
@@ -30,7 +30,7 @@ export function router(appRoutes, debugLog) {
     evaluateURL();
     setTimeout(function () {
         if (debugLog === true) {
-            debug();
+            printDebug();
         }
     }, 500);
     return new Body();
