@@ -35,7 +35,7 @@ window.onload = () => {
 		.icon('icon.png')
 		.margin(0)
 		.padding(0)
-		.textSize('18px')
+		.fontSize('18px')
 		.fontSmoothing()
 		.font('system');
 };
