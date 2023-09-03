@@ -9,7 +9,7 @@ export class BaseElement {
     reference;
     mountedCallback;
     createdCallback;
-    #inputTypes = ['text', 'search', 'url', 'number', 'password', 'email', 'tel'];
+    inputTypes = ['text', 'search', 'url', 'number', 'password', 'email', 'tel'];
 
     constructor(element) {
         this.element = element;
@@ -55,7 +55,7 @@ export class BaseElement {
 
     isTextInput() {
         const tagname = this.tag();
-        return ((tagname === 'input' && this.#inputTypes.includes(this.element.type)) || tagname === 'textarea');
+        return ((tagname === 'input' && this.inputTypes.includes(this.element.type)) || tagname === 'textarea');
     }
 
     created(callback) {

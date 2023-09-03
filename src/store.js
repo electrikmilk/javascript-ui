@@ -7,35 +7,35 @@ export function store(state) {
 }
 
 class Store {
-    #callbacks;
-    #state;
+    callbacks;
+    state;
 
     constructor(state = null) {
-        this.#state = state;
-        this.#callbacks = [];
+        this.state = state;
+        this.callbacks = [];
     }
 
     update(callback) {
-        this.#state = callback(this.#state);
-        this.#react();
+        this.state = callback(this.state);
+        this.react();
     }
 
     get() {
-        return this.#state;
+        return this.state;
     }
 
     set(state) {
-        this.#state = state;
-        this.#react();
+        this.state = state;
+        this.react();
     }
 
-    #react() {
+    react() {
         const self = this;
-        this.#callbacks.forEach(callback => callback(self.#state));
+        this.callbacks.forEach(callback => callback(self.state));
     }
 
     model(callback) {
-        this.#callbacks.push(callback);
-        callback(this.#state);
+        this.callbacks.push(callback);
+        callback(this.state);
     }
 }
