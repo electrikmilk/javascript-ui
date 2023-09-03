@@ -25,6 +25,7 @@ import {
 	Paragraph,
 	Italic,
 	Bold,
+	Device,
 	If
 } from 'https://cdn.skypack.dev/javascript-ui';
 
@@ -41,7 +42,7 @@ export default [
 				.url('https://github.com/electrikmilk/javascript-ui/tree/gh-pages')
 				.openNewTab()
 		]),
-		If.DeviceMobile([
+		Device.Mobile([
 			Paragraph('Hello, Mobile User! Yep, there\'s logic for this! ;)')
 		]),
 		Line(),
