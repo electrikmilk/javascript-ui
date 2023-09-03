@@ -48,8 +48,6 @@ const head = document.querySelector('head');
 let globalCSS = '';
 let accent;
 
-let debugMode = false;
-
 window.onload = () => {
     if (!document.querySelector('meta[name=viewport]')) {
         let metaViewport = document.createElement('meta');
