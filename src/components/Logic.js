@@ -5,38 +5,17 @@
 import {Element} from '../element.js';
 import {onWindowResize} from '../window.js';
 
-export const If = {
-    True(condition, elements) {
-        return new ConditionalElement(condition, elements, true);
-    },
-    False(condition, elements) {
-        return new ConditionalElement(condition, elements, false);
-    },
-    DeviceMobile: (elements) => {
-        return new MobileElement(elements);
-    },
-    DeviceNotMobile: (elements) => {
-        return new NonMobileElement(elements);
-    },
-    DeviceSmall: (elements) => {
-        return new SmallDeviceFilter(elements);
-    },
-    DeviceMedium: (elements) => {
-        return new MediumDeviceFilter(elements);
-    },
-    DeviceLarge: (elements) => {
-        return new LargeDeviceFilter(elements);
-    }
-};
+export function If(condition, elements) {
+    return new ConditionalElement(condition, elements, true);
+}
 
 class ConditionalElement extends Element {
-    constructor(condition, elements, evalTo) {
+    constructor(condition, elements) {
         const element = document.createElement('span');
         super(element);
         this.element = element;
-        this.evalTo = evalTo;
         this.condition = condition;
-        if ((this.condition) === this.evalTo) {
+        if ((this.condition) === true) {
             this.elements = elements;
         }
     }
@@ -49,7 +28,7 @@ class ConditionalElement extends Element {
     }
 
     ElseIf(condition, elements) {
-        if ((condition) === this.evalTo) {
+        if ((condition) === true) {
             this.elements = elements;
         }
         return this;
@@ -75,7 +54,7 @@ class SwitchElement extends Element {
     Case(conditional, elements) {
         this.cases[`${conditional}`] = {
             conditional: conditional,
-            elements: elements
+            elements: elements,
         };
         return this;
     }
@@ -101,6 +80,24 @@ class SwitchElement extends Element {
         return this;
     }
 }
+
+export const Device = {
+    Mobile: (elements) => {
+        return new MobileElement(elements);
+    },
+    NotMobile: (elements) => {
+        return new NonMobileElement(elements);
+    },
+    Small: (elements) => {
+        return new SmallDeviceFilter(elements);
+    },
+    Medium: (elements) => {
+        return new MediumDeviceFilter(elements);
+    },
+    Large: (elements) => {
+        return new LargeDeviceFilter(elements);
+    },
+};
 
 class MobileElement extends Element {
     constructor(elements) {
