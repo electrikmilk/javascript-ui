@@ -429,6 +429,16 @@ export class Style extends StandardAnimation {
         return this.style('marginBottom', margin);
     }
 
+    marginX(padding) {
+        this.style('marginLeft', padding);
+        return this.style('marginRight', padding);
+    }
+
+    marginY(padding) {
+        this.style('marginTop', padding);
+        return this.style('marginBottom', padding);
+    }
+
     padding(padding) {
         return this.style('padding', padding);
     }
@@ -450,6 +460,16 @@ export class Style extends StandardAnimation {
     }
 
     paddingBottom(padding) {
+        return this.style('paddingBottom', padding);
+    }
+
+    paddingX(padding) {
+        this.style('paddingLeft', padding);
+        return this.style('paddingRight', padding);
+    }
+
+    paddingY(padding) {
+        this.style('paddingTop', padding);
         return this.style('paddingBottom', padding);
     }
 
