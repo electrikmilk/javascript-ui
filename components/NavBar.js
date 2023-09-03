@@ -62,7 +62,7 @@ export default [
 						})
 				])
 			])
-				.textRight()
+				.alignRight()
 		])
 	])
 		.paddings(['0px', '10px'])
