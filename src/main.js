@@ -155,11 +155,11 @@ class GlobalElementStyle extends Element {
         this.selector = selector;
         const instance = this;
         setTimeout(function() {
-            instance.#apply();
+            instance.apply();
         }, 100);
     }
 
-    #apply() {
+    apply() {
         document.body.append(this.element);
         globalCSS += this.selector + '{' + this.element.getAttribute('style') + '}';
         this.element.remove();
