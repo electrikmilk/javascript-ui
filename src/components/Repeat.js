@@ -14,9 +14,11 @@ class ForEachElement extends Element {
         super(element);
         this.element = element;
         this.elements = [];
+        let index = 0;
         for (let key in items) {
             const value = items[key];
-            this.elements.push(...callback(value, key));
+            this.elements.push(...callback(value, key, index));
+            index++;
         }
     }
 }
