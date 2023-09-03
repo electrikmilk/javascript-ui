@@ -13,7 +13,7 @@ export class Element extends Events {
     }
 
     if(store) {
-        store.model(store, (value) => {
+        store.model((value) => {
             if ((value) === true) {
                 this.show();
             } else if ((value) === false) {
