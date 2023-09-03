@@ -35,9 +35,9 @@ export default [
 	NavBar,
 	Section([
 		Paragraph([
-			Italic('Hello, World!'),
-			Text('This page was made using'),
-			Bold('jsUI!'),
+			Italic('Hello, World! '),
+			Text('This page was made using '),
+			Bold('jsUI! '),
 			Hyperlink('View Source')
 				.url('https://github.com/electrikmilk/javascript-ui/tree/gh-pages')
 				.openNewTab()
