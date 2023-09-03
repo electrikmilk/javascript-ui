@@ -507,6 +507,22 @@ export class Style extends StandardAnimation {
         return this.style('zIndex', z);
     }
 
+    top(top) {
+        return this.style('top', top);
+    }
+
+    left(top) {
+        return this.style('left', top);
+    }
+
+    right(top) {
+        return this.style('right', top);
+    }
+
+    bottom(top) {
+        return this.style('bottom', top);
+    }
+
     inset(value) {
         return this.style('inset', value);
     }
