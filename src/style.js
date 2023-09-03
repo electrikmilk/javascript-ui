@@ -338,24 +338,28 @@ export class Style extends StandardAnimation {
         return this.textDecoration('line-through');
     }
 
+    lineHeight(height) {
+        return this.style('line-height', height);
+    }
+
     title() {
-        return this.textSize('2em');
+        return this.fontSize('2em');
     }
 
     heading() {
-        return this.textSize('1.5em');
+        return this.fontSize('1.5em');
     }
 
     subheading() {
-        return this.textSize('1.17em');
+        return this.fontSize('1.17em');
     }
 
     header() {
-        return this.textSize('1em');
+        return this.fontSize('1em');
     }
 
     subheader() {
-        return this.textSize('.83em');
+        return this.fontSize('.83em');
     }
 
     truncate(lines = 1) {
