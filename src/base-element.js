@@ -111,6 +111,9 @@ export class BaseElement {
     }
 
     html(html) {
+        if (import.meta.env.DEV) {
+            console.warn('Do not use the html() method to render user generated content. This creates a risk of cross-site scripting (XSS) attacks.');
+        }
         return this.property('innerHTML', html);
     }
 
