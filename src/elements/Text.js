@@ -98,3 +98,29 @@ class LabelTag extends Element {
         }
     }
 }
+
+let htmlWarn = false;
+
+export function HTML(html) {
+    if (import.meta.env.DEV && !htmlWarn) {
+        console.warn('Do not use the HTML() component to render user-generated content. This creates a risk of cross-site scripting (XSS) attacks.');
+        htmlWarn = true;
+    }
+    return new RawHTML(html);
+}
+
+class RawHTML extends Element {
+    constructor(html) {
+        const temp = document.createElement('div');
+        temp.innerHTML = html;
+        temp.style.display = 'none';
+
+        const element = document.createDocumentFragment();
+        super(element);
+        element.append(...temp.children);
+        this.element = element;
+        this.element.innerHTML = html;
+
+        temp.remove();
+    }
+}
