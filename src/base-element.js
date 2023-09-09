@@ -3,6 +3,7 @@
  */
 
 let references = {};
+let htmlWarn = false;
 
 export class BaseElement {
     element;
@@ -111,8 +112,9 @@ export class BaseElement {
     }
 
     html(html) {
-        if (import.meta.env.DEV) {
+        if (import.meta.env.DEV && !htmlWarn) {
             console.warn('Do not use the html() method to render user generated content. This creates a risk of cross-site scripting (XSS) attacks.');
+            htmlWarn = true;
         }
         return this.property('innerHTML', html);
     }
