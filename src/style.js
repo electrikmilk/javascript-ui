@@ -217,7 +217,7 @@ export class Style extends StandardAnimation {
         return this.style('borderColor', color);
     }
 
-    rounded(radius) {
+    rounded(radius = '4px') {
         return this.style('border-radius', radius);
     }
 
