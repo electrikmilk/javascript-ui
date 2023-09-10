@@ -595,6 +595,14 @@ export class Style extends StandardAnimation {
         return this;
     }
 
+    fitViewportWidth() {
+        return this.style('width', '100vw');
+    }
+
+    fitViewportHeight() {
+        return this.style('height', '100vh');
+    }
+
     aspectRatio(ratio) {
         return this.style('aspect-ratio', ratio);
     }
