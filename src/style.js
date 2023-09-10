@@ -86,7 +86,11 @@ export class Style extends StandardAnimation {
         return this.style('resize', 'none');
     }
 
-    transition(property, duration, easing, delay) {
+    transition() {
+        return this.style('transition', 'all 0.3s');
+    }
+
+    transitionProperty(property, duration, easing, delay) {
         return this.style('transition', [property, duration, easing, delay].join(' '));
     }
 
