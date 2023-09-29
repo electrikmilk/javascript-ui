@@ -115,9 +115,6 @@ class RawHTML extends Element {
 
         const element = document.createDocumentFragment();
         super(element);
-        element.append(...temp.children);
-        this.element = element;
-
-        temp.remove();
+        element.append(...temp.childNodes);
     }
 }
