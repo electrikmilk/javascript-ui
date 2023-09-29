@@ -8,8 +8,8 @@ let htmlWarn = false;
 export class BaseElement {
     element;
     reference;
-    mountedCallback;
-    createdCallback;
+    mountedCallbacks = [];
+    createdCallbacks = [];
     inputTypes = ['text', 'search', 'url', 'number', 'password', 'email', 'tel'];
 
     constructor(element) {
@@ -60,12 +60,12 @@ export class BaseElement {
     }
 
     created(callback) {
-        this.createdCallback = callback;
+        this.createdCallbacks.push(callback);
         return this;
     }
 
     mounted(callback) {
-        this.mountedCallback = callback;
+        this.mountedCallbacks.push(callback);
         return this;
     }
 

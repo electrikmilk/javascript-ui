@@ -113,12 +113,12 @@ export function render(parent, elements) {
 }
 
 function mount(parent, element) {
-    if (element.createdCallback) {
-        element.createdCallback(element);
+    if (element.createdCallbacks) {
+        element.createdCallbacks.map(c => c(element));
     }
     parent.appendChild(element.element);
-    if (element.mountedCallback) {
-        element.mountedCallback(element);
+    if (element.mountedCallbacks) {
+        element.mountedCallbacks.map(m => m(element));
     }
     if (element.elements) {
         render(element.element, element.elements);
