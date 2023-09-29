@@ -4,6 +4,18 @@
 
 import {Element} from '../element.js';
 
+export function Space() {
+    return new NonBreakingSpace();
+}
+
+class NonBreakingSpace extends Element {
+    constructor() {
+        const element = document.createTextNode(' ');
+        super(element);
+        this.element = element;
+    }
+}
+
 export function Spacer(times = 1) {
     return new BreakTag(times);
 }
