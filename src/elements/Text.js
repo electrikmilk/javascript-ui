@@ -113,13 +113,11 @@ class RawHTML extends Element {
     constructor(html) {
         const temp = document.createElement('div');
         temp.innerHTML = html;
-        temp.style.display = 'none';
 
         const element = document.createDocumentFragment();
         super(element);
         element.append(...temp.children);
         this.element = element;
-        this.element.innerHTML = html;
 
         temp.remove();
     }
