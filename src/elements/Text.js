@@ -13,7 +13,6 @@ class TextTag extends Element {
         const element = document.createTextNode(text);
         super(element);
         this.element = element;
-        this.element.innerText = text;
     }
 }
 
