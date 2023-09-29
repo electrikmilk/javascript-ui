@@ -12,6 +12,10 @@ export class Element extends Events {
         this.element = element;
     }
 
+    parent() {
+        return this.element.parentElement;
+    }
+
     if(store) {
         store.model((value) => {
             if ((value) === true) {
