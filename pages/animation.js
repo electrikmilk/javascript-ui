@@ -9,7 +9,7 @@ export default [
 	NavBar,
 	Section([
 		Heading('Animation'),
-		Paragraph('jsUI has built-in standard animations!'),
+		Paragraph('JavaScript UI has a bunch of standard animations built-in! Most animations you\'d want to use on average are included.'),
 		Line(),
 		Div([
 			Heading('Moves', 3),
