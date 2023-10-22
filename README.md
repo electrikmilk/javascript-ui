@@ -7,14 +7,21 @@
 [![License](https://img.shields.io/github/license/electrikmilk/javascript-ui)](https://github.com/electrikmilk/javascript-ui/blob/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/javascript-ui)](https://www.npmjs.com/package/javascript-ui)
 
-Javascript UI is a JavaScript framework. It describes HTML and CSS in Javascript simliar to SwiftUI.
+Javascript UI is a JavaScript framework. It describes HTML and CSS in Javascript similar to SwiftUI.
 
-- Useful shorthands for HTML tags and css properties
-- Built-in standard animations like rotate, fade, flip, shake, and more...
-- Built-in CSS tricks like truncation, font smoothing, fit, etc.
-- CSS properties are abtracted into views and stacks like ScrollView, GridStack, HStack, VStack, etc.
-- Built-in router
-- Store and state management
+## ❇️ Features
+
+- ✔️ Declarative syntax, functions nest within each other, similar to HTML, but with methods instead of CSS properties and HTML attributes.
+- 😎 Useful shorthands for HTML tags and attributes and CSS properties (e.g. `Image().caption()`).
+- 🦋 Built-in standard animations like rotate, fade, flip, shake, and more!
+- 🤓 Methods for CSS tricks like `truncate()`, `fontSmoothing()`, fit, etc. More CSS tricks are abstracted into views and stacks like `ScrollView()`, `GridStack()`, `HStack()`, `VStack()`, etc.
+- 🐰 It's fast! Element objects simply provide helpful methods and are used during the first render, but they keep a reference to their element or document fragment. They modify the element directly rather than re-rendering it. There are never entire page re-renders, only selective re-renders when needed for state management.
+
+## 🔧 Built-ins
+
+- 💾 Stores
+- ⚛️ State management
+- 🧭 Router
 
 [Playground](https://codepen.io/internetgho5t/pen/ZExgBbm)
 &bull; [Documentation](https://github.com/electrikmilk/jsUI/wiki)
