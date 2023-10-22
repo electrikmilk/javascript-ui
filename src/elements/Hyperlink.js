@@ -4,20 +4,20 @@
 
 import {Element} from '../element.js';
 
-export function Hyperlink(text, url = null) {
-    return new AnchorTag(text, url);
+export function Hyperlink(elements, url) {
+    return new AnchorTag(elements, url);
 }
 
 class AnchorTag extends Element {
-    constructor(text, url) {
+    constructor(elements, url) {
         const element = document.createElement('a');
         super(element);
         this.element = element;
-        if (text) {
-            if (!Array.isArray(text)) {
-                this.element.innerText = text;
+        if (elements) {
+            if (Array.isArray(elements)) {
+                this.elements = elements;
             } else {
-                this.elements = text;
+                this.element.innerText = elements;
             }
         }
         if (url) {
