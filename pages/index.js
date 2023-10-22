@@ -34,12 +34,14 @@ import NavBar from '../components/NavBar.js';
 export default [
 	NavBar,
 	Section([
+		Heading('JavaScript UI').alignCenter(),
+		Image('https://camo.githubusercontent.com/5ee7b613be769500c5f225653952cbcdf481776e7871247d6947fee65c71394e/68747470733a2f2f692e696d6775722e636f6d2f486e52566956712e706e67')
+			.center(),
 		Paragraph([
 			Italic('Hello, World! '),
 			Text('This page was made using '),
 			Bold('jsUI! '),
-			Hyperlink('View Source')
-				.url('https://github.com/electrikmilk/javascript-ui/tree/gh-pages')
+			Hyperlink('View Source', 'https://github.com/electrikmilk/javascript-ui/tree/gh-pages')
 				.openNewTab()
 		]),
 		Device.Mobile([
