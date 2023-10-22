@@ -14,17 +14,17 @@ Javascript UI is a JavaScript framework. It describes HTML and CSS in Javascript
 - ✔️ Declarative syntax, functions nest within each other, similar to HTML, but with methods instead of CSS properties
   and HTML attributes.
 - 😎 Useful shorthands for HTML tags and attributes and CSS properties (e.g. `Image().caption()`).
-- 🦋 Built-in standard animations like rotate, fade, flip, shake, and more!
 - 🤓 Methods for CSS tricks like `truncate()`, `fontSmoothing()`, fit, etc. More CSS tricks are abstracted into views and
   stacks like `ScrollView()`, `GridStack()`, `HStack()`, `VStack()`, etc.
 - 🐰 It's fast! Element objects simply provide helpful methods and are used during the first render, but they keep a
   reference to their element or document fragment. They modify the element directly rather than re-rendering it. There
   are never entire page re-renders, only selective re-renders when needed for state management.
 
-## 🔧 Built-ins
+### 🔧 Built-in
 
 - 💾 Stores
 - ⚛️ State management
+- 🦋 Standard animations (rotate, fade, flip, shake, and more!)
 - 🧭 Router
 
 [Playground](https://codepen.io/internetgho5t/pen/ZExgBbm)
