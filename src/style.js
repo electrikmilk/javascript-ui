@@ -613,6 +613,14 @@ export class Style extends StandardAnimation {
         return this.style('display', 'flex');
     }
 
+    flexRows() {
+        return this.style('flex-direction', 'rows');
+    }
+
+    flexColumns() {
+        return this.style('flex-direction', 'columns');
+    }
+
     gap(gap) {
         return this.style('gap', gap);
     }
