@@ -1,8 +1,8 @@
 /*
- * Copyright (c) 2023 Brandon Jordan
+ * Copyright (c) 2024 Brandon Jordan
  */
 
-let references = {};
+export let references = {};
 let htmlWarn = false;
 
 export class BaseElement {

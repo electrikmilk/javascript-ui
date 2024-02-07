@@ -1,8 +1,11 @@
 /*
- * Copyright (c) 2023 Brandon Jordan
+ * Copyright (c) 2024 Brandon Jordan
  */
 
 'use strict';
+
+import {references} from './base-element.js';
+import {Element} from './element.js';
 
 export * from './elements/Audio.js';
 export * from './elements/Button.js';
@@ -37,8 +40,6 @@ export * from './components/Model.js';
 export * from './components/Spinner.js';
 export * from './components/Stack.js';
 export * from './components/View.js';
-
-import {Element} from './element.js';
 
 export * from './store.js';
 export * from './router.js';
@@ -243,22 +244,12 @@ export function ref(reference) {
 }
 
 function findRef(elements, reference) {
-    let referencedElement = null;
-    for (let e in elements) {
-        const element = elements[e];
-        if (Array.isArray(element)) {
-            return findRef(element, reference);
-        } else {
-            if (element.reference && element.reference === reference) {
-                referencedElement = element;
-                break;
-            }
-            if (element.elements) {
-                return findRef(element.elements, reference);
-            }
-        }
+    const ref = references[reference];
+    if (ref) {
+        return ref;
     }
-    return referencedElement;
+
+    return null;
 }
 
 export function select(selector) {
