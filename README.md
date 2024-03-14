@@ -13,8 +13,8 @@ Javascript UI is a JavaScript framework. It describes HTML and CSS in Javascript
 
 - ✔️ Declarative syntax, functions nest within each other, similar to HTML, but with methods instead of CSS properties
   and HTML attributes.
-- 😎 Useful shorthands for HTML tags and attributes and CSS properties (e.g. `Image().caption()`).
-- 🤓 Methods for CSS tricks like `truncate()`, `fontSmoothing()`, fit, etc. More CSS tricks are abstracted into views and
+- 😎 Useful shorthands for HTML tags and attributes and CSS properties.
+- 🤓 Methods for CSS tricks like `truncate()`, `fontSmoothing()`, fit, etc. More CSS is abstracted into views and
   stacks like `ScrollView()`, `GridStack()`, `HStack()`, `VStack()`, etc.
 - 🐰 It's fast! Element objects simply provide helpful methods and are used during the first render, but they keep a
   reference to their element or document fragment. They modify the element directly rather than re-rendering it. There
