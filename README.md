@@ -46,7 +46,8 @@ import {view, Section, Paragraph} from 'javascript-ui';
 window.onload = () => {
     view([
         Section([
-            Paragraph('Hello, World!').textColor('green')
+            Paragraph('Hello, World!')
+                .textColor('green')
         ])
     ]);
 };
