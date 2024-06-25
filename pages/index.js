@@ -33,7 +33,7 @@ import NavBar from '../components/NavBar.js';
 
 export default [
     NavBar,
-    Section([Image('https://camo.githubusercontent.com/5ee7b613be769500c5f225653952cbcdf481776e7871247d6947fee65c71394e/68747470733a2f2f692e696d6775722e636f6d2f486e52566956712e706e67').width('50%').center(),
+    Section([Image('/icon.png').width('50%').center(),
         Div([
             Heading('JavaScript UI'),
             Paragraph('Javascript UI is a JavaScript framework. It describes HTML and CSS in Javascript similar to SwiftUI.'),
